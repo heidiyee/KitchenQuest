@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,14 +15,51 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qf4-8O-5Y7">
-                        <rect key="frame" x="-5" y="0.0" width="91" height="43.5"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qf4-8O-5Y7">
+                        <rect key="frame" x="-5" y="0.0" width="91" height="44"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="91" id="5pP-gZ-1sp"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of dish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTC-1n-xyl">
+                        <rect key="frame" x="94" y="8" width="69.5" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cooking time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xY0-kP-zJ3">
+                        <rect key="frame" x="94" y="22" width="64" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" highlightedImage="0219-heart.png" translatesAutoresizingMaskIntoConstraints="NO" id="HG3-7n-31Y">
+                        <rect key="frame" x="282" y="-1" width="30" height="30"/>
                         <animations/>
                     </imageView>
                 </subviews>
                 <animations/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="xY0-kP-zJ3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="14" id="6Fb-9c-KdG"/>
+                    <constraint firstItem="Qf4-8O-5Y7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BIz-BZ-K8T"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="xY0-kP-zJ3" secondAttribute="bottom" constant="-7" id="KRr-83-vRE"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="vTC-1n-xyl" secondAttribute="bottom" constant="7" id="SWP-yD-5pw"/>
+                    <constraint firstItem="vTC-1n-xyl" firstAttribute="leading" secondItem="Qf4-8O-5Y7" secondAttribute="trailing" constant="8" id="U8I-Q2-MEz"/>
+                    <constraint firstItem="vTC-1n-xyl" firstAttribute="leading" secondItem="Qf4-8O-5Y7" secondAttribute="trailing" constant="8" id="at8-fJ-Yy8"/>
+                    <constraint firstItem="Qf4-8O-5Y7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-13" id="hK1-Rd-t9g"/>
+                    <constraint firstItem="xY0-kP-zJ3" firstAttribute="leading" secondItem="Qf4-8O-5Y7" secondAttribute="trailing" constant="8" id="k9i-pL-sjs"/>
+                    <constraint firstItem="vTC-1n-xyl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="o70-R4-1iF"/>
+                    <constraint firstItem="Qf4-8O-5Y7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vHh-FI-PZ4"/>
+                </constraints>
             </tableViewCellContentView>
             <animations/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="0219-heart.png" width="64" height="64"/>
+    </resources>
 </document>
