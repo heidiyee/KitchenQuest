@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A81690D1C20BA5E0006730B /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A81690C1C20BA5E0006730B /* Model.m */; };
 		1ABD1F4A1C1F4F9E001D6918 /* KitchenTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD1F481C1F4F9E001D6918 /* KitchenTableViewCell.m */; };
 		1ABD1F4B1C1F4F9E001D6918 /* KitchenTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD1F491C1F4F9E001D6918 /* KitchenTableViewCell.xib */; };
 		1AD3C9C81C1F6F7F00B2390C /* 0216-star-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AD3C9C71C1F6F7F00B2390C /* 0216-star-empty.png */; };
@@ -25,17 +26,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1ABD1F471C1F4F9E001D6918 /* KitchenTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KitchenTableViewCell.h; sourceTree = "<group>"; };
-		1ABD1F481C1F4F9E001D6918 /* KitchenTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KitchenTableViewCell.m; sourceTree = "<group>"; };
-		1ABD1F491C1F4F9E001D6918 /* KitchenTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KitchenTableViewCell.xib; sourceTree = "<group>"; };
+		1A81690B1C20BA5E0006730B /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		1A81690C1C20BA5E0006730B /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		1ABD1F471C1F4F9E001D6918 /* KitchenTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KitchenTableViewCell.h; path = ../KitchenTableViewCell.h; sourceTree = "<group>"; };
+		1ABD1F481C1F4F9E001D6918 /* KitchenTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KitchenTableViewCell.m; path = ../KitchenTableViewCell.m; sourceTree = "<group>"; };
+		1ABD1F491C1F4F9E001D6918 /* KitchenTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KitchenTableViewCell.xib; path = ../KitchenTableViewCell.xib; sourceTree = "<group>"; };
 		1AD3C9C71C1F6F7F00B2390C /* 0216-star-empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0216-star-empty.png"; sourceTree = "<group>"; };
 		1AD3C9C91C1F6F8E00B2390C /* 0218-star-full (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0218-star-full (1).png"; sourceTree = "<group>"; };
 		1AD3C9CB1C1F6FA100B2390C /* 0219-heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0219-heart.png"; sourceTree = "<group>"; };
 		1AD3C9CD1C1F84FE00B2390C /* 120px-Simple_icon_time.svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120px-Simple_icon_time.svg.png"; sourceTree = "<group>"; };
 		1AD3C9CF1C1F98B900B2390C /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food.png; sourceTree = "<group>"; };
-		1AD3C9D11C1FA93800B2390C /* ImageFetcherService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFetcherService.h; sourceTree = "<group>"; };
-		1AD3C9D21C1FA93800B2390C /* ImageFetcherService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFetcherService.m; sourceTree = "<group>"; };
-		1AD3C9D41C1FA9F100B2390C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		1AD3C9D11C1FA93800B2390C /* ImageFetcherService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageFetcherService.h; path = ../ImageFetcherService.h; sourceTree = "<group>"; };
+		1AD3C9D21C1FA93800B2390C /* ImageFetcherService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageFetcherService.m; path = ../ImageFetcherService.m; sourceTree = "<group>"; };
+		1AD3C9D41C1FA9F100B2390C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Constants.h; sourceTree = "<group>"; };
 		584F880D1C1F3E05007C30FA /* KitchenQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitchenQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		584F88111C1F3E05007C30FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		584F88131C1F3E05007C30FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -63,12 +66,8 @@
 		584F88041C1F3E05007C30FA = {
 			isa = PBXGroup;
 			children = (
-				1ABD1F471C1F4F9E001D6918 /* KitchenTableViewCell.h */,
-				1ABD1F481C1F4F9E001D6918 /* KitchenTableViewCell.m */,
-				1AD3C9D11C1FA93800B2390C /* ImageFetcherService.h */,
-				1AD3C9D41C1FA9F100B2390C /* Constants.h */,
-				1AD3C9D21C1FA93800B2390C /* ImageFetcherService.m */,
-				1ABD1F491C1F4F9E001D6918 /* KitchenTableViewCell.xib */,
+				1A81690B1C20BA5E0006730B /* Model.h */,
+				1A81690C1C20BA5E0006730B /* Model.m */,
 				584F880F1C1F3E05007C30FA /* KitchenQuest */,
 				584F880E1C1F3E05007C30FA /* Products */,
 			);
@@ -89,6 +88,12 @@
 				584F88141C1F3E05007C30FA /* AppDelegate.m */,
 				584F88161C1F3E05007C30FA /* KitchenRecipesViewController.h */,
 				584F88171C1F3E05007C30FA /* KitchenRecipesViewController.m */,
+				1ABD1F471C1F4F9E001D6918 /* KitchenTableViewCell.h */,
+				1ABD1F481C1F4F9E001D6918 /* KitchenTableViewCell.m */,
+				1AD3C9D11C1FA93800B2390C /* ImageFetcherService.h */,
+				1AD3C9D41C1FA9F100B2390C /* Constants.h */,
+				1AD3C9D21C1FA93800B2390C /* ImageFetcherService.m */,
+				1ABD1F491C1F4F9E001D6918 /* KitchenTableViewCell.xib */,
 				584F88191C1F3E05007C30FA /* Main.storyboard */,
 				584F881F1C1F3E05007C30FA /* Assets.xcassets */,
 				584F88211C1F3E05007C30FA /* LaunchScreen.storyboard */,
@@ -192,6 +197,7 @@
 				1AD3C9D31C1FA93800B2390C /* ImageFetcherService.m in Sources */,
 				584F881E1C1F3E05007C30FA /* KitchenQuest.xcdatamodeld in Sources */,
 				1ABD1F4A1C1F4F9E001D6918 /* KitchenTableViewCell.m in Sources */,
+				1A81690D1C20BA5E0006730B /* Model.m in Sources */,
 				584F88151C1F3E05007C30FA /* AppDelegate.m in Sources */,
 				584F88121C1F3E05007C30FA /* main.m in Sources */,
 			);
