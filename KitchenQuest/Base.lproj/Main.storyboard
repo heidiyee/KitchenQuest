@@ -25,14 +25,22 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oh3-DJ-aNT">
-                                <rect key="frame" x="257" y="331" width="87" height="30"/>
+                                <rect key="frame" x="257" y="346" width="87" height="30"/>
                                 <state key="normal" title="I'M HUNGRY"/>
                                 <connections>
                                     <action selector="hungryButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i6n-XP-mtt"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="inD-vg-1VS">
+                                <rect key="frame" x="0.0" y="65" width="600" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title="Third"/>
+                                </segments>
+                            </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Em-AH-DmH">
-                                <rect key="frame" x="0.0" y="86" width="600" height="200"/>
+                                <rect key="frame" x="0.0" y="101" width="600" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="cg1-Yx-ReI"/>
@@ -102,17 +110,27 @@
                         </accessibility>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="O8J-OU-eXP" secondAttribute="trailing" id="1TK-ul-Tyz"/>
+                            <constraint firstAttribute="trailing" secondItem="inD-vg-1VS" secondAttribute="trailing" id="2ow-i6-TQ3"/>
                             <constraint firstItem="oh3-DJ-aNT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4b4-6v-HUy"/>
                             <constraint firstItem="O8J-OU-eXP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="7QI-xa-jlS"/>
                             <constraint firstItem="oh3-DJ-aNT" firstAttribute="top" secondItem="0Em-AH-DmH" secondAttribute="bottom" constant="45" id="F1Y-q2-Dhc"/>
+                            <constraint firstItem="0Em-AH-DmH" firstAttribute="top" secondItem="inD-vg-1VS" secondAttribute="bottom" constant="8" id="GF6-FA-iMi"/>
                             <constraint firstItem="O8J-OU-eXP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LuY-09-skd"/>
                             <constraint firstAttribute="trailing" secondItem="0Em-AH-DmH" secondAttribute="trailing" id="PQI-0g-Jk1"/>
+                            <constraint firstItem="inD-vg-1VS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ubw-V3-rXP"/>
+                            <constraint firstItem="inD-vg-1VS" firstAttribute="top" secondItem="O8J-OU-eXP" secondAttribute="bottom" constant="4" id="VTT-5k-swl"/>
                             <constraint firstItem="0Em-AH-DmH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wrc-cX-FNh"/>
-                            <constraint firstItem="0Em-AH-DmH" firstAttribute="top" secondItem="O8J-OU-eXP" secondAttribute="bottom" constant="25" id="huq-14-UMS"/>
+                            <constraint firstItem="0Em-AH-DmH" firstAttribute="top" secondItem="O8J-OU-eXP" secondAttribute="bottom" constant="40" id="huq-14-UMS"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="huq-14-UMS"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="ingredientCollectionView" destination="0Em-AH-DmH" id="07F-0J-eXD"/>
+                        <outlet property="ingredientSegmentedControl" destination="inD-vg-1VS" id="CqD-2T-KUn"/>
                         <outlet property="ingredientsTextView" destination="O8J-OU-eXP" id="HWH-g1-ojl"/>
                     </connections>
                 </viewController>
