@@ -10,7 +10,7 @@
 
 @interface Model : NSObject
 
--(id)initWithTitle:(NSString*)recipeNameLabel likesLabel:(NSString*)likesLabel profileImage:(NSURL *)profileImageURL;
+-(id)initWithTitle:(NSString *)recipeNameLabel likesLabel:(NSString *)likesLabel profileImage:(NSURL *)profileImageURL;
 
 @property NSString *recipeNameLabel;
 @property NSString *likesLabel;

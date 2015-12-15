@@ -19,7 +19,7 @@
 
 @implementation Model
 
--(id)initWithTitle:(NSString*)recipeNameLabel likesLabel:(NsString *)likesLabel profileImageURL:(NSURL)profileImageURL   {
+-(id)initWithTitle:(NSString *)recipeNameLabel likesLabel:(NSString *)likesLabel profileImageURL:(NSURL*)profileImageURL   {
     if (self = [super init])
     {
         // Initializselation code here
@@ -29,4 +29,5 @@
                 
     }
     return self;
+}
 @end

@@ -9,6 +9,7 @@
 #import "KitchenTableViewCell.h"
 #import "ImageFetcherService.h"
 #import "Constants.h"
+#import "Model.h"
 
 @interface KitchenTableViewCell ()
 
@@ -28,7 +29,7 @@
 
 
 -(void)setModel:(Model *)model {
-    recipeNameLabel.text = model.recipeName;
+    self.recipeNameLabel.text = model.recipeName;
     self.likesLabel.text = model.likesLabel;
     
     //    NSLog(@"profileImageURL %@", question.owner.profileImageURL.description);
