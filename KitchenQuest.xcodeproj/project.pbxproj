@@ -15,6 +15,7 @@
 		584F88201C1F3E05007C30FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 584F881F1C1F3E05007C30FA /* Assets.xcassets */; };
 		584F88231C1F3E05007C30FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 584F88211C1F3E05007C30FA /* LaunchScreen.storyboard */; };
 		B7F0C84E1C1F88FF00259A6A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7F0C84D1C1F88FF00259A6A /* QuartzCore.framework */; };
+		B7F0C8511C1FB14800259A6A /* IngredientCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B7F0C8501C1FB14800259A6A /* IngredientCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		584F88221C1F3E05007C30FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		584F88241C1F3E05007C30FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7F0C84D1C1F88FF00259A6A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B7F0C84F1C1FB14800259A6A /* IngredientCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientCollectionViewCell.h; sourceTree = "<group>"; };
+		B7F0C8501C1FB14800259A6A /* IngredientCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				584F88141C1F3E05007C30FA /* AppDelegate.m */,
 				584F88161C1F3E05007C30FA /* ViewController.h */,
 				584F88171C1F3E05007C30FA /* ViewController.m */,
+				B7F0C84F1C1FB14800259A6A /* IngredientCollectionViewCell.h */,
+				B7F0C8501C1FB14800259A6A /* IngredientCollectionViewCell.m */,
 				584F88191C1F3E05007C30FA /* Main.storyboard */,
 				584F881F1C1F3E05007C30FA /* Assets.xcassets */,
 				584F88211C1F3E05007C30FA /* LaunchScreen.storyboard */,
@@ -159,6 +164,7 @@
 				584F88181C1F3E05007C30FA /* ViewController.m in Sources */,
 				584F881E1C1F3E05007C30FA /* KitchenQuest.xcdatamodeld in Sources */,
 				584F88151C1F3E05007C30FA /* AppDelegate.m in Sources */,
+				B7F0C8511C1FB14800259A6A /* IngredientCollectionViewCell.m in Sources */,
 				584F88121C1F3E05007C30FA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

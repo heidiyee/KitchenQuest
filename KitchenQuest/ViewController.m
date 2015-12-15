@@ -7,65 +7,43 @@
 //
 
 #import "ViewController.h"
+#import "IngredientCollectionViewCell.h"
 
 @import QuartzCore;
 
-@interface ViewController () <UITextViewDelegate>
+@interface ViewController () <UITextViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, IngredientCollectionViewCellDelegate>
 
 @property (strong, nonatomic) NSMutableArray *ingredients;
 @property (weak, nonatomic) IBOutlet UITextView *ingredientsTextView;
-@property (nonatomic) CGFloat width;
-@property (nonatomic) CGFloat height;
-@property (nonatomic) CGFloat constrainstHeight;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet UICollectionView *ingredientCollectionView;
 
 @end
 
 @implementation ViewController
+
+- (void)setIngredients:(NSMutableArray *)ingredients {
+    _ingredients = ingredients;
+    [self.ingredientCollectionView reloadData];
+    
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.ingredientsTextView.delegate = self;
     self.ingredientsTextView.layer.borderWidth = 1.0f;
     self.ingredientsTextView.layer.borderColor = [[UIColor grayColor] CGColor];
-    self.ingredientsTextView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-    self.height = 30;
-    self.constrainstHeight = 60;
-
-
-}
-
-- (UIButton *)createButtonWithText:(NSString *)ingredient {
     
-    NSString *testString = ingredient;
-    NSStringDrawingContext *context = [[NSStringDrawingContext alloc]init];
-    CGRect rect = [testString boundingRectWithSize:CGSizeMake(100.0, 100.0) options:NSStringDrawingUsesLineFragmentOrigin attributes:nil context:context];
+    self.ingredients = [[NSMutableArray alloc]init];
     
-    NSLog(@"%@", NSStringFromCGRect(rect));
-    UIButton *ingredientButton = [[UIButton alloc]initWithFrame:CGRectMake(self.width + 5, self.height, rect.size.width + 50, 15.0)];
-    ingredientButton.layer.cornerRadius = 8.0;
-    
-    if (self.width + 150 > [UIScreen mainScreen].bounds.size.width) {
-        self.width = 0;
-        self.height += 20;
-        self.constrainstHeight += 20;
-        self.textViewHeightConstraint.constant = self.constrainstHeight;
-    } else {
-        self.width += rect.size.width + 55;
-    }
-
-    [ingredientButton setTitle:[NSString stringWithFormat:@"%@ x", ingredient] forState:UIControlStateNormal];
-    ingredientButton.titleLabel.textColor = [UIColor whiteColor];
-    ingredientButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
-    ingredientButton.backgroundColor = [UIColor colorWithRed:0.34 green:0.74 blue:0.94 alpha:0.8];
-
-    return ingredientButton;
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
     if ([self.ingredientsTextView.text containsString:@" "]) {
-        UIButton *button = [self createButtonWithText:self.ingredientsTextView.text];
-        [self.ingredientsTextView.textInputView addSubview:button];
+        
+        [self.ingredients addObject:[NSString stringWithFormat:@"%@",textView.text]];
+        [self.ingredientCollectionView reloadData];
+        
         self.ingredientsTextView.text = @"";
     }
 }
@@ -75,12 +53,57 @@
     textView.textColor = [UIColor blackColor];
 }
 
-//-(void)textFieldDidBeginEditing:(UITextField *)textFiellld {
-//    if ([textField.text containsString:@" "]) {
-//        UIButton *button = [self createButtonWithText:textField.text];
-//        [textField addSubview:button];
-//    }
-//}
+
+#pragma mark - Collection View Delegate
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.ingredients.count;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    IngredientCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"IngredientCollectionViewCell" forIndexPath:indexPath];
+    cell.delegate = self;
+    cell.ingredient = self.ingredients[indexPath.row];
+    cell.contentView.backgroundColor = [UIColor colorWithRed:0.34 green:0.74 blue:0.94 alpha:1.0];
+    cell.contentView.layer.cornerRadius = 15.0;
+    return cell;
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 0.0;
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 3.0;
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    return CGSizeMake(70, 50);
+}
+
+
+#pragma mark - Custom Cell Delegate
+
+- (void)ingredientCollectionViewCellDidDeleteIngredient:(NSString *)ingredient {
+    NSLog(@"%@", ingredient);
+
+    [self.ingredients removeObject:ingredient];
+    [self.ingredientCollectionView reloadData];
+
+        NSLog(@"%li", self.ingredients.count);
+    
+}
+
+- (IBAction)hungryButtonSelected:(UIButton *)sender {
+    if (self.ingredients.count == 0) {
+        NSLog(@"Add ingredients");
+    } else {
+        NSLog(@"send to tableview");
+    }
+    
+}
 
 
 @end

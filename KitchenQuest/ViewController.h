@@ -6,8 +6,7 @@
 //  Copyright © 2015 William Cremin. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
+@import UIKit;
 
 @interface ViewController : UIViewController
 
