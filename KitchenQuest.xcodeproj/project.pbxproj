@@ -91,6 +91,8 @@
 			children = (
 				584F88131C1F3E05007C30FA /* AppDelegate.h */,
 				584F88141C1F3E05007C30FA /* AppDelegate.m */,
+				581648C11C1F7A9F004231B5 /* Constants.h */,
+				581648C21C1F7A9F004231B5 /* Constants.m */,
 				58B5BBF01C1F46E400DF72F6 /* Model */,
 				584F88161C1F3E05007C30FA /* ViewController.h */,
 				584F88171C1F3E05007C30FA /* ViewController.m */,
@@ -102,8 +104,6 @@
 				584F88241C1F3E05007C30FA /* Info.plist */,
 				584F881C1C1F3E05007C30FA /* KitchenQuest.xcdatamodeld */,
 				584F88101C1F3E05007C30FA /* Supporting Files */,
-				581648C11C1F7A9F004231B5 /* Constants.h */,
-				581648C21C1F7A9F004231B5 /* Constants.m */,
 			);
 			path = KitchenQuest;
 			sourceTree = "<group>";

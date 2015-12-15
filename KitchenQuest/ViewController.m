@@ -37,6 +37,7 @@
     // TEST FETCH + DELETE OBJECTS FROM CORE DATA
     
 //    [User fetchSavedRecipes];
+
 //    NSManagedObjectContext *context = [[CoreDataStack sharedStack]managedObjectContext];
 //    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
 //    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recipe" inManagedObjectContext:context];
@@ -54,9 +55,15 @@
     // TEST AUTOCOMPLETE FROM API FOR SEARCH
 //    [IngredientAutocomplete autocompleteWithSearchTerm:@"tof" completion:^(NSArray *result, NSError *error) {
 //        if (result) {
-//            for (NSString *word in result) {
-//                NSLog(@"%@", word);
-//            }
+//            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+//                NSString *leftButtonText = result[0];
+//                if (result[1]) {
+//                    NSString *centerButtonText = result[1];
+//                    if (result[2]) {
+//                        NSString *rightButtonText = result[2];
+//                    }
+//                }
+//            }];
 //        }
 //        if (error) {
 //            NSLog(@"%@", error);
