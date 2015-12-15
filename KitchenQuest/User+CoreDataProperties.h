@@ -22,8 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface User (CoreDataGeneratedAccessors)
 
-- (void)addSavedRecipesObject:(Recipe *)value;
-- (void)removeSavedRecipesObject:(Recipe *)value;
++ (void)addSavedRecipesObject:(Recipe *)value;
++ (void)removeSavedRecipesObject:(Recipe *)value;
 - (void)addSavedRecipes:(NSSet<Recipe *> *)values;
 - (void)removeSavedRecipes:(NSSet<Recipe *> *)values;
 

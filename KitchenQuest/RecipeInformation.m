@@ -13,7 +13,7 @@ NSString *informationEndpointURL = @"https://spoonacular-recipe-food-nutrition-v
 
 @implementation RecipeInformation
 
-+ (void)getRecipeInformationWithID:(NSString *)idNumber completion:(RecipeInfoCompletion)completion {
++ (void)getRecipeURLWithID:(NSString *)idNumber completion:(RecipeInfoCompletion)completion {
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/information", informationEndpointURL, idNumber];
     NSURL *urlForRequest = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:urlForRequest];

@@ -13,6 +13,6 @@ typedef void(^RecipeInfoCompletion)(BOOL success, NSString *result);
 
 @interface RecipeInformation : NSObject
 
-+ (void)getRecipeInformationWithID:(NSString *)idNumber completion:(RecipeInfoCompletion)completion;
++ (void)getRecipeURLWithID:(NSString *)idNumber completion:(RecipeInfoCompletion)completion;
 
 @end
