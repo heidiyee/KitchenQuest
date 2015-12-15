@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		581648C31C1F7A9F004231B5 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 581648C21C1F7A9F004231B5 /* Constants.m */; };
+		581648C61C1FE847004231B5 /* RecipeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 581648C51C1FE847004231B5 /* RecipeWebViewController.m */; };
 		584F88121C1F3E05007C30FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 584F88111C1F3E05007C30FA /* main.m */; };
 		584F88151C1F3E05007C30FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 584F88141C1F3E05007C30FA /* AppDelegate.m */; };
 		584F88181C1F3E05007C30FA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584F88171C1F3E05007C30FA /* ViewController.m */; };
@@ -28,6 +29,8 @@
 /* Begin PBXFileReference section */
 		581648C11C1F7A9F004231B5 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		581648C21C1F7A9F004231B5 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		581648C41C1FE847004231B5 /* RecipeWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeWebViewController.h; sourceTree = "<group>"; };
+		581648C51C1FE847004231B5 /* RecipeWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeWebViewController.m; sourceTree = "<group>"; };
 		584F880D1C1F3E05007C30FA /* KitchenQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitchenQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		584F88111C1F3E05007C30FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		584F88131C1F3E05007C30FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,6 +94,8 @@
 				58B5BBF01C1F46E400DF72F6 /* Model */,
 				584F88161C1F3E05007C30FA /* ViewController.h */,
 				584F88171C1F3E05007C30FA /* ViewController.m */,
+				581648C41C1FE847004231B5 /* RecipeWebViewController.h */,
+				581648C51C1FE847004231B5 /* RecipeWebViewController.m */,
 				584F88191C1F3E05007C30FA /* Main.storyboard */,
 				584F881F1C1F3E05007C30FA /* Assets.xcassets */,
 				584F88211C1F3E05007C30FA /* LaunchScreen.storyboard */,
@@ -214,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58B5BBFC1C1F730E00DF72F6 /* RecipeInformation.m in Sources */,
+				581648C61C1FE847004231B5 /* RecipeWebViewController.m in Sources */,
 				58B5BBF91C1F6D2700DF72F6 /* IngredientAutocomplete.m in Sources */,
 				58B5BBEE1C1F46D500DF72F6 /* User.m in Sources */,
 				58B5BBED1C1F46D500DF72F6 /* User+CoreDataProperties.m in Sources */,
