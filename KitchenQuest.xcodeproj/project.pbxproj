@@ -14,6 +14,7 @@
 		584F881E1C1F3E05007C30FA /* KitchenQuest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 584F881C1C1F3E05007C30FA /* KitchenQuest.xcdatamodeld */; };
 		584F88201C1F3E05007C30FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 584F881F1C1F3E05007C30FA /* Assets.xcassets */; };
 		584F88231C1F3E05007C30FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 584F88211C1F3E05007C30FA /* LaunchScreen.storyboard */; };
+		B7F0C84E1C1F88FF00259A6A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7F0C84D1C1F88FF00259A6A /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		584F881F1C1F3E05007C30FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		584F88221C1F3E05007C30FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		584F88241C1F3E05007C30FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7F0C84D1C1F88FF00259A6A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7F0C84E1C1F88FF00259A6A /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +47,7 @@
 		584F88041C1F3E05007C30FA = {
 			isa = PBXGroup;
 			children = (
+				B7F0C84D1C1F88FF00259A6A /* QuartzCore.framework */,
 				584F880F1C1F3E05007C30FA /* KitchenQuest */,
 				584F880E1C1F3E05007C30FA /* Products */,
 			);
@@ -304,6 +308,7 @@
 				584F88291C1F3E05007C30FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
