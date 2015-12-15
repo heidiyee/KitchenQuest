@@ -16,13 +16,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface User (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSString *name;
-@property (nullable, nonatomic, retain) NSSet<Recipe *> *savedRecipes;
+@property (nullable, nonatomic, retain) NSMutableArray<Recipe *> *savedRecipes;
 
 @end
 
 @interface User (CoreDataGeneratedAccessors)
 
 + (void)addSavedRecipesObject:(Recipe *)value;
++ (void)fetchSavedRecipes;
 + (void)removeSavedRecipesObject:(Recipe *)value;
 - (void)addSavedRecipes:(NSSet<Recipe *> *)values;
 - (void)removeSavedRecipes:(NSSet<Recipe *> *)values;

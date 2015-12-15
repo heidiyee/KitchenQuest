@@ -26,9 +26,9 @@ NSString *autocompleteEndpointURL = @"https://spoonacular-recipe-food-nutrition-
             [searchTermsToDisplay addObject:name];
         }
         if (!error) {
-            completion(true, searchTermsToDisplay);
+            completion(searchTermsToDisplay, nil);
         } else {
-            NSLog(@"%@", error);
+            completion(nil, error);
         }
 
     }] resume];

@@ -22,18 +22,20 @@
     [super viewDidLoad];
     
     // TEST FETCH RECIPE FROM API + SAVE TO CORE DATA
-//    [Recipe fetchRecipesWithSearchTerms:@"eggs,bread,cinnamon" completion:^(BOOL success, NSArray *result) {
-//        if (success) {
+//    [Recipe fetchRecipesWithSearchTerms:@"tofu,peas,avocado" completion:^(NSArray *result, NSError *error) {
+//        if (result) {
 //            for (Recipe *recipe in result) {
 //                [User addSavedRecipesObject:recipe];
-////                NSLog(@"%@", recipe.title);
 //            }
-//        } else {
-//            NSLog(@"Error");
+//        }
+//        if (error) {
+//            NSLog(@"%@", error);
 //        }
 //    }];
     
     // TEST FETCH + DELETE OBJECTS FROM CORE DATA
+    
+//    [User fetchSavedRecipes];
 //    NSManagedObjectContext *context = [[CoreDataStack sharedStack]managedObjectContext];
 //    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
 //    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recipe" inManagedObjectContext:context];
@@ -44,30 +46,32 @@
 //        NSLog(@"Nada");
 //    } else {
 //        for (Recipe *recipe in fetchedObjects) {
-//            NSLog(@"%@", recipe.title);
+//            [User removeSavedRecipesObject:recipe];
 //        }
 //    }
 
     // TEST AUTOCOMPLETE FROM API FOR SEARCH
-//    [IngredientAutocomplete autocompleteWithSearchTerm:@"tof" completion:^(BOOL success, NSArray *result) {
-//        if (success) {
+//    [IngredientAutocomplete autocompleteWithSearchTerm:@"tof" completion:^(NSArray *result, NSError *error) {
+//        if (result) {
 //            for (NSString *word in result) {
 //                NSLog(@"%@", word);
 //            }
-//        } else {
-//            NSLog(@"Error");
+//        }
+//        if (error) {
+//            NSLog(@"%@", error);
 //        }
 //    }];
 
     // TEST GET RECIPE INFO FROM API
-//    [RecipeInformation getRecipeURLWithID:@"156991" completion:^(BOOL success, NSString *result) {
-//        if (success) {
+//    [RecipeInformation getRecipeURLWithID:@"156991" completion:^(NSString *result, NSError *error) {
+//        if (result) {
 //            NSLog(@"%@", result);
-//        } else {
-//            NSLog(@"Error");
+//        }
+//        if (error) {
+//            NSLog(@"%@", error);
 //        }
 //    }];
-//    
+    
 }
 
 - (void)didReceiveMemoryWarning {

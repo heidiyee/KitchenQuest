@@ -13,7 +13,7 @@ NSString *recipeEndpointURL = @"https://spoonacular-recipe-food-nutrition-v1.p.m
 @implementation Recipe
 
 + (void)fetchRecipesWithSearchTerms:(NSString *)terms completion:(SearchCompletion)completion {
-    NSString *urlString = [NSString stringWithFormat:@"%@?ingredients=%@", recipeEndpointURL, terms];
+    NSString *urlString = [NSString stringWithFormat:@"%@?ingredients=%@&number=10", recipeEndpointURL, terms];
     NSURL *urlForRequest = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:urlForRequest];
     [request addValue: [NSString stringWithFormat:@"%@", [Constants apiKey]] forHTTPHeaderField:@"X-Mashape-Key"];
@@ -34,9 +34,9 @@ NSString *recipeEndpointURL = @"https://spoonacular-recipe-food-nutrition-v1.p.m
             }
         }
         if (!error) {
-            completion(true, recipeResults);
+            completion(recipeResults, nil);
         } else {
-            NSLog(@"%@", error);
+            completion(nil, error);
         }
     }] resume];
 }

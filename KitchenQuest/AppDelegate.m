@@ -18,7 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [self bootstrap];
+//    [self bootstrap];
 //    NSManagedObjectContext *context = [[CoreDataStack sharedStack]managedObjectContext];
 //    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
 //    NSError *fetchError;
@@ -34,9 +34,10 @@
 }
 
 - (void)bootstrap {
+    NSManagedObjectContext *context = [[CoreDataStack sharedStack]managedObjectContext];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
     NSError *error;
-    NSInteger count = [[[CoreDataStack sharedStack]managedObjectContext]countForFetchRequest:request error:&error];
+    NSInteger count = [context countForFetchRequest:request error:&error];
     if (count == 0) {
         NSString *jsonPath = [[NSBundle mainBundle]pathForResource:@"testData" ofType:@"json"];
         NSData *jsonData = [NSData dataWithContentsOfFile:jsonPath];
@@ -44,7 +45,7 @@
         NSArray *recipes = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
         if (jsonError) { NSLog(@"JSON error"); return; }
         for (NSDictionary *recipe in recipes) {
-        Recipe *newRecipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:[[CoreDataStack sharedStack]managedObjectContext]];
+        Recipe *newRecipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:context];
             newRecipe.title = recipe[@"title"];
             newRecipe.idNumber = recipe[@"id"];
             newRecipe.imageURL = recipe[@"image"];
@@ -53,7 +54,7 @@
             newRecipe.likes = recipe[@"likes"];
         }
         NSError *saveError;
-        BOOL isSaved = [[[CoreDataStack sharedStack]managedObjectContext] save:&saveError];
+        BOOL isSaved = [context save:&saveError];
         if (isSaved) {
             NSLog(@"Saved");
         } else {

@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "Constants.h"
 
-typedef void(^AutocompleteCompletion)(BOOL success, NSArray *result);
+typedef void(^AutocompleteCompletion)(NSArray *_Nullable result, NSError *_Nullable error);
 
 @interface IngredientAutocomplete : NSObject
 
-+ (void)autocompleteWithSearchTerm:(NSString *)term completion:(AutocompleteCompletion)completion;
++ (void)autocompleteWithSearchTerm:(nonnull NSString *)term completion:(nullable AutocompleteCompletion)completion;
 
 @end

@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "Constants.h"
 
-typedef void(^RecipeInfoCompletion)(BOOL success, NSString *result);
+typedef void(^RecipeInfoCompletion)(NSString *_Nullable result, NSError *_Nullable error);
 
 @interface RecipeInformation : NSObject
 
-+ (void)getRecipeURLWithID:(NSString *)idNumber completion:(RecipeInfoCompletion)completion;
++ (void)getRecipeURLWithID:(nonnull NSString *)idNumber completion:(nullable RecipeInfoCompletion)completion;
 
 @end

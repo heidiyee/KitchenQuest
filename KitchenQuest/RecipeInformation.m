@@ -22,9 +22,9 @@ NSString *informationEndpointURL = @"https://spoonacular-recipe-food-nutrition-v
         NSDictionary *recipeInformation = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
         NSString *recipeInfoURL = recipeInformation[@"sourceUrl"];
         if (!error) {
-            completion(true, recipeInfoURL);
+            completion(recipeInfoURL, nil);
         } else {
-            NSLog(@"%@", error);
+            completion(nil, error);
         }
     }] resume];
 }

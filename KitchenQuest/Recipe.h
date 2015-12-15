@@ -15,7 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^SearchCompletion)(BOOL success, NSArray *result);
+typedef void(^SearchCompletion)(NSArray *_Nullable result,  NSError *_Nullable error);
 
 @interface Recipe : NSManagedObject
 
