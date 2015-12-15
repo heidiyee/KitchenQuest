@@ -14,9 +14,10 @@
 		1AD3C9CC1C1F6FA100B2390C /* 0219-heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AD3C9CB1C1F6FA100B2390C /* 0219-heart.png */; };
 		1AD3C9CE1C1F84FE00B2390C /* 120px-Simple_icon_time.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AD3C9CD1C1F84FE00B2390C /* 120px-Simple_icon_time.svg.png */; };
 		1AD3C9D01C1F98B900B2390C /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AD3C9CF1C1F98B900B2390C /* food.png */; };
+		1AD3C9D31C1FA93800B2390C /* ImageFetcherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD3C9D21C1FA93800B2390C /* ImageFetcherService.m */; };
 		584F88121C1F3E05007C30FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 584F88111C1F3E05007C30FA /* main.m */; };
 		584F88151C1F3E05007C30FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 584F88141C1F3E05007C30FA /* AppDelegate.m */; };
-		584F88181C1F3E05007C30FA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584F88171C1F3E05007C30FA /* ViewController.m */; };
+		584F88181C1F3E05007C30FA /* KitchenRecipesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584F88171C1F3E05007C30FA /* KitchenRecipesViewController.m */; };
 		584F881B1C1F3E05007C30FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 584F88191C1F3E05007C30FA /* Main.storyboard */; };
 		584F881E1C1F3E05007C30FA /* KitchenQuest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 584F881C1C1F3E05007C30FA /* KitchenQuest.xcdatamodeld */; };
 		584F88201C1F3E05007C30FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 584F881F1C1F3E05007C30FA /* Assets.xcassets */; };
@@ -32,12 +33,15 @@
 		1AD3C9CB1C1F6FA100B2390C /* 0219-heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0219-heart.png"; sourceTree = "<group>"; };
 		1AD3C9CD1C1F84FE00B2390C /* 120px-Simple_icon_time.svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120px-Simple_icon_time.svg.png"; sourceTree = "<group>"; };
 		1AD3C9CF1C1F98B900B2390C /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food.png; sourceTree = "<group>"; };
+		1AD3C9D11C1FA93800B2390C /* ImageFetcherService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFetcherService.h; sourceTree = "<group>"; };
+		1AD3C9D21C1FA93800B2390C /* ImageFetcherService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFetcherService.m; sourceTree = "<group>"; };
+		1AD3C9D41C1FA9F100B2390C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		584F880D1C1F3E05007C30FA /* KitchenQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitchenQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		584F88111C1F3E05007C30FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		584F88131C1F3E05007C30FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		584F88141C1F3E05007C30FA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		584F88161C1F3E05007C30FA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		584F88171C1F3E05007C30FA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		584F88161C1F3E05007C30FA /* KitchenRecipesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KitchenRecipesViewController.h; sourceTree = "<group>"; };
+		584F88171C1F3E05007C30FA /* KitchenRecipesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KitchenRecipesViewController.m; sourceTree = "<group>"; };
 		584F881A1C1F3E05007C30FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		584F881D1C1F3E05007C30FA /* KitchenQuest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KitchenQuest.xcdatamodel; sourceTree = "<group>"; };
 		584F881F1C1F3E05007C30FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +65,9 @@
 			children = (
 				1ABD1F471C1F4F9E001D6918 /* KitchenTableViewCell.h */,
 				1ABD1F481C1F4F9E001D6918 /* KitchenTableViewCell.m */,
+				1AD3C9D11C1FA93800B2390C /* ImageFetcherService.h */,
+				1AD3C9D41C1FA9F100B2390C /* Constants.h */,
+				1AD3C9D21C1FA93800B2390C /* ImageFetcherService.m */,
 				1ABD1F491C1F4F9E001D6918 /* KitchenTableViewCell.xib */,
 				584F880F1C1F3E05007C30FA /* KitchenQuest */,
 				584F880E1C1F3E05007C30FA /* Products */,
@@ -80,8 +87,8 @@
 			children = (
 				584F88131C1F3E05007C30FA /* AppDelegate.h */,
 				584F88141C1F3E05007C30FA /* AppDelegate.m */,
-				584F88161C1F3E05007C30FA /* ViewController.h */,
-				584F88171C1F3E05007C30FA /* ViewController.m */,
+				584F88161C1F3E05007C30FA /* KitchenRecipesViewController.h */,
+				584F88171C1F3E05007C30FA /* KitchenRecipesViewController.m */,
 				584F88191C1F3E05007C30FA /* Main.storyboard */,
 				584F881F1C1F3E05007C30FA /* Assets.xcassets */,
 				584F88211C1F3E05007C30FA /* LaunchScreen.storyboard */,
@@ -181,7 +188,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				584F88181C1F3E05007C30FA /* ViewController.m in Sources */,
+				584F88181C1F3E05007C30FA /* KitchenRecipesViewController.m in Sources */,
+				1AD3C9D31C1FA93800B2390C /* ImageFetcherService.m in Sources */,
 				584F881E1C1F3E05007C30FA /* KitchenQuest.xcdatamodeld in Sources */,
 				1ABD1F4A1C1F4F9E001D6918 /* KitchenTableViewCell.m in Sources */,
 				584F88151C1F3E05007C30FA /* AppDelegate.m in Sources */,

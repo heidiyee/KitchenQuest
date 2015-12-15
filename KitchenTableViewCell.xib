@@ -27,29 +27,29 @@
                         <animations/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of dish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTC-1n-xyl">
-                        <rect key="frame" x="94" y="8" width="70" height="21"/>
+                        <rect key="frame" x="94" y="8" width="69.5" height="21"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="120px-Simple_icon_time.svg.png" translatesAutoresizingMaskIntoConstraints="NO" id="dX5-QJ-N4M">
-                        <rect key="frame" x="94" y="30" width="25" height="13"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNm-X5-87c">
+                        <rect key="frame" x="122" y="26" width="73" height="18"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0218-star-full (1).png" translatesAutoresizingMaskIntoConstraints="NO" id="dX5-QJ-N4M">
+                        <rect key="frame" x="94" y="30" width="23" height="13"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="13" id="1Tw-Ua-85b"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="13" id="64l-JV-mlG"/>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="IgM-Yg-JYM"/>
-                            <constraint firstAttribute="width" constant="25" id="kjR-mk-dxE"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="23" id="IgM-Yg-JYM"/>
+                            <constraint firstAttribute="width" constant="23" id="kjR-mk-dxE"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cooking time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNm-X5-87c">
-                        <rect key="frame" x="122" y="26" width="73" height="21"/>
-                        <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" red="0.51049315029999998" green="0.98359179910000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -66,11 +66,18 @@
                 </constraints>
             </tableViewCellContentView>
             <animations/>
+            <connections>
+                <outlet property="cookingTimeLabel" destination="cNm-X5-87c" id="Ddg-dd-nA5"/>
+                <outlet property="imageView" destination="Qf4-8O-5Y7" id="xQc-hS-kqz"/>
+                <outlet property="likes" destination="cNm-X5-87c" id="KtL-hO-asA"/>
+                <outlet property="likesLabel" destination="cNm-X5-87c" id="Elx-LD-y2N"/>
+                <outlet property="recipeNameLabel" destination="vTC-1n-xyl" id="LTg-lC-KGS"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="0218-star-full (1).png" width="32" height="32"/>
         <image name="0219-heart.png" width="64" height="64"/>
-        <image name="120px-Simple_icon_time.svg.png" width="120" height="96"/>
         <image name="food.png" width="150" height="150"/>
     </resources>
 </document>
