@@ -16,6 +16,14 @@
 		584F881E1C1F3E05007C30FA /* KitchenQuest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 584F881C1C1F3E05007C30FA /* KitchenQuest.xcdatamodeld */; };
 		584F88201C1F3E05007C30FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 584F881F1C1F3E05007C30FA /* Assets.xcassets */; };
 		584F88231C1F3E05007C30FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 584F88211C1F3E05007C30FA /* LaunchScreen.storyboard */; };
+		58B5BBEB1C1F46D500DF72F6 /* Recipe+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B5BBE41C1F46D500DF72F6 /* Recipe+CoreDataProperties.m */; };
+		58B5BBEC1C1F46D500DF72F6 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B5BBE61C1F46D500DF72F6 /* Recipe.m */; };
+		58B5BBED1C1F46D500DF72F6 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B5BBE81C1F46D500DF72F6 /* User+CoreDataProperties.m */; };
+		58B5BBEE1C1F46D500DF72F6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B5BBEA1C1F46D500DF72F6 /* User.m */; };
+		58B5BBF31C1F47EA00DF72F6 /* testData.json in Resources */ = {isa = PBXBuildFile; fileRef = 58B5BBF21C1F47EA00DF72F6 /* testData.json */; };
+		58B5BBF61C1F484100DF72F6 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B5BBF51C1F484100DF72F6 /* CoreDataStack.m */; };
+		58B5BBF91C1F6D2700DF72F6 /* IngredientAutocomplete.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B5BBF81C1F6D2700DF72F6 /* IngredientAutocomplete.m */; };
+		58B5BBFC1C1F730E00DF72F6 /* RecipeInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B5BBFB1C1F730E00DF72F6 /* RecipeInformation.m */; };
 		B7F0C84E1C1F88FF00259A6A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7F0C84D1C1F88FF00259A6A /* QuartzCore.framework */; };
 		B7F0C8511C1FB14800259A6A /* IngredientCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B7F0C8501C1FB14800259A6A /* IngredientCollectionViewCell.m */; };
 /* End PBXBuildFile section */
@@ -36,6 +44,21 @@
 		584F881F1C1F3E05007C30FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		584F88221C1F3E05007C30FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		584F88241C1F3E05007C30FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58B5BBE31C1F46D500DF72F6 /* Recipe+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Recipe+CoreDataProperties.h"; path = "KitchenQuest/Recipe+CoreDataProperties.h"; sourceTree = "<group>"; };
+		58B5BBE41C1F46D500DF72F6 /* Recipe+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Recipe+CoreDataProperties.m"; path = "KitchenQuest/Recipe+CoreDataProperties.m"; sourceTree = "<group>"; };
+		58B5BBE51C1F46D500DF72F6 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Recipe.h; path = KitchenQuest/Recipe.h; sourceTree = "<group>"; };
+		58B5BBE61C1F46D500DF72F6 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recipe.m; path = KitchenQuest/Recipe.m; sourceTree = "<group>"; };
+		58B5BBE71C1F46D500DF72F6 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "User+CoreDataProperties.h"; path = "KitchenQuest/User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		58B5BBE81C1F46D500DF72F6 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "User+CoreDataProperties.m"; path = "KitchenQuest/User+CoreDataProperties.m"; sourceTree = "<group>"; };
+		58B5BBE91C1F46D500DF72F6 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = KitchenQuest/User.h; sourceTree = "<group>"; };
+		58B5BBEA1C1F46D500DF72F6 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = KitchenQuest/User.m; sourceTree = "<group>"; };
+		58B5BBF21C1F47EA00DF72F6 /* testData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = testData.json; path = ../testData.json; sourceTree = "<group>"; };
+		58B5BBF41C1F484100DF72F6 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataStack.h; path = KitchenQuest/CoreDataStack.h; sourceTree = "<group>"; };
+		58B5BBF51C1F484100DF72F6 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataStack.m; path = KitchenQuest/CoreDataStack.m; sourceTree = "<group>"; };
+		58B5BBF71C1F6D2700DF72F6 /* IngredientAutocomplete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IngredientAutocomplete.h; path = KitchenQuest/IngredientAutocomplete.h; sourceTree = "<group>"; };
+		58B5BBF81C1F6D2700DF72F6 /* IngredientAutocomplete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IngredientAutocomplete.m; path = KitchenQuest/IngredientAutocomplete.m; sourceTree = "<group>"; };
+		58B5BBFA1C1F730E00DF72F6 /* RecipeInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecipeInformation.h; path = KitchenQuest/RecipeInformation.h; sourceTree = "<group>"; };
+		58B5BBFB1C1F730E00DF72F6 /* RecipeInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecipeInformation.m; path = KitchenQuest/RecipeInformation.m; sourceTree = "<group>"; };
 		B7F0C84D1C1F88FF00259A6A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B7F0C84F1C1FB14800259A6A /* IngredientCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientCollectionViewCell.h; sourceTree = "<group>"; };
 		B7F0C8501C1FB14800259A6A /* IngredientCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientCollectionViewCell.m; sourceTree = "<group>"; };
@@ -80,6 +103,8 @@
 				58B5BBF01C1F46E400DF72F6 /* Model */,
 				584F88161C1F3E05007C30FA /* ViewController.h */,
 				584F88171C1F3E05007C30FA /* ViewController.m */,
+				581648C41C1FE847004231B5 /* RecipeWebViewController.h */,
+				581648C51C1FE847004231B5 /* RecipeWebViewController.m */,
 				B7F0C84F1C1FB14800259A6A /* IngredientCollectionViewCell.h */,
 				B7F0C8501C1FB14800259A6A /* IngredientCollectionViewCell.m */,
 				584F88191C1F3E05007C30FA /* Main.storyboard */,
