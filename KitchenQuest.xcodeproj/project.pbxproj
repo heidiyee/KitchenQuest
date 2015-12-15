@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A79885E1C20D85F002582F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A79885D1C20D85F002582F5 /* Main.storyboard */; };
 		1A81690D1C20BA5E0006730B /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A81690C1C20BA5E0006730B /* Model.m */; };
 		1ABD1F4A1C1F4F9E001D6918 /* KitchenTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD1F481C1F4F9E001D6918 /* KitchenTableViewCell.m */; };
 		1ABD1F4B1C1F4F9E001D6918 /* KitchenTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD1F491C1F4F9E001D6918 /* KitchenTableViewCell.xib */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A79885D1C20D85F002582F5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1A81690B1C20BA5E0006730B /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		1A81690C1C20BA5E0006730B /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		1ABD1F471C1F4F9E001D6918 /* KitchenTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KitchenTableViewCell.h; path = ../KitchenTableViewCell.h; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				58B5BBE51C1F46D500DF72F6 /* Recipe.h */,
 				58B5BBE61C1F46D500DF72F6 /* Recipe.m */,
 				58B5BBE91C1F46D500DF72F6 /* User.h */,
+				1A79885D1C20D85F002582F5 /* Main.storyboard */,
 				58B5BBEA1C1F46D500DF72F6 /* User.m */,
 				58B5BBF71C1F6D2700DF72F6 /* IngredientAutocomplete.h */,
 				58B5BBF81C1F6D2700DF72F6 /* IngredientAutocomplete.m */,
@@ -258,6 +261,7 @@
 				1AD3C9CA1C1F6F8E00B2390C /* 0218-star-full (1).png in Resources */,
 				58B5BBF31C1F47EA00DF72F6 /* testData.json in Resources */,
 				1AD3C9C81C1F6F7F00B2390C /* 0216-star-empty.png in Resources */,
+				1A79885E1C20D85F002582F5 /* Main.storyboard in Resources */,
 				1AD3C9CE1C1F84FE00B2390C /* 120px-Simple_icon_time.svg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
