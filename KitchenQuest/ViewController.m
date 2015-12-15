@@ -22,10 +22,11 @@
     [super viewDidLoad];
     
     // TEST FETCH RECIPE FROM API + SAVE TO CORE DATA
-//    [Recipe fetchRecipesWithSearchTerms:@"tofu,peas,avocado" completion:^(NSArray *result, NSError *error) {
+//    [Recipe fetchRecipesWithSearchTerms:@"tofu,eggs,arugula" completion:^(NSArray *result, NSError *error) {
 //        if (result) {
 //            for (Recipe *recipe in result) {
-//                [User addSavedRecipesObject:recipe];
+////                [User addSavedRecipesObject:recipe];
+//                NSLog(@"%@", recipe.title);
 //            }
 //        }
 //        if (error) {
