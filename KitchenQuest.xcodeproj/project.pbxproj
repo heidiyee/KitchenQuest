@@ -26,6 +26,7 @@
 		58B5BBFC1C1F730E00DF72F6 /* RecipeInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B5BBFB1C1F730E00DF72F6 /* RecipeInformation.m */; };
 		B7F0C84E1C1F88FF00259A6A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7F0C84D1C1F88FF00259A6A /* QuartzCore.framework */; };
 		B7F0C8511C1FB14800259A6A /* IngredientCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B7F0C8501C1FB14800259A6A /* IngredientCollectionViewCell.m */; };
+		B7F0C8571C20C5D100259A6A /* SeachIngredientsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7F0C8561C20C5D100259A6A /* SeachIngredientsCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,8 @@
 		B7F0C84D1C1F88FF00259A6A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B7F0C84F1C1FB14800259A6A /* IngredientCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientCollectionViewCell.h; sourceTree = "<group>"; };
 		B7F0C8501C1FB14800259A6A /* IngredientCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientCollectionViewCell.m; sourceTree = "<group>"; };
+		B7F0C8551C20C5D100259A6A /* SeachIngredientsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeachIngredientsCollectionViewController.h; sourceTree = "<group>"; };
+		B7F0C8561C20C5D100259A6A /* SeachIngredientsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeachIngredientsCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 				584F88161C1F3E05007C30FA /* ViewController.h */,
 				584F88171C1F3E05007C30FA /* ViewController.m */,
 				581648C41C1FE847004231B5 /* RecipeWebViewController.h */,
+				B7F0C8551C20C5D100259A6A /* SeachIngredientsCollectionViewController.h */,
+				B7F0C8561C20C5D100259A6A /* SeachIngredientsCollectionViewController.m */,
 				581648C51C1FE847004231B5 /* RecipeWebViewController.m */,
 				B7F0C84F1C1FB14800259A6A /* IngredientCollectionViewCell.h */,
 				B7F0C8501C1FB14800259A6A /* IngredientCollectionViewCell.m */,
@@ -229,6 +234,7 @@
 			files = (
 				58B5BBFC1C1F730E00DF72F6 /* RecipeInformation.m in Sources */,
 				581648C61C1FE847004231B5 /* RecipeWebViewController.m in Sources */,
+				B7F0C8571C20C5D100259A6A /* SeachIngredientsCollectionViewController.m in Sources */,
 				58B5BBF91C1F6D2700DF72F6 /* IngredientAutocomplete.m in Sources */,
 				58B5BBEE1C1F46D500DF72F6 /* User.m in Sources */,
 				58B5BBED1C1F46D500DF72F6 /* User+CoreDataProperties.m in Sources */,

@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Seach Ingredients Collection View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SeachIngredientsCollectionViewController" id="BYZ-38-t0r" customClass="SeachIngredientsCollectionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -24,6 +24,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oh3-DJ-aNT">
+                                <rect key="frame" x="257" y="331" width="87" height="30"/>
+                                <state key="normal" title="I'M HUNGRY"/>
+                                <connections>
+                                    <action selector="hungryButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i6n-XP-mtt"/>
+                                </connections>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Em-AH-DmH">
                                 <rect key="frame" x="0.0" y="86" width="600" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,17 +91,10 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="wFF-s9-vpG"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="PvC-vu-P92"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="oPH-Qk-ANa"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="XGr-WI-zUK"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oh3-DJ-aNT">
-                                <rect key="frame" x="257" y="331" width="87" height="30"/>
-                                <state key="normal" title="I'M HUNGRY"/>
-                                <connections>
-                                    <action selector="hungryButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EM7-WF-U0O"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration">
@@ -112,8 +112,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ingredientCollectionView" destination="0Em-AH-DmH" id="fa7-SQ-jpW"/>
-                        <outlet property="ingredientsTextView" destination="O8J-OU-eXP" id="ZYb-kG-5xy"/>
+                        <outlet property="ingredientCollectionView" destination="0Em-AH-DmH" id="07F-0J-eXD"/>
+                        <outlet property="ingredientsTextView" destination="O8J-OU-eXP" id="HWH-g1-ojl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
