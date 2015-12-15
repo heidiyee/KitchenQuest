@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "Recipe.h"
+#import "IngredientAutocomplete.h"
+#import "RecipeInformation.h"
 
 @interface ViewController ()
 
@@ -16,7 +19,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+//    [Recipe fetchRecipesWithSearchTerms:@"eggs,bread,cinnamon" completion:^(BOOL success, NSArray *result) {
+//        if (success) {
+//            for (Recipe *recipe in result) {
+//                NSLog(@"%@", recipe.title);
+//            }
+//        } else {
+//            NSLog(@"Error");
+//        }
+//    }];
+//
+//    [IngredientAutocomplete autocompleteWithSearchTerm:@"tof" completion:^(BOOL success, NSArray *result) {
+//        if (success) {
+//            for (NSString *word in result) {
+//                NSLog(@"%@", word);
+//            }
+//        } else {
+//            NSLog(@"Error");
+//        }
+//    }];
+//    
+//    [RecipeInformation getRecipeInformationWithID:@"156991" completion:^(BOOL success, NSString *result) {
+//        if (success) {
+//            NSLog(@"%@", result);
+//        } else {
+//            NSLog(@"Error");
+//        }
+//    }];
+//    
 }
 
 - (void)didReceiveMemoryWarning {
