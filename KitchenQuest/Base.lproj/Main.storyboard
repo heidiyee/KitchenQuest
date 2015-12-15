@@ -5,9 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
+        <!--Seach Ingredients Collection View Controller-->
         <!--Kitchen Recipes View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <viewController storyboardIdentifier="SeachIngredientsCollectionViewController" id="BYZ-38-t0r" customClass="SeachIngredientsCollectionViewController" sceneMemberID="viewController">
                 <viewController id="BYZ-38-t0r" customClass="KitchenRecipesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -17,21 +19,114 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="What ingredients do you have? " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="O8J-OU-eXP">
+                                <rect key="frame" x="0.0" y="28" width="600" height="33"/>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lyZ-0N-uEF">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oh3-DJ-aNT">
+                                <rect key="frame" x="257" y="331" width="87" height="30"/>
+                                <state key="normal" title="I'M HUNGRY"/>
+                                <connections>
+                                    <action selector="hungryButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i6n-XP-mtt"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Em-AH-DmH">
+                                <rect key="frame" x="0.0" y="86" width="600" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="cg1-Yx-ReI"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4he-Cj-WtN">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IngredientCollectionViewCell" id="8AI-SA-Fu7" customClass="IngredientCollectionViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1I7-5N-bKY">
+                                                    <rect key="frame" x="2" y="10" width="46" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEY-6C-gMF">
+                                                    <rect key="frame" x="30" y="5" width="15" height="15"/>
+                                                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="Yoc-fI-wuN"/>
+                                                        <constraint firstAttribute="width" constant="15" id="cVx-0n-W1N"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <state key="normal" title="X">
+                                                        <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deleteButtonSelected:" destination="8AI-SA-Fu7" eventType="touchUpInside" id="5EW-34-8eB"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="1I7-5N-bKY" firstAttribute="top" secondItem="8AI-SA-Fu7" secondAttribute="top" constant="10" id="1de-3J-mnc"/>
+                                            <constraint firstAttribute="trailing" secondItem="wEY-6C-gMF" secondAttribute="trailing" constant="5" id="21A-Sr-nPN"/>
+                                            <constraint firstAttribute="bottom" secondItem="1I7-5N-bKY" secondAttribute="bottom" constant="2" id="IeW-Dy-imr"/>
+                                            <constraint firstAttribute="trailing" secondItem="1I7-5N-bKY" secondAttribute="trailing" constant="2" id="Pfw-Fu-j50"/>
+                                            <constraint firstItem="wEY-6C-gMF" firstAttribute="top" secondItem="8AI-SA-Fu7" secondAttribute="top" constant="5" id="peC-cr-3M6"/>
+                                            <constraint firstItem="1I7-5N-bKY" firstAttribute="leading" secondItem="8AI-SA-Fu7" secondAttribute="leading" constant="2" id="sGL-2j-WZa"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="cancelButton" destination="wEY-6C-gMF" id="8tK-lP-GJW"/>
+                                            <outlet property="ingredientLabel" destination="1I7-5N-bKY" id="MzD-6p-c1F"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="oPH-Qk-ANa"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="XGr-WI-zUK"/>
+                                </connections>
+                            </collectionView>
                             </tableView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" button="YES" staticText="YES"/>
+                        </accessibility>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="O8J-OU-eXP" secondAttribute="trailing" id="1TK-ul-Tyz"/>
+                            <constraint firstItem="oh3-DJ-aNT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4b4-6v-HUy"/>
+                            <constraint firstItem="O8J-OU-eXP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="7QI-xa-jlS"/>
+                            <constraint firstItem="oh3-DJ-aNT" firstAttribute="top" secondItem="0Em-AH-DmH" secondAttribute="bottom" constant="45" id="F1Y-q2-Dhc"/>
+                            <constraint firstItem="O8J-OU-eXP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LuY-09-skd"/>
+                            <constraint firstAttribute="trailing" secondItem="0Em-AH-DmH" secondAttribute="trailing" id="PQI-0g-Jk1"/>
+                            <constraint firstItem="0Em-AH-DmH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wrc-cX-FNh"/>
+                            <constraint firstItem="0Em-AH-DmH" firstAttribute="top" secondItem="O8J-OU-eXP" secondAttribute="bottom" constant="25" id="huq-14-UMS"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="ingredientCollectionView" destination="0Em-AH-DmH" id="07F-0J-eXD"/>
+                        <outlet property="ingredientsTextView" destination="O8J-OU-eXP" id="HWH-g1-ojl"/>
                         <outlet property="tableView" destination="lyZ-0N-uEF" id="T4D-Vf-ScK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-17" y="341"/>
             <point key="canvasLocation" x="34" y="934"/>
         </scene>
         <!--Navigation Controller-->
