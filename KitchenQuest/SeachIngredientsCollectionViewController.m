@@ -20,7 +20,6 @@
 @property (strong, nonatomic) NSMutableArray *ingredients;
 @property (weak, nonatomic) IBOutlet UITextView *ingredientsTextView;
 @property (weak, nonatomic) IBOutlet UICollectionView *ingredientCollectionView;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *ingredientSegmentedControl;
 
 @end
 

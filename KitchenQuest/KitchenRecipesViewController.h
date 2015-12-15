@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  KitchenRecipesViewController.h
 //  KitchenQuest
 //
 //  Created by William Cremin on 12/14/15.
@@ -8,7 +8,7 @@
 
 @import UIKit;
 
-@interface ViewController : UIViewController
+@interface KitchenRecipesViewController : UIViewController
 
 
 @end
