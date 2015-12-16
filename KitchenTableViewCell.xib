@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="KitchenTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="KitchenTableViewCell" id="KGk-i7-Jjw" customClass="KitchenTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -116,6 +116,7 @@
                 <outlet property="recipeImage" destination="Qf4-8O-5Y7" id="9dM-7l-9FV"/>
                 <outlet property="recipeImageView" destination="Qf4-8O-5Y7" id="ZNg-qo-ci8"/>
                 <outlet property="recipeNameLabel" destination="vTC-1n-xyl" id="LTg-lC-KGS"/>
+                <outlet property="saveButton" destination="Le1-hE-QD2" id="4Ht-Uz-rWW"/>
                 <outlet property="titleLabel" destination="vTC-1n-xyl" id="Q5C-Aa-ech"/>
             </connections>
         </tableViewCell>
