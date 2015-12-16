@@ -15,9 +15,12 @@
 
 @import QuartzCore;
 
+NSInteger const kNumberOfColumns = 2;
+
 @interface SeachIngredientsCollectionViewController () <UITextViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, IngredientCollectionViewCellDelegate>
 
 @property (strong, nonatomic) NSMutableArray *ingredients;
+@property (strong, nonatomic) NSMutableArray *searchIngredients;
 @property (weak, nonatomic) IBOutlet UITextView *ingredientsTextView;
 @property (weak, nonatomic) IBOutlet UICollectionView *ingredientCollectionView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *ingredientSegmentedControl;
@@ -32,12 +35,25 @@
     
 }
 
+-(void)setSearchIngredients:(NSMutableArray *)searchIngredients {
+    _searchIngredients = searchIngredients;
+    [self.ingredientSegmentedControl reloadInputViews];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.ingredientsTextView.delegate = self;
     self.ingredientsTextView.layer.borderWidth = 1.0f;
     self.ingredientsTextView.layer.borderColor = [[UIColor grayColor] CGColor];
+    
+    self.searchIngredients = [[NSMutableArray alloc]init];
+    [self.searchIngredients addObject:[NSString stringWithFormat:@"eggs"]];
+    [self.searchIngredients addObject:[NSString stringWithFormat:@"eggggggssssss"]];
+    
+    [self setupSegmentControl];
+    
+    
     
     // TEST FETCH RECIPE FROM API + SAVE TO CORE DATA
     //    [Recipe fetchRecipesWithSearchTerms:@"tofu,broccoli,eggs" completion:^(NSArray *result, NSError *error) {
@@ -101,6 +117,10 @@
     
 }
 
+
+#pragma mark - text view delegate
+
+
 - (void)textViewDidChange:(UITextView *)textView {
     if ([self.ingredientsTextView.text containsString:@" "]) {
         
@@ -133,17 +153,19 @@
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 0.0;
+    return 4.0;
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 3.0;
+    return 2.0;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    CGFloat screenBounds = [UIScreen mainScreen].bounds.size.width;
+    CGFloat cellSize = ((screenBounds - 4.0) / kNumberOfColumns);
     
-    return CGSizeMake(70, 50);
+    return CGSizeMake(cellSize, 40);
 }
 
 
@@ -154,9 +176,6 @@
     
     [self.ingredients removeObject:ingredient];
     [self.ingredientCollectionView reloadData];
-    
-    NSLog(@"%li", self.ingredients.count);
-    
 }
 
 - (IBAction)hungryButtonSelected:(UIButton *)sender {
@@ -166,6 +185,29 @@
         NSLog(@"send to tableview");
     }
     
+}
+
+
+#pragma mark - segment control
+
+
+
+
+- (void)setupSegmentControl {
+    
+    NSInteger indexPath = 0;
+    [self.ingredientSegmentedControl setTitle:@"" forSegmentAtIndex:0];
+    [self.ingredientSegmentedControl setTitle:@"" forSegmentAtIndex:1];
+    [self.ingredientSegmentedControl setTitle:@"" forSegmentAtIndex:2];
+    
+    for (NSString *ingredient in self.searchIngredients) {
+        
+
+        [self.ingredientSegmentedControl setTitle:ingredient forSegmentAtIndex:indexPath];
+        indexPath ++;
+    }
+    
+
 }
 
 
