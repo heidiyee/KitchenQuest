@@ -40,9 +40,9 @@
 
 /* Begin PBXFileReference section */
 		1A79885D1C20D85F002582F5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1A79885F1C20E55B002582F5 /* KitchenTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KitchenTableViewCell.h; sourceTree = "<group>"; };
 		1A81690B1C20BA5E0006730B /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		1A81690C1C20BA5E0006730B /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
-		1ABD1F471C1F4F9E001D6918 /* KitchenTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KitchenTableViewCell.h; path = ../KitchenTableViewCell.h; sourceTree = "<group>"; };
 		1ABD1F481C1F4F9E001D6918 /* KitchenTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KitchenTableViewCell.m; path = ../KitchenTableViewCell.m; sourceTree = "<group>"; };
 		1ABD1F491C1F4F9E001D6918 /* KitchenTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KitchenTableViewCell.xib; path = ../KitchenTableViewCell.xib; sourceTree = "<group>"; };
 		1AD3C9C71C1F6F7F00B2390C /* 0216-star-empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0216-star-empty.png"; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 				B7F0C8501C1FB14800259A6A /* IngredientCollectionViewCell.m */,
 				584F88161C1F3E05007C30FA /* KitchenRecipesViewController.h */,
 				584F88171C1F3E05007C30FA /* KitchenRecipesViewController.m */,
-				1ABD1F471C1F4F9E001D6918 /* KitchenTableViewCell.h */,
+				1A79885F1C20E55B002582F5 /* KitchenTableViewCell.h */,
 				1ABD1F481C1F4F9E001D6918 /* KitchenTableViewCell.m */,
 				1AD3C9D11C1FA93800B2390C /* ImageFetcherService.h */,
 				1AD3C9D41C1FA9F100B2390C /* Constants.h */,

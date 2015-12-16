@@ -68,7 +68,7 @@
             <animations/>
             <connections>
                 <outlet property="cookingTimeLabel" destination="cNm-X5-87c" id="Ddg-dd-nA5"/>
-                <outlet property="imageView" destination="Qf4-8O-5Y7" id="xQc-hS-kqz"/>
+                <outlet property="imageView" destination="Qf4-8O-5Y7" id="pt0-RJ-YoQ"/>
                 <outlet property="likes" destination="cNm-X5-87c" id="KtL-hO-asA"/>
                 <outlet property="likesLabel" destination="cNm-X5-87c" id="Elx-LD-y2N"/>
                 <outlet property="recipeNameLabel" destination="vTC-1n-xyl" id="LTg-lC-KGS"/>
