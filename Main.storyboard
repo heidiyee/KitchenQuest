@@ -140,7 +140,7 @@
             </objects>
             <point key="canvasLocation" x="-623" y="1882"/>
         </scene>
-        <!--View Controller-->
+        <!--Saved Recipes-->
         <scene sceneID="Lle-gt-r8P">
             <objects>
                 <viewController id="10l-ES-gut" sceneMemberID="viewController">
@@ -151,9 +151,21 @@
                     <view key="view" contentMode="scaleToFill" id="p8m-wZ-6Sl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0fq-Kd-9qF">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Slw-nf-F5j" firstAttribute="top" secondItem="0fq-Kd-9qF" secondAttribute="bottom" id="57s-pd-m92"/>
+                            <constraint firstItem="0fq-Kd-9qF" firstAttribute="leading" secondItem="p8m-wZ-6Sl" secondAttribute="leading" id="6u7-2F-FxW"/>
+                            <constraint firstAttribute="trailing" secondItem="0fq-Kd-9qF" secondAttribute="trailing" id="csc-pF-zOK"/>
+                            <constraint firstItem="0fq-Kd-9qF" firstAttribute="top" secondItem="Iag-ab-KCr" secondAttribute="bottom" id="zMU-0N-BOg"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ZEj-Wl-FBU"/>
+                    <navigationItem key="navigationItem" title="Saved Recipes" id="ZEj-Wl-FBU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jSy-zF-YwO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -210,11 +222,11 @@
             </objects>
             <point key="canvasLocation" x="-17" y="341"/>
         </scene>
-        <!--Item-->
+        <!--Saved Recipes-->
         <scene sceneID="d1B-wb-nvg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qnP-ao-dZl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="F8v-XR-VJ8"/>
+                    <tabBarItem key="tabBarItem" title="Saved Recipes" id="F8v-XR-VJ8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OPm-CS-02m">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
