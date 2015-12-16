@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSNumber *usedIngredientCount;
 @property (nullable, nonatomic, retain) NSNumber *missedIngredientCount;
 @property (nullable, nonatomic, retain) User *user;
+@property (nonatomic) BOOL isSaved;
 
 @end
 
