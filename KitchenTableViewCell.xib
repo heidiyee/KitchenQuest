@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qf4-8O-5Y7">
@@ -69,6 +69,7 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Le1-hE-QD2">
                         <rect key="frame" x="272" y="7" width="32" height="29"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="29" id="CbE-wX-cU7"/>
                             <constraint firstAttribute="width" constant="32" id="lGK-Mw-yY8"/>
@@ -82,12 +83,14 @@
                 <animations/>
                 <color key="backgroundColor" red="0.51049315029999998" green="0.98359179910000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
+                    <constraint firstItem="HG3-7n-31Y" firstAttribute="centerY" secondItem="Le1-hE-QD2" secondAttribute="centerY" id="6Rd-1W-Q49"/>
                     <constraint firstItem="Qf4-8O-5Y7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BIz-BZ-K8T"/>
                     <constraint firstItem="cNm-X5-87c" firstAttribute="centerY" secondItem="dX5-QJ-N4M" secondAttribute="centerY" id="QXb-Qt-N2j"/>
                     <constraint firstItem="Le1-hE-QD2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="RRn-GI-bHq"/>
                     <constraint firstAttribute="bottomMargin" secondItem="vTC-1n-xyl" secondAttribute="bottom" constant="7" id="SWP-yD-5pw"/>
                     <constraint firstItem="vTC-1n-xyl" firstAttribute="leading" secondItem="Qf4-8O-5Y7" secondAttribute="trailing" constant="8" id="U8I-Q2-MEz"/>
                     <constraint firstItem="dX5-QJ-N4M" firstAttribute="leading" secondItem="vTC-1n-xyl" secondAttribute="leading" id="Y1b-GW-Jnx"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="HG3-7n-31Y" secondAttribute="trailing" constant="6" id="Zjj-Gq-cxC"/>
                     <constraint firstItem="vTC-1n-xyl" firstAttribute="leading" secondItem="Qf4-8O-5Y7" secondAttribute="trailing" constant="8" id="at8-fJ-Yy8"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Le1-hE-QD2" secondAttribute="trailing" constant="8" id="dbp-kY-Pud"/>
                     <constraint firstItem="Qf4-8O-5Y7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="hK1-Rd-t9g"/>
@@ -119,6 +122,7 @@
     </objects>
     <resources>
         <image name="0218-star-full (1).png" width="32" height="32"/>
+        <image name="0219-heart.png" width="64" height="64"/>
         <image name="food.png" width="150" height="150"/>
         <image name="heartNoFill.png" width="198" height="177"/>
     </resources>

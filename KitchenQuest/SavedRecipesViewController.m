@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *savedRecipesTableView;
 @property (strong, nonatomic) NSMutableArray *recipeDataSource;
+@property (strong, nonatomic) Recipe *recipe;
 
 @end
 

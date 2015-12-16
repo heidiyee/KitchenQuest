@@ -7,56 +7,50 @@
 //
 
 #import "KitchenTableViewCell.h"
+#import "ImageFetcherService.h"
 #import "Constants.h"
-#import "Recipe.h"
+#import "User.h"
+
 
 @interface KitchenTableViewCell ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *recipeImage;
-
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likesLabel;
-@property (strong, nonatomic) Recipe * recipe;
+@property (weak, nonatomic) IBOutlet UIImageView *recipeImageView;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
 
 @end
 
 @implementation KitchenTableViewCell
 
--(void)setRecipe:(Recipe *)recipe {
+
+- (void)setRecipe:(Recipe *)recipe {
+    _recipe = recipe;
     self.titleLabel.text = recipe.title;
-   self.likesLabel.text = [NSString stringWithFormat:@"%@", recipe.likes];
- //   self.likesLabel.text = recipe.likes;
-    
-    //    NSLog(@"profileImageURL %@", question.owner.profileImageURL.description);
+    self.likesLabel.text = [NSString stringWithFormat:@"%@", recipe.likes];
+    if (recipe.isSaved) {
+        [self.saveButton setImage:[UIImage imageNamed:@"heartFill.png"] forState:UIControlStateNormal];
+    } else {
+        [self.saveButton setImage:[UIImage imageNamed:@"heartNoFill.png"] forState:UIControlStateNormal];
+    }
 }
-/*
--(void)setRecipe:(Recipe *)recipe {
-[Recipe fetchRecipesWithSearchTerms:@"tofu,broccoli,eggs" completion:^(NSArray *result, NSError *error) {
-           if (result) {
-                for (Recipe *recipe in result) {
-                    self.titleLabel.text = recipe.title;
-//                    [NSString stringWithFormat:@"%d",recipe.likes];
-//                    self.likesLabel.text = recipe.likes;
-                      self.likesLabel.text = @"hey there";
- //                   self.recipeImage = recipe.imageURL;
-    //                NSLog(@"%@", recipe.title);
-                }
-           }
-           if (error) {
-            //            NSLog(@"%@", error);
-            //
-           }
-    }];
- }
-*/
+
+- (IBAction)saveButtonPressed:(UIButton *)sender {
+    if (self.recipe.isSaved) {
+        if (self.delegate) {
+            [self.delegate recipeCellDidRemove:self.recipe];
+        }
+    } else {
+        [self.saveButton setImage:[UIImage imageNamed:@"heartFill.png"] forState:UIControlStateNormal];
+        [User addSavedRecipesObject:self.recipe];
+    }
+}
 
 - (void)awakeFromNib {
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-    }
+}
 
 @end
