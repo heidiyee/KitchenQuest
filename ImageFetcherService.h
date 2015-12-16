@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Constants.h"
+@import UIKit;
+
+typedef void (^kNSImageCompletionHandler)(UIImage *_Nullable data, NSError *_Nullable error);
 
 @interface ImageFetcherService : NSObject
 
-+(void)fetchImageInBackgroundFromUrl:(NSURL * _Nonnull)url completionHandler:(kNSImageCompletionHandler)completionHandler;
++ (void)fetchImageInBackgroundFromUrl:(nonnull NSURL *)url completionHandler:(nullable kNSImageCompletionHandler)completionHandler;
 
 @end
