@@ -32,7 +32,7 @@
                                 <state key="normal" title="I'M HUNGRY"/>
                                 <connections>
                                     <action selector="hungryButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i6n-XP-mtt"/>
-                                    <segue destination="KD9-CC-gWa" kind="show" id="btu-Ab-OgS"/>
+                                    <segue destination="KD9-CC-gWa" kind="show" identifier="RecipeResultViewController" id="btu-Ab-OgS"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="inD-vg-1VS">
@@ -305,6 +305,6 @@
     </scenes>
     <resources>
         <image name="0219-heart.png" width="64" height="64"/>
-        <image name="ingredients_cropped" width="3297" height="3808"/>
+        <image name="ingredients_cropped" width="513" height="600"/>
     </resources>
 </document>
