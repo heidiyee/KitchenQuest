@@ -71,10 +71,15 @@ CGFloat const kButtonCornerRadius = 8.0;
 
 - (void)textViewDidChange:(UITextView *)textView {
     if ([textView.text containsString:@"\n"]) {
-        if (textView.text.length > 1) {
-            [self.ingredients addObject:[NSString stringWithFormat:@"%@",textView.text]];
-            [self.ingredientCollectionView reloadData];
-            
+        NSString *ingredientString = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if (ingredientString.length > 1) {
+            if (![self.ingredients containsObject:[NSString stringWithFormat:@"%@",ingredientString]]) {
+                [self.ingredients addObject:[NSString stringWithFormat:@"%@",ingredientString]];
+                [self.ingredientCollectionView reloadData];
+            } else {
+                NSLog(@"already have that ingredient");
+            }
+
         }
         self.ingredientsTextView.text = @"";
         [textView resignFirstResponder];
@@ -103,7 +108,7 @@ CGFloat const kButtonCornerRadius = 8.0;
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 4.0;
+    return 2.0;
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
@@ -116,7 +121,7 @@ CGFloat const kButtonCornerRadius = 8.0;
     CGFloat boundsHeight = self.ingredientCollectionView.frame.size.height;
     
     CGFloat cellSizeHeight = (boundsHeight / kNumberOfRows);
-    CGFloat cellSizeWidth = ((boundsWidth / kNumberOfColumns) - 4);
+    CGFloat cellSizeWidth = ((boundsWidth / kNumberOfColumns) - 2);
     
     return CGSizeMake(cellSizeWidth, cellSizeHeight);
 }
@@ -158,8 +163,13 @@ CGFloat const kButtonCornerRadius = 8.0;
 - (IBAction)ingredientSegmentControlSelected:(UISegmentedControl *)sender {
     NSString *name = [sender titleForSegmentAtIndex:sender.selectedSegmentIndex];
     if (name.length > 0) {
-        [self.ingredients addObject:[NSString stringWithFormat:@"%@",name]];
-        [self.ingredientCollectionView reloadData];
+        if (![self.ingredients containsObject:[NSString stringWithFormat:@"%@",name]]) {
+            [self.ingredients addObject:[NSString stringWithFormat:@"%@",name]];
+            [self.ingredientCollectionView reloadData];
+        } else {
+            NSLog(@"already have that ingredient");
+        }
+
     }
 }
 
