@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Recipe.h"
+
+@protocol RecipeCellDelegate <NSObject>
+
+- (void)recipeCellDidRemove:(Recipe *)recipe;
+
+@end
 
 @interface KitchenTableViewCell : UITableViewCell
 
-
+@property (strong, nonatomic) Recipe *recipe;
+@property (weak, nonatomic) id <RecipeCellDelegate> delegate;
 
 @end

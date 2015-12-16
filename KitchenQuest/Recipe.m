@@ -30,6 +30,15 @@ NSString *recipeEndpointURL = @"https://spoonacular-recipe-food-nutrition-v1.p.m
                 newRecipe.usedIngredientCount = recipe[@"usedIngredientCount"];
                 newRecipe.missedIngredientCount = recipe[@"missedIngredientCount"];
                 newRecipe.likes = recipe[@"likes"];
+                newRecipe.isSaved = NO;
+                
+                NSMutableSet *savedRecipes = [User fetchSavedRecipes];
+                for (Recipe *savedRecipe in savedRecipes) {
+                    if ([newRecipe.idNumber isEqualToNumber:savedRecipe.idNumber]) {
+                        newRecipe.isSaved = YES;
+                    }
+                }
+                
                 [recipeResults addObject:newRecipe];
             }
         }
