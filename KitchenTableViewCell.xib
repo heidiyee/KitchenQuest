@@ -28,7 +28,7 @@
                             </mask>
                         </variation>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0219-heart.png" translatesAutoresizingMaskIntoConstraints="NO" id="HG3-7n-31Y">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heartNoFill.png" translatesAutoresizingMaskIntoConstraints="NO" id="HG3-7n-31Y">
                         <rect key="frame" x="286" y="12" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="HxZ-EZ-djW"/>
@@ -91,12 +91,13 @@
                 <outlet property="likesLabel" destination="cNm-X5-87c" id="Elx-LD-y2N"/>
                 <outlet property="recipeImageView" destination="Qf4-8O-5Y7" id="ZNg-qo-ci8"/>
                 <outlet property="recipeNameLabel" destination="vTC-1n-xyl" id="LTg-lC-KGS"/>
+                <outlet property="savedImageView" destination="HG3-7n-31Y" id="kA3-a9-XTB"/>
             </connections>
         </tableViewCell>
     </objects>
     <resources>
         <image name="0218-star-full (1).png" width="32" height="32"/>
-        <image name="0219-heart.png" width="64" height="64"/>
         <image name="food.png" width="150" height="150"/>
+        <image name="heartNoFill.png" width="198" height="177"/>
     </resources>
 </document>

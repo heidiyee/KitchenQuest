@@ -20,5 +20,6 @@
 @dynamic usedIngredientCount;
 @dynamic missedIngredientCount;
 @dynamic user;
+@dynamic isSaved;
 
 @end

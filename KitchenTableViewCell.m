@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *recipeNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likesLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *recipeImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *savedImageView;
 
 @end
 
@@ -24,6 +25,10 @@
 - (void)setRecipe:(Recipe *)recipe {
     self.recipeNameLabel.text = recipe.title;
     self.likesLabel.text = [NSString stringWithFormat:@"%@", recipe.likes];
+    if (recipe.isSaved) {
+        NSLog(@"%@", recipe.title);
+        self.savedImageView.image = [UIImage imageNamed:@"heartFill.png"];
+    }
     NSURL *imageURL = [NSURL URLWithString:recipe.imageURL];
     [ImageFetcherService fetchImageInBackgroundFromUrl:imageURL completionHandler:^(UIImage * _Nullable data, NSError * _Nullable error) {
         if (data) {

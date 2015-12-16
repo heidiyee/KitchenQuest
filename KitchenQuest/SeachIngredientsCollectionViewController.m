@@ -40,7 +40,7 @@
     self.ingredients = [[NSMutableArray alloc]init];
     
    //  TEST FETCH RECIPE FROM API + SAVE TO CORE DATA
-//        [Recipe fetchRecipesWithSearchTerms:@"carrots,lemon" completion:^(NSArray *result, NSError *error) {
+//        [Recipe fetchRecipesWithSearchTerms:@"cinnamon,sugar,apples" completion:^(NSArray *result, NSError *error) {
 //            if (result) {
 //                for (Recipe *recipe in result) {
 //                    [User addSavedRecipesObject:recipe];

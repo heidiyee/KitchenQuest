@@ -22,6 +22,7 @@
     newRecipe.usedIngredientCount = value.usedIngredientCount;
     newRecipe.missedIngredientCount = value.missedIngredientCount;
     newRecipe.likes = value.likes;
+    newRecipe.isSaved = YES;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"User"];
     NSError *fetchUserError;
@@ -34,6 +35,13 @@
     } else {
         NSArray *userResults = [context executeFetchRequest:request error:&fetchUserError];
         User *existingUser = userResults[0];
+        
+        NSMutableSet *savedRecipes = [User fetchSavedRecipes];
+        for (Recipe *savedRecipe in savedRecipes) {
+            if ([newRecipe.idNumber isEqualToNumber:savedRecipe.idNumber]) {
+                return;
+            }
+        }
         newRecipe.user = existingUser;
         [existingUser.savedRecipes addObject:newRecipe];
     }
@@ -59,9 +67,9 @@
         NSLog(@"No users found");
     } else {
         User *existingUser = fetchedUsers[0];
-        for (Recipe *recipe in existingUser.savedRecipes) {
-            NSLog(@"%@ FETCHED", recipe.title);
-        }
+//        for (Recipe *recipe in existingUser.savedRecipes) {
+//            NSLog(@"%@ FETCHED", recipe.title);
+//        }
         return existingUser.savedRecipes;
     }
     return nil;
