@@ -9,66 +9,58 @@
 #import "KitchenTableViewCell.h"
 #import "ImageFetcherService.h"
 #import "Constants.h"
-#import "Model.h"
+#import "User.h"
 
 @interface KitchenTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *recipeNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likesLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *recipeImageView;
-@property (weak, nonatomic) IBOutlet UIImageView *savedImageView;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+
 
 @end
 
 @implementation KitchenTableViewCell
 
 - (void)setRecipe:(Recipe *)recipe {
+    _recipe = recipe;
     self.recipeNameLabel.text = recipe.title;
     self.likesLabel.text = [NSString stringWithFormat:@"%@", recipe.likes];
     if (recipe.isSaved) {
-        NSLog(@"%@", recipe.title);
-        self.savedImageView.image = [UIImage imageNamed:@"heartFill.png"];
+        [self.saveButton setImage:[UIImage imageNamed:@"heartFill.png"] forState:UIControlStateNormal];
+    } else {
+        [self.saveButton setImage:[UIImage imageNamed:@"heartNoFill.png"] forState:UIControlStateNormal];
     }
-    NSURL *imageURL = [NSURL URLWithString:recipe.imageURL];
-    [ImageFetcherService fetchImageInBackgroundFromUrl:imageURL completionHandler:^(UIImage * _Nullable data, NSError * _Nullable error) {
-        if (data) {
-            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-                NSLog(@"%@", data);
-            }];
-        }
-        if (error) {
-            NSLog(@"%@", error);
-        }
-    }];
+//    NSURL *imageURL = [NSURL URLWithString:recipe.imageURL];
+//    [ImageFetcherService fetchImageInBackgroundFromUrl:imageURL completionHandler:^(UIImage * _Nullable data, NSError * _Nullable error) {
+//        if (data) {
+//            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+//                NSLog(@"%@", data);
+//            }];
+//        }
+//        if (error) {
+//            NSLog(@"%@", error);
+//        }
+//    }];
 }
 
-//-(void)setModel:(Model *)model {
-//    self.recipeNameLabel.text = model.recipeName;
-//    self.likesLabel.text = model.likesLabel;
-//    
-//    //    NSLog(@"profileImageURL %@", question.owner.profileImageURL.description);
-//    [self.imageView setImage:@"food.png"];
-//
-//    
-//    [ImageFetcherService fetchImageInBackgroundFromUrl:model.profileImageURL completionHandler:^(UIImage * _Nullable data, NSError * _Nullable error) {
-//        
-//        if (error) {
-//            
-//        }
-//        [self.imageView setImage:data]
-//        imageView.highlighted = imageView.image;
-//        imageView.highlighted = YES;
-//    }];
-//    
-//}
+- (IBAction)saveButtonPressed:(UIButton *)sender {
+    if (self.recipe.isSaved) {
+        if (self.delegate) {
+            [self.delegate recipeCellDidRemove:self.recipe];
+        }
+    } else {
+        [self.saveButton setImage:[UIImage imageNamed:@"heartFill.png"] forState:UIControlStateNormal];
+        [User addSavedRecipesObject:self.recipe];
+    }
+}
+
 - (void)awakeFromNib {
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

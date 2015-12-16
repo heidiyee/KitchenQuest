@@ -28,13 +28,6 @@
                             </mask>
                         </variation>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heartNoFill.png" translatesAutoresizingMaskIntoConstraints="NO" id="HG3-7n-31Y">
-                        <rect key="frame" x="286" y="12" width="20" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="20" id="HxZ-EZ-djW"/>
-                            <constraint firstAttribute="height" constant="20" id="RMU-aj-7wb"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of dish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTC-1n-xyl">
                         <rect key="frame" x="66" y="8" width="70" height="14"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -62,17 +55,28 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Le1-hE-QD2">
+                        <rect key="frame" x="272" y="7" width="32" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="29" id="CbE-wX-cU7"/>
+                            <constraint firstAttribute="width" constant="32" id="lGK-Mw-yY8"/>
+                        </constraints>
+                        <state key="normal" image="heartNoFill.png"/>
+                        <connections>
+                            <action selector="saveButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="TA0-Hi-ZzP"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.51049315029999998" green="0.98359179910000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="HG3-7n-31Y" secondAttribute="trailing" constant="6" id="1xK-2k-7Sx"/>
                     <constraint firstItem="Qf4-8O-5Y7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BIz-BZ-K8T"/>
                     <constraint firstItem="cNm-X5-87c" firstAttribute="centerY" secondItem="dX5-QJ-N4M" secondAttribute="centerY" id="QXb-Qt-N2j"/>
+                    <constraint firstItem="Le1-hE-QD2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="RRn-GI-bHq"/>
                     <constraint firstAttribute="bottomMargin" secondItem="vTC-1n-xyl" secondAttribute="bottom" constant="7" id="SWP-yD-5pw"/>
                     <constraint firstItem="vTC-1n-xyl" firstAttribute="leading" secondItem="Qf4-8O-5Y7" secondAttribute="trailing" constant="8" id="U8I-Q2-MEz"/>
-                    <constraint firstItem="HG3-7n-31Y" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="V04-FR-gnI"/>
                     <constraint firstItem="dX5-QJ-N4M" firstAttribute="leading" secondItem="vTC-1n-xyl" secondAttribute="leading" id="Y1b-GW-Jnx"/>
                     <constraint firstItem="vTC-1n-xyl" firstAttribute="leading" secondItem="Qf4-8O-5Y7" secondAttribute="trailing" constant="8" id="at8-fJ-Yy8"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Le1-hE-QD2" secondAttribute="trailing" constant="8" id="dbp-kY-Pud"/>
                     <constraint firstItem="Qf4-8O-5Y7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="hK1-Rd-t9g"/>
                     <constraint firstItem="dX5-QJ-N4M" firstAttribute="top" secondItem="vTC-1n-xyl" secondAttribute="bottom" constant="1" id="n3p-of-1Ep"/>
                     <constraint firstItem="vTC-1n-xyl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="o70-R4-1iF"/>
@@ -91,7 +95,7 @@
                 <outlet property="likesLabel" destination="cNm-X5-87c" id="Elx-LD-y2N"/>
                 <outlet property="recipeImageView" destination="Qf4-8O-5Y7" id="ZNg-qo-ci8"/>
                 <outlet property="recipeNameLabel" destination="vTC-1n-xyl" id="LTg-lC-KGS"/>
-                <outlet property="savedImageView" destination="HG3-7n-31Y" id="kA3-a9-XTB"/>
+                <outlet property="saveButton" destination="Le1-hE-QD2" id="3UN-Gk-2eo"/>
             </connections>
         </tableViewCell>
     </objects>

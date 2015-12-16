@@ -40,7 +40,7 @@
     self.ingredients = [[NSMutableArray alloc]init];
     
    //  TEST FETCH RECIPE FROM API + SAVE TO CORE DATA
-//        [Recipe fetchRecipesWithSearchTerms:@"cinnamon,sugar,apples" completion:^(NSArray *result, NSError *error) {
+//        [Recipe fetchRecipesWithSearchTerms:@"tofu,broccoli,carrots" completion:^(NSArray *result, NSError *error) {
 //            if (result) {
 //                for (Recipe *recipe in result) {
 //                    [User addSavedRecipesObject:recipe];
@@ -72,22 +72,16 @@
 //        }
     
     // TEST AUTOCOMPLETE FROM API FOR SEARCH
-    //    [IngredientAutocomplete autocompleteWithSearchTerm:@"tof" completion:^(NSArray *result, NSError *error) {
-    //        if (result) {
-    //            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-    //                NSString *leftButtonText = result[0];
-    //                if (result[1]) {
-    //                    NSString *centerButtonText = result[1];
-    //                    if (result[2]) {
-    //                        NSString *rightButtonText = result[2];
-    //                    }
-    //                }
-    //            }];
-    //        }
-    //        if (error) {
-    //            NSLog(@"%@", error);
-    //        }
-    //    }];
+//        [IngredientAutocomplete autocompleteWithSearchTerm:@"spa" completion:^(NSArray *result, NSError *error) {
+//            if (result) {
+//                for (NSString* word in result) {
+//                    NSLog(@"%@", word);
+//                }
+//            }
+//            if (error) {
+//                NSLog(@"%@", error);
+//            }
+//        }];
     
     // TEST GET RECIPE INFO FROM API
     //    [RecipeInformation getRecipeURLWithID:@"156991" completion:^(NSString *result, NSError *error) {
