@@ -39,36 +39,37 @@
     self.ingredientsTextView.layer.borderColor = [[UIColor grayColor] CGColor];
     self.ingredients = [[NSMutableArray alloc]init];
     
-    // TEST FETCH RECIPE FROM API + SAVE TO CORE DATA
-    //    [Recipe fetchRecipesWithSearchTerms:@"tofu,broccoli,eggs" completion:^(NSArray *result, NSError *error) {
-    //        if (result) {
-    //            for (Recipe *recipe in result) {
-    ////                [User addSavedRecipesObject:recipe];
-    //                NSLog(@"%@", recipe.title);
-    //            }
-    //        }
-    //        if (error) {
-    //            NSLog(@"%@", error);
-    //        }
-    //    }];
+   //  TEST FETCH RECIPE FROM API + SAVE TO CORE DATA
+//        [Recipe fetchRecipesWithSearchTerms:@"carrots,lemon" completion:^(NSArray *result, NSError *error) {
+//            if (result) {
+//                for (Recipe *recipe in result) {
+//                    [User addSavedRecipesObject:recipe];
+////                    NSLog(@"%@", recipe.title);
+//                }
+//            }
+//            if (error) {
+//                NSLog(@"%@", error);
+//            }
+//        }];
     
     // TEST FETCH + DELETE OBJECTS FROM CORE DATA
     
-    //    [User fetchSavedRecipes];
+//        [User fetchSavedRecipes];
     
-    //    NSManagedObjectContext *context = [[CoreDataStack sharedStack]managedObjectContext];
-    //    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
-    //    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recipe" inManagedObjectContext:context];
-    //    [fetchRequest setEntity:entity];
-    //    NSError *error;
-    //    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    //    if (fetchedObjects == nil) {
-    //        NSLog(@"Nada");
-    //    } else {
-    //        for (Recipe *recipe in fetchedObjects) {
-    //            [User removeSavedRecipesObject:recipe];
-    //        }
-    //    }
+//        NSManagedObjectContext *context = [[CoreDataStack sharedStack]managedObjectContext];
+//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+//        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recipe" inManagedObjectContext:context];
+//        [fetchRequest setEntity:entity];
+//        NSError *error;
+//        NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+//        if (fetchedObjects == nil) {
+//            NSLog(@"Nada");
+//        } else {
+//            for (Recipe *recipe in fetchedObjects) {
+////                [User removeSavedRecipesObject:recipe];
+//                NSLog(@"%@", recipe.title);
+//            }
+//        }
     
     // TEST AUTOCOMPLETE FROM API FOR SEARCH
     //    [IngredientAutocomplete autocompleteWithSearchTerm:@"tof" completion:^(NSArray *result, NSError *error) {

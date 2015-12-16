@@ -17,13 +17,25 @@
 @property (weak, nonatomic) IBOutlet UILabel *likesLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *recipeImageView;
 
-
-
 @end
 
 @implementation KitchenTableViewCell
 
-
+- (void)setRecipe:(Recipe *)recipe {
+    self.recipeNameLabel.text = recipe.title;
+    self.likesLabel.text = [NSString stringWithFormat:@"%@", recipe.likes];
+    NSURL *imageURL = [NSURL URLWithString:recipe.imageURL];
+    [ImageFetcherService fetchImageInBackgroundFromUrl:imageURL completionHandler:^(UIImage * _Nullable data, NSError * _Nullable error) {
+        if (data) {
+            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                NSLog(@"%@", data);
+            }];
+        }
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
+}
 
 //-(void)setModel:(Model *)model {
 //    self.recipeNameLabel.text = model.recipeName;
