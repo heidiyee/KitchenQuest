@@ -23,7 +23,6 @@ NSInteger const kNumberOfColumns = 2;
 @property (strong, nonatomic) NSMutableArray *searchIngredients;
 @property (weak, nonatomic) IBOutlet UITextView *ingredientsTextView;
 @property (weak, nonatomic) IBOutlet UICollectionView *ingredientCollectionView;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *ingredientSegmentedControl;
 
 @end
 
@@ -46,6 +45,7 @@ NSInteger const kNumberOfColumns = 2;
     self.ingredientsTextView.delegate = self;
     self.ingredientsTextView.layer.borderWidth = 1.0f;
     self.ingredientsTextView.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.ingredients = [[NSMutableArray alloc]init];
     
     self.searchIngredients = [[NSMutableArray alloc]init];
     [self.searchIngredients addObject:[NSString stringWithFormat:@"eggs"]];
@@ -67,7 +67,6 @@ NSInteger const kNumberOfColumns = 2;
     //            NSLog(@"%@", error);
     //        }
     //    }];
-    self.ingredients = [[NSMutableArray alloc]init];
     
     // TEST FETCH + DELETE OBJECTS FROM CORE DATA
     
