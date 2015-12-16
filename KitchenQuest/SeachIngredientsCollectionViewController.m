@@ -37,6 +37,7 @@
     self.ingredientsTextView.delegate = self;
     self.ingredientsTextView.layer.borderWidth = 1.0f;
     self.ingredientsTextView.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.ingredients = [[NSMutableArray alloc]init];
     
     // TEST FETCH RECIPE FROM API + SAVE TO CORE DATA
     //    [Recipe fetchRecipesWithSearchTerms:@"tofu,broccoli,eggs" completion:^(NSArray *result, NSError *error) {
@@ -50,7 +51,6 @@
     //            NSLog(@"%@", error);
     //        }
     //    }];
-    self.ingredients = [[NSMutableArray alloc]init];
     
     // TEST FETCH + DELETE OBJECTS FROM CORE DATA
     
@@ -154,7 +154,7 @@
     [self.ingredients removeObject:ingredient];
     [self.ingredientCollectionView reloadData];
     
-    NSLog(@"%li", self.ingredients.count);
+    NSLog(@"%i", self.ingredients.count);
     
 }
 
