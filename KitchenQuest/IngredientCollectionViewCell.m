@@ -19,6 +19,7 @@
     // ...
     [self.ingredientLabel setText:_ingredient];
     self.cancelButton.layer.cornerRadius = 8.0;
+    self.backgroundColor = [UIColor clearColor];
 
 
 }

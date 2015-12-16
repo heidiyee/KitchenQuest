@@ -15,7 +15,10 @@
 
 @import QuartzCore;
 
-NSInteger const kNumberOfColumns = 2;
+NSInteger const kNumberOfColumns = 3;
+NSInteger const kNumberOfRows = 5;
+CGFloat const kCornerRadius = 4;
+CGFloat const kButtonCornerRadius = 8.0;
 
 @interface SeachIngredientsCollectionViewController () <UITextViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, IngredientCollectionViewCellDelegate>
 
@@ -23,6 +26,8 @@ NSInteger const kNumberOfColumns = 2;
 @property (strong, nonatomic) NSMutableArray *searchIngredients;
 @property (weak, nonatomic) IBOutlet UITextView *ingredientsTextView;
 @property (weak, nonatomic) IBOutlet UICollectionView *ingredientCollectionView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *ingredientSegmentControl;
+@property (weak, nonatomic) IBOutlet UIButton *imHungryButton;
 
 @end
 
@@ -36,7 +41,7 @@ NSInteger const kNumberOfColumns = 2;
 
 -(void)setSearchIngredients:(NSMutableArray *)searchIngredients {
     _searchIngredients = searchIngredients;
-    [self.ingredientSegmentedControl reloadInputViews];
+    [self.ingredientSegmentControl reloadInputViews];
 }
 
 
@@ -45,6 +50,7 @@ NSInteger const kNumberOfColumns = 2;
     self.ingredientsTextView.delegate = self;
     self.ingredientsTextView.layer.borderWidth = 1.0f;
     self.ingredientsTextView.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.ingredientsTextView.layer.cornerRadius = kCornerRadius;
     self.ingredients = [[NSMutableArray alloc]init];
     
     self.searchIngredients = [[NSMutableArray alloc]init];
@@ -52,68 +58,11 @@ NSInteger const kNumberOfColumns = 2;
     [self.searchIngredients addObject:[NSString stringWithFormat:@"eggggggssssss"]];
     
     [self setupSegmentControl];
+    self.ingredientSegmentControl.layer.cornerRadius = kCornerRadius;
     
-    
-    
-    // TEST FETCH RECIPE FROM API + SAVE TO CORE DATA
-    //    [Recipe fetchRecipesWithSearchTerms:@"tofu,broccoli,eggs" completion:^(NSArray *result, NSError *error) {
-    //        if (result) {
-    //            for (Recipe *recipe in result) {
-    ////                [User addSavedRecipesObject:recipe];
-    //                NSLog(@"%@", recipe.title);
-    //            }
-    //        }
-    //        if (error) {
-    //            NSLog(@"%@", error);
-    //        }
-    //    }];
-    
-    // TEST FETCH + DELETE OBJECTS FROM CORE DATA
-    
-    //    [User fetchSavedRecipes];
-    
-    //    NSManagedObjectContext *context = [[CoreDataStack sharedStack]managedObjectContext];
-    //    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
-    //    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recipe" inManagedObjectContext:context];
-    //    [fetchRequest setEntity:entity];
-    //    NSError *error;
-    //    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    //    if (fetchedObjects == nil) {
-    //        NSLog(@"Nada");
-    //    } else {
-    //        for (Recipe *recipe in fetchedObjects) {
-    //            [User removeSavedRecipesObject:recipe];
-    //        }
-    //    }
-    
-    // TEST AUTOCOMPLETE FROM API FOR SEARCH
-    //    [IngredientAutocomplete autocompleteWithSearchTerm:@"tof" completion:^(NSArray *result, NSError *error) {
-    //        if (result) {
-    //            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-    //                NSString *leftButtonText = result[0];
-    //                if (result[1]) {
-    //                    NSString *centerButtonText = result[1];
-    //                    if (result[2]) {
-    //                        NSString *rightButtonText = result[2];
-    //                    }
-    //                }
-    //            }];
-    //        }
-    //        if (error) {
-    //            NSLog(@"%@", error);
-    //        }
-    //    }];
-    
-    // TEST GET RECIPE INFO FROM API
-    //    [RecipeInformation getRecipeURLWithID:@"156991" completion:^(NSString *result, NSError *error) {
-    //        if (result) {
-    //            NSLog(@"%@", result);
-    //        }
-    //        if (error) {
-    //            NSLog(@"%@", error);
-    //        }
-    //    }];
-    
+    self.imHungryButton.layer.cornerRadius = kButtonCornerRadius;
+    self.ingredientCollectionView.backgroundColor = [UIColor clearColor];
+
 }
 
 
@@ -121,12 +70,14 @@ NSInteger const kNumberOfColumns = 2;
 
 
 - (void)textViewDidChange:(UITextView *)textView {
-    if ([self.ingredientsTextView.text containsString:@" "]) {
-        
-        [self.ingredients addObject:[NSString stringWithFormat:@"%@",textView.text]];
-        [self.ingredientCollectionView reloadData];
-        
+    if ([textView.text containsString:@"\n"]) {
+        if (textView.text.length > 1) {
+            [self.ingredients addObject:[NSString stringWithFormat:@"%@",textView.text]];
+            [self.ingredientCollectionView reloadData];
+            
+        }
         self.ingredientsTextView.text = @"";
+        [textView resignFirstResponder];
     }
 }
 
@@ -147,7 +98,7 @@ NSInteger const kNumberOfColumns = 2;
     cell.delegate = self;
     cell.ingredient = self.ingredients[indexPath.row];
     cell.contentView.backgroundColor = [UIColor colorWithRed:0.34 green:0.74 blue:0.94 alpha:1.0];
-    cell.contentView.layer.cornerRadius = 15.0;
+    cell.contentView.layer.cornerRadius = kButtonCornerRadius;
     return cell;
 }
 
@@ -161,10 +112,13 @@ NSInteger const kNumberOfColumns = 2;
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    CGFloat screenBounds = [UIScreen mainScreen].bounds.size.width;
-    CGFloat cellSize = ((screenBounds - 4.0) / kNumberOfColumns);
+    CGFloat boundsWidth = self.ingredientCollectionView.frame.size.width;
+    CGFloat boundsHeight = self.ingredientCollectionView.frame.size.height;
     
-    return CGSizeMake(cellSize, 40);
+    CGFloat cellSizeHeight = (boundsHeight / kNumberOfRows);
+    CGFloat cellSizeWidth = ((boundsWidth / kNumberOfColumns) - 4);
+    
+    return CGSizeMake(cellSizeWidth, cellSizeHeight);
 }
 
 
@@ -189,24 +143,24 @@ NSInteger const kNumberOfColumns = 2;
 
 #pragma mark - segment control
 
-
-
-
 - (void)setupSegmentControl {
-    
     NSInteger indexPath = 0;
-    [self.ingredientSegmentedControl setTitle:@"" forSegmentAtIndex:0];
-    [self.ingredientSegmentedControl setTitle:@"" forSegmentAtIndex:1];
-    [self.ingredientSegmentedControl setTitle:@"" forSegmentAtIndex:2];
+    [self.ingredientSegmentControl setTitle:@"" forSegmentAtIndex:0];
+    [self.ingredientSegmentControl setTitle:@"" forSegmentAtIndex:1];
+    [self.ingredientSegmentControl setTitle:@"" forSegmentAtIndex:2];
     
     for (NSString *ingredient in self.searchIngredients) {
-        
-
-        [self.ingredientSegmentedControl setTitle:ingredient forSegmentAtIndex:indexPath];
+        [self.ingredientSegmentControl setTitle:ingredient forSegmentAtIndex:indexPath];
         indexPath ++;
     }
-    
+}
 
+- (IBAction)ingredientSegmentControlSelected:(UISegmentedControl *)sender {
+    NSString *name = [sender titleForSegmentAtIndex:sender.selectedSegmentIndex];
+    if (name.length > 0) {
+        [self.ingredients addObject:[NSString stringWithFormat:@"%@",name]];
+        [self.ingredientCollectionView reloadData];
+    }
 }
 
 

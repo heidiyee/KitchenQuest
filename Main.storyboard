@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sKk-jH-wpy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sKk-jH-wpy">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Ingredients-->
@@ -17,8 +19,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ingredients_cropped" translatesAutoresizingMaskIntoConstraints="NO" id="Vbq-n7-UF6">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oh3-DJ-aNT">
-                                <rect key="frame" x="247" y="436" width="107" height="38"/>
+                                <rect key="frame" x="247" y="447" width="107" height="38"/>
                                 <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -30,27 +35,30 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="inD-vg-1VS">
-                                <rect key="frame" x="0.0" y="113" width="600" height="29"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="8" y="105" width="584" height="29"/>
+                                <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
                                     <segment title="Third"/>
                                 </segments>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="ingredientSegmentControlSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="twV-3M-qLx"/>
+                                </connections>
                             </segmentedControl>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="What ingredients do you have?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TdV-Vo-BcN">
-                                <rect key="frame" x="0.0" y="72" width="600" height="33"/>
+                                <rect key="frame" x="8" y="72" width="584" height="33"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Em-AH-DmH">
-                                <rect key="frame" x="0.0" y="161" width="600" height="230"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="8" y="183" width="584" height="219"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="230" id="cg1-Yx-ReI"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="230" id="0PH-qm-s4l"/>
+                                    <constraint firstAttribute="width" secondItem="0Em-AH-DmH" secondAttribute="height" multiplier="292:115" id="Y0H-qh-CSe"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4he-Cj-WtN">
                                     <size key="itemSize" width="50" height="50"/>
@@ -105,33 +113,46 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0PH-qm-s4l"/>
+                                        <exclude reference="Y0H-qh-CSe"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="oPH-Qk-ANa"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="XGr-WI-zUK"/>
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.7843137255" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" button="YES" staticText="YES"/>
                         </accessibility>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="inD-vg-1VS" secondAttribute="trailing" id="2ow-i6-TQ3"/>
+                            <constraint firstAttribute="trailing" secondItem="inD-vg-1VS" secondAttribute="trailing" constant="8" id="2ow-i6-TQ3"/>
                             <constraint firstItem="oh3-DJ-aNT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4b4-6v-HUy"/>
-                            <constraint firstAttribute="trailing" secondItem="TdV-Vo-BcN" secondAttribute="trailing" id="7iE-pW-WpS"/>
+                            <constraint firstItem="0Em-AH-DmH" firstAttribute="height" secondItem="Vbq-n7-UF6" secondAttribute="height" multiplier="0.45" id="6Dm-76-4P7"/>
+                            <constraint firstAttribute="trailing" secondItem="TdV-Vo-BcN" secondAttribute="trailing" constant="8" id="7iE-pW-WpS"/>
                             <constraint firstItem="TdV-Vo-BcN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="8DC-te-qsj"/>
-                            <constraint firstItem="inD-vg-1VS" firstAttribute="top" secondItem="TdV-Vo-BcN" secondAttribute="bottom" constant="8" id="9ZL-FE-8dt"/>
+                            <constraint firstItem="inD-vg-1VS" firstAttribute="top" secondItem="TdV-Vo-BcN" secondAttribute="bottom" id="9ZL-FE-8dt"/>
+                            <constraint firstAttribute="trailing" secondItem="Vbq-n7-UF6" secondAttribute="trailing" id="Crt-PS-xFZ"/>
                             <constraint firstItem="oh3-DJ-aNT" firstAttribute="top" secondItem="0Em-AH-DmH" secondAttribute="bottom" constant="45" id="F1Y-q2-Dhc"/>
-                            <constraint firstItem="TdV-Vo-BcN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="G6g-K4-9Nv"/>
-                            <constraint firstItem="0Em-AH-DmH" firstAttribute="top" secondItem="inD-vg-1VS" secondAttribute="bottom" constant="20" id="GF6-FA-iMi"/>
-                            <constraint firstAttribute="trailing" secondItem="0Em-AH-DmH" secondAttribute="trailing" id="PQI-0g-Jk1"/>
+                            <constraint firstItem="TdV-Vo-BcN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="G6g-K4-9Nv"/>
+                            <constraint firstItem="0Em-AH-DmH" firstAttribute="top" secondItem="inD-vg-1VS" secondAttribute="bottom" constant="50" id="GF6-FA-iMi"/>
+                            <constraint firstItem="Vbq-n7-UF6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="LmF-cj-eJe"/>
+                            <constraint firstAttribute="trailing" secondItem="0Em-AH-DmH" secondAttribute="trailing" constant="8" id="PQI-0g-Jk1"/>
                             <constraint firstItem="TdV-Vo-BcN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="8" id="TLZ-hg-vMV"/>
-                            <constraint firstItem="inD-vg-1VS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ubw-V3-rXP"/>
-                            <constraint firstItem="0Em-AH-DmH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wrc-cX-FNh"/>
+                            <constraint firstItem="inD-vg-1VS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="Ubw-V3-rXP"/>
+                            <constraint firstItem="0Em-AH-DmH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="Wrc-cX-FNh"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Vbq-n7-UF6" secondAttribute="bottom" id="dcd-ww-IR5"/>
                             <constraint firstItem="TdV-Vo-BcN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="hP4-xh-6MW"/>
+                            <constraint firstItem="Vbq-n7-UF6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mIE-6r-fWg"/>
+                            <constraint firstItem="Vbq-n7-UF6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nNb-6u-Iyp"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="mIE-6r-fWg"/>
                                 <exclude reference="8DC-te-qsj"/>
                                 <exclude reference="TLZ-hg-vMV"/>
                             </mask>
@@ -139,8 +160,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Ingredients" id="hh9-pC-orV"/>
                     <connections>
+                        <outlet property="imHungryButton" destination="oh3-DJ-aNT" id="Oxv-OO-Qqm"/>
                         <outlet property="ingredientCollectionView" destination="0Em-AH-DmH" id="07F-0J-eXD"/>
-                        <outlet property="ingredientSegmentedControl" destination="inD-vg-1VS" id="CqD-2T-KUn"/>
+                        <outlet property="ingredientSegmentControl" destination="inD-vg-1VS" id="T2I-HH-by2"/>
                         <outlet property="ingredientsTextView" destination="TdV-Vo-BcN" id="TH4-M6-G91"/>
                     </connections>
                 </viewController>
@@ -255,6 +277,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3WQ-cH-4y9" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="7Cp-zh-HHj"/>
                     <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oeQ-hZ-c1X">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -269,4 +292,7 @@
             <point key="canvasLocation" x="-623" y="1122"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ingredients_cropped" width="3297" height="3808"/>
+    </resources>
 </document>
