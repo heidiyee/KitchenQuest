@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Recipe.h"
 
 @interface KitchenTableViewCell : UITableViewCell
-
-
+@property Recipe *recipe;
 
 @end

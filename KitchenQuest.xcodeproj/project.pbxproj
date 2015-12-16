@@ -39,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A78C37D1C21F78C007401EE /* KitchenTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KitchenTableViewCell.h; sourceTree = "<group>"; };
 		1A79885D1C20D85F002582F5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		1A81690B1C20BA5E0006730B /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		1A81690C1C20BA5E0006730B /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
@@ -107,7 +108,7 @@
 				1ABD1F491C1F4F9E001D6918 /* KitchenTableViewCell.xib */,
 				B7F0C84F1C1FB14800259A6A /* IngredientCollectionViewCell.h */,
 				B7F0C8501C1FB14800259A6A /* IngredientCollectionViewCell.m */,
-				1ABD1F471C1F4F9E001D6918 /* KitchenTableViewCell.h */,
+				1A78C37D1C21F78C007401EE /* KitchenTableViewCell.h */,
 				1ABD1F481C1F4F9E001D6918 /* KitchenTableViewCell.m */,
 			);
 			name = View;

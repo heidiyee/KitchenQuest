@@ -23,21 +23,32 @@
 @implementation KitchenTableViewCell
 
 -(void)setRecipe:(Recipe *)recipe {
+    self.titleLabel.text = recipe.title;
+   self.likesLabel.text = [NSString stringWithFormat:@"%@", recipe.likes];
+ //   self.likesLabel.text = recipe.likes;
+    
+    //    NSLog(@"profileImageURL %@", question.owner.profileImageURL.description);
+}
+/*
+-(void)setRecipe:(Recipe *)recipe {
 [Recipe fetchRecipesWithSearchTerms:@"tofu,broccoli,eggs" completion:^(NSArray *result, NSError *error) {
            if (result) {
                 for (Recipe *recipe in result) {
                     self.titleLabel.text = recipe.title;
-                    self.likesLabel.text = recipe.likes;
-                    self.recipeImage = recipe.imageURL;
+//                    [NSString stringWithFormat:@"%d",recipe.likes];
+//                    self.likesLabel.text = recipe.likes;
+                      self.likesLabel.text = @"hey there";
+ //                   self.recipeImage = recipe.imageURL;
     //                NSLog(@"%@", recipe.title);
                 }
            }
-        if (error) {
+           if (error) {
             //            NSLog(@"%@", error);
             //
-        }
+           }
     }];
  }
+*/
 
 - (void)awakeFromNib {
     // Initialization code
