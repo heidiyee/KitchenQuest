@@ -6,15 +6,12 @@
 //  Copyright © 2015 William Cremin. All rights reserved.
 //
 
-//  Copyright © 2015 Adam Wallraff. All rights reserved.
-//
-
 #import "ImageFetcherService.h"
 #import "Constants.h"
 
 @implementation ImageFetcherService
 
-+(void)fetchImageInBackgroundFromUrl:(NSURL * _Nonnull)url completionHandler:(kNSImageCompletionHandler)completionHandler {
++ (void)fetchImageInBackgroundFromUrl:(NSURL *)url completionHandler:(kNSImageCompletionHandler)completionHandler {
     
     dispatch_queue_t imageQueue = dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
     
