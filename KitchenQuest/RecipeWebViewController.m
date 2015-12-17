@@ -9,6 +9,7 @@
 #import "RecipeWebViewController.h"
 #import "User.h"
 @import WebKit;
+#import "RecipeInformation.h"
 
 @interface RecipeWebViewController () <WKNavigationDelegate>
 
@@ -20,17 +21,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    [self setupNavBar];
     [self setupWebView];
-    [self setupNavBar];
+    [self fetchRecipeID];
 }
 
 - (void)setupWebView {
     self.webView = [[WKWebView alloc]initWithFrame:self.view.frame];
     [self.view addSubview:self.webView];
     self.webView.navigationDelegate = self;
-    
-    NSURL *url = [NSURL URLWithString:self.urlString];
-    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+}
+
+- (void)fetchRecipeID {
+    [RecipeInformation getRecipeURLWithID:self.recipeID completion:^(NSString * _Nullable result, NSError * _Nullable error) {
+        if (result) {
+            NSURL *url = [NSURL URLWithString:result];
+            [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+        }
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
+
 }
 
 - (void)setupNavBar {

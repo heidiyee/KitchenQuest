@@ -11,6 +11,7 @@
 
 @interface RecipeWebViewController : UIViewController
 
+@property (copy, nonatomic) NSString *recipeID;
 @property (strong, nonatomic) NSString *urlString;
 @property (strong, nonatomic) Recipe *recipe;
 

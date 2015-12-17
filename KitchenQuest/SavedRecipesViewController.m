@@ -10,6 +10,8 @@
 #import "User.h"
 #import "Recipe.h"
 #import "KitchenTableViewCell.h"
+#import "RecipeInformation.h"
+#import "RecipeWebViewController.h"
 
 @interface SavedRecipesViewController () <UITableViewDataSource, UITableViewDelegate, RecipeCellDelegate>
 
@@ -57,6 +59,20 @@
     cell.recipe = self.recipeDataSource[indexPath.row];
     
     return cell;
+}
+
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    Recipe *selectedRecipe = self.recipeDataSource[indexPath.row];
+    NSString *selectedID = [NSString stringWithFormat:@"%@", selectedRecipe.idNumber];
+    
+    RecipeWebViewController *webViewController = [[RecipeWebViewController alloc]init];
+    webViewController.recipeID = selectedID;
+    
+    [self.navigationController pushViewController:webViewController animated:YES];
 }
 
 
