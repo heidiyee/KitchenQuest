@@ -59,8 +59,16 @@
 
 - (void)saveRecipe:(UIBarButtonItem *)sender {
     if (self.recipe.isSaved) {
-        [User removeSavedRecipesObject:self.recipe];
-        [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"barButtonHeart.png"]];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Remove saved recipe" message:@"Are you sure?" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *yes = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            [User removeSavedRecipesObject:self.recipe];
+//            [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"barButtonHeart.png"]];
+            self.navigationItem.rightBarButtonItem = nil;
+        }];
+        UIAlertAction *no = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:no];
+        [alert addAction:yes];
+        [self presentViewController:alert animated:YES completion:nil];
     } else {
         [User addSavedRecipesObject:self.recipe];
         [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"barButtonHeartFill.png"]];
