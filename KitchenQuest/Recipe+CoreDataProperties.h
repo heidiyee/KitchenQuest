@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, retain) NSString *title;
 @property (nullable, nonatomic, retain) NSString *imageURL;
-@property (nullable, nonatomic, retain) NSNumber *idNumber;
+@property (nullable, nonatomic, retain) NSString *idNumber;
 @property (nullable, nonatomic, retain) NSNumber *likes;
 @property (nullable, nonatomic, retain) NSNumber *usedIngredientCount;
 @property (nullable, nonatomic, retain) NSNumber *missedIngredientCount;
