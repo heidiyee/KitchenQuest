@@ -35,7 +35,17 @@
     UINib *nib = [UINib nibWithNibName:@"KitchenTableViewCell" bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"KitchenTableViewCell"];
     
-    [Recipe fetchRecipesWithSearchTerms:@"tofu,broccoli,eggs" completion:^(NSArray *result, NSError *error) {
+    NSLog(@"%li", self.recipeIngredients.count);
+    NSString *joinedComponents = [_recipeIngredients componentsJoinedByString:@","];
+    if ( self.recipeIngredients.count > 0)
+    {
+                NSString *ingredientFullList = @"";
+        for (NSString *ingredient in self.recipeIngredients) {
+        
+        [ingredientFullList stringByAppendingString:[NSString stringWithFormat:@"%@,", ingredient]];
+        
+    }
+    [Recipe fetchRecipesWithSearchTerms:joinedComponents completion:^(NSArray *result, NSError *error) {
         if (result) {
             for (Recipe *recipe in result) {
                 [self setRecipe:result];
@@ -46,6 +56,8 @@
             NSLog(@"%@", error);
         }
     }];
+    }
+
 
     
 }
