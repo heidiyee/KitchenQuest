@@ -44,6 +44,8 @@
     self.savedRecipesTableView.dataSource = self;
     UINib *nib = [UINib nibWithNibName:@"KitchenTableViewCell" bundle:nil];
     [self.savedRecipesTableView registerNib:nib forCellReuseIdentifier:@"KitchenTableViewCell"];
+    self.savedRecipesTableView.rowHeight = 208.0;
+    self.savedRecipesTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 #pragma mark - UITableViewDataSource
