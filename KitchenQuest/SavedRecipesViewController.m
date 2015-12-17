@@ -39,8 +39,17 @@
         [self setRecipeDataSource:mutableDataSource];
     }
     if ([self.restorationIdentifier isEqualToString:@"RecipeResults"]) {
+//        NSMutableSet *savedRecipes = [User fetchSavedRecipes];
+//        for (Recipe *savedRecipe in savedRecipes) {
+//            for (Recipe *recipeResult in self.recipeDataSource) {
+//                if ([recipeResult.idNumber isEqualToString:savedRecipe.idNumber]) {
+//                    recipeResult.isSaved = YES;
+//                } else {
+//                    recipeResult.isSaved = NO;
+//                }
+//            }
+//        }
     }
-//    [self setupTableView];
     [self.savedRecipesTableView reloadData];
 }
 
@@ -87,16 +96,21 @@
 #pragma mark - Recipe Cell Delegate
 
 - (void)recipeCellDidRemove:(Recipe *)recipe {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Remove saved recipe" message:@"Are you sure?" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [self.recipeDataSource removeObject:recipe];
-        [self.savedRecipesTableView reloadData];
-        [User removeSavedRecipesObject:recipe];
-    }];
-    UIAlertAction *no = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:nil];
-    [alert addAction:no];
-    [alert addAction:yes];
-    [self presentViewController:alert animated:YES completion:nil];
+    if ([self.restorationIdentifier isEqualToString:@"SavedRecipes"]) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Remove saved recipe" message:@"Are you sure?" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *yes = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            
+//            if ([self.restorationIdentifier isEqualToString:@"SavedRecipes"]) {
+                [self.recipeDataSource removeObject:recipe];
+//            }
+            [self.savedRecipesTableView reloadData];
+            [User removeSavedRecipesObject:recipe];
+        }];
+        UIAlertAction *no = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:no];
+        [alert addAction:yes];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 @end

@@ -26,6 +26,18 @@
     [self fetchRecipeID];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSMutableSet *savedRecipes = [User fetchSavedRecipes];
+    for (Recipe *savedRecipe in savedRecipes) {
+        if ([self.recipe.idNumber isEqualToString:savedRecipe.idNumber]) {
+            self.recipe.isSaved = YES;
+        } else {
+            self.recipe.isSaved = NO;
+        }
+    }
+}
+
 - (void)setupWebView {
     self.webView = [[WKWebView alloc]initWithFrame:self.view.frame];
     [self.view addSubview:self.webView];
@@ -65,7 +77,7 @@
         UIAlertAction *yes = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
             [self.recipe setIsSaved:NO];
             [User removeSavedRecipesObject:self.recipe];
-            self.navigationItem.rightBarButtonItem = nil;
+            [self.navigationController popViewControllerAnimated:YES];
         }];
         UIAlertAction *no = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:nil];
         [alert addAction:no];
