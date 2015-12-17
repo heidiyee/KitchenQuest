@@ -32,12 +32,16 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self setupTableView];
     if ([self.restorationIdentifier isEqualToString:@"SavedRecipes"]) {
         NSMutableSet *savedRecipes = [User fetchSavedRecipes];
         NSMutableArray *mutableDataSource = [NSMutableArray arrayWithArray:[savedRecipes allObjects]];
         [self setRecipeDataSource:mutableDataSource];
     }
-    [self setupTableView];
+    if ([self.restorationIdentifier isEqualToString:@"RecipeResults"]) {
+    }
+//    [self setupTableView];
+    [self.savedRecipesTableView reloadData];
 }
 
 - (void)setupTableView {

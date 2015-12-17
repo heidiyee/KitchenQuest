@@ -31,6 +31,13 @@
     } else {
         [self.saveButton setImage:[UIImage imageNamed:@"heartNoFill.png"] forState:UIControlStateNormal];
     }
+
+    NSMutableSet *savedRecipes = [User fetchSavedRecipes];
+    for (Recipe *savedRecipe in savedRecipes) {
+        if ([recipe.idNumber isEqualToString:savedRecipe.idNumber]) {
+            recipe.isSaved = YES;
+        }
+    }
     
     if (recipe.imageURL != nil) {
         NSURL *imageURL = [NSURL URLWithString:recipe.imageURL];
