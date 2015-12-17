@@ -12,14 +12,23 @@
 #import "RecipeInformation.h"
 #import "User.h"
 #import "IngredientCollectionViewCell.h"
+#import "RecipeResultsViewController.h"
 
 @import QuartzCore;
+
+NSInteger const kNumberOfColumns = 3;
+NSInteger const kNumberOfRows = 5;
+CGFloat const kCornerRadius = 4;
+CGFloat const kButtonCornerRadius = 8.0;
 
 @interface SeachIngredientsCollectionViewController () <UITextViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, IngredientCollectionViewCellDelegate>
 
 @property (strong, nonatomic) NSMutableArray *ingredients;
+@property (strong, nonatomic) NSMutableArray *searchIngredients;
 @property (weak, nonatomic) IBOutlet UITextView *ingredientsTextView;
 @property (weak, nonatomic) IBOutlet UICollectionView *ingredientCollectionView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *ingredientSegmentControl;
+@property (weak, nonatomic) IBOutlet UIButton *imHungryButton;
 
 @end
 
@@ -27,8 +36,14 @@
 
 - (void)setIngredients:(NSMutableArray *)ingredients {
     _ingredients = ingredients;
-    [self.ingredientCollectionView reloadData];
     
+    [self.ingredientCollectionView reloadData];
+}
+
+-(void)setSearchIngredients:(NSMutableArray *)searchIngredients {
+    _searchIngredients = searchIngredients;
+    
+    [self.ingredientSegmentControl reloadInputViews];
 }
 
 
@@ -37,7 +52,21 @@
     self.ingredientsTextView.delegate = self;
     self.ingredientsTextView.layer.borderWidth = 1.0f;
     self.ingredientsTextView.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.ingredientsTextView.layer.cornerRadius = kCornerRadius;
     self.ingredients = [[NSMutableArray alloc]init];
+    
+#warning come back and delete duncans crap
+    NSString * lulwat= @"-alksdflkdsjf-";
+    NSCharacterSet *myset = [[NSCharacterSet alloc] init];
+    
+    NSLog(@"%@", [NSCharacterSet whitespaceCharacterSet]);
+    
+    
+    
+//    [NSCharacterSet characterSetWithCharactersInString:@"-_"];
+//    NSCharacterSet
+    NSString * result = [lulwat stringByTrimmingCharactersInSet:myset];
+    NSLog(@"%@", result);
     
    //  TEST FETCH RECIPE FROM API + SAVE TO CORE DATA
 //        [Recipe fetchRecipesWithSearchTerms:@"avocado" completion:^(NSArray *result, NSError *error) {
@@ -51,8 +80,10 @@
 //                NSLog(@"%@", error);
 //            }
 //        }];
+    self.searchIngredients = [[NSMutableArray alloc]init];
     
-    // TEST FETCH + DELETE OBJECTS FROM CORE DATA
+    [self setupSegmentControl];
+    self.ingredientSegmentControl.layer.cornerRadius = kCornerRadius;
     
 //        [User fetchSavedRecipes];
     
@@ -71,17 +102,6 @@
 //            }
 //        }
     
-    // TEST AUTOCOMPLETE FROM API FOR SEARCH
-//        [IngredientAutocomplete autocompleteWithSearchTerm:@"spa" completion:^(NSArray *result, NSError *error) {
-//            if (result) {
-//                for (NSString* word in result) {
-//                    NSLog(@"%@", word);
-//                }
-//            }
-//            if (error) {
-//                NSLog(@"%@", error);
-//            }
-//        }];
     
     // TEST GET RECIPE INFO FROM API
     //    [RecipeInformation getRecipeURLWithID:@"156991" completion:^(NSString *result, NSError *error) {
@@ -93,15 +113,46 @@
     //        }
     //    }];
     
+    self.imHungryButton.layer.cornerRadius = kButtonCornerRadius;
+    self.ingredientCollectionView.backgroundColor = [UIColor clearColor];
+
 }
 
+
+#pragma mark - text view delegate
+
+
 - (void)textViewDidChange:(UITextView *)textView {
-    if ([self.ingredientsTextView.text containsString:@" "]) {
-        
-        [self.ingredients addObject:[NSString stringWithFormat:@"%@",textView.text]];
-        [self.ingredientCollectionView reloadData];
-        
+    
+    //TEST AUTOCOMPLETE FROM API FOR SEARCH
+//    [IngredientAutocomplete autocompleteWithSearchTerm:[NSString stringWithFormat:@"%@", textView.text] completion:^(NSArray *result, NSError *error) {
+//        if (result) {
+//            [self.searchIngredients removeAllObjects];
+//            [self.searchIngredients addObjectsFromArray:result];
+//            [self setupSegmentControl];
+//        }
+//        if (error) {
+//            NSLog(@"%@", error);
+//        }
+//    }];
+    
+    
+    
+    
+    
+    if ([textView.text containsString:@"\n"]) {
+        NSString *ingredientString = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if (ingredientString.length > 1) {
+            if (![self.ingredients containsObject:[NSString stringWithFormat:@"%@",ingredientString]]) {
+                [self.ingredients addObject:[NSString stringWithFormat:@"%@",ingredientString]];
+                [self.ingredientCollectionView reloadData];
+            } else {
+                NSLog(@"already have that ingredient");
+            }
+
+        }
         self.ingredientsTextView.text = @"";
+        [textView resignFirstResponder];
     }
 }
 
@@ -122,22 +173,27 @@
     cell.delegate = self;
     cell.ingredient = self.ingredients[indexPath.row];
     cell.contentView.backgroundColor = [UIColor colorWithRed:0.34 green:0.74 blue:0.94 alpha:1.0];
-    cell.contentView.layer.cornerRadius = 15.0;
+    cell.contentView.layer.cornerRadius = kButtonCornerRadius;
     return cell;
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 0.0;
+    return 2.0;
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 3.0;
+    return 2.0;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    CGFloat boundsWidth = self.ingredientCollectionView.frame.size.width;
+    CGFloat boundsHeight = self.ingredientCollectionView.frame.size.height;
     
-    return CGSizeMake(70, 50);
+    CGFloat cellSizeHeight = (boundsHeight / kNumberOfRows);
+    CGFloat cellSizeWidth = ((boundsWidth / kNumberOfColumns) - 2);
+    
+    return CGSizeMake(cellSizeWidth, cellSizeHeight);
 }
 
 
@@ -148,9 +204,6 @@
     
     [self.ingredients removeObject:ingredient];
     [self.ingredientCollectionView reloadData];
-    
-    NSLog(@"%i", self.ingredients.count);
-    
 }
 
 - (IBAction)hungryButtonSelected:(UIButton *)sender {
@@ -160,6 +213,48 @@
         NSLog(@"send to tableview");
     }
     
+}
+
+
+#pragma mark - segment control
+
+- (void)setupSegmentControl {
+    NSInteger indexPath = 0;
+    [self.ingredientSegmentControl setTitle:@"" forSegmentAtIndex:0];
+    [self.ingredientSegmentControl setTitle:@"" forSegmentAtIndex:1];
+    [self.ingredientSegmentControl setTitle:@"" forSegmentAtIndex:2];
+    
+    if (self.searchIngredients.count > 0) {
+        for (NSString *ingredient in self.searchIngredients) {
+            [self.ingredientSegmentControl setTitle:ingredient forSegmentAtIndex:indexPath];
+            indexPath ++;
+        }
+    } 
+}
+
+- (IBAction)ingredientSegmentControlSelected:(UISegmentedControl *)sender {
+    NSString *name = [sender titleForSegmentAtIndex:sender.selectedSegmentIndex];
+    if (name.length > 0) {
+        if (![self.ingredients containsObject:[NSString stringWithFormat:@"%@",name]]) {
+            [self.ingredients addObject:[NSString stringWithFormat:@"%@",name]];
+            [self.ingredientCollectionView reloadData];
+        } else {
+            NSLog(@"already have that ingredient");
+        }
+
+    }
+}
+
+
+#pragma mark - segue
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"RecipeResultViewController"]) {
+        if ([sender isKindOfClass:[UIButton class]]) {
+            RecipeResultsViewController *recipeResultsVC = (RecipeResultsViewController *)segue.destinationViewController;
+            recipeResultsVC.recipeIngredients = self.ingredients;
+        }
+    }
 }
 
 
