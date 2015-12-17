@@ -38,7 +38,7 @@
         
         NSMutableSet *savedRecipes = [User fetchSavedRecipes];
         for (Recipe *savedRecipe in savedRecipes) {
-            if ([newRecipe.idNumber isEqualToNumber:savedRecipe.idNumber]) {
+            if ([newRecipe.idNumber isEqualToString:savedRecipe.idNumber]) {
                 return;
             }
         }

@@ -56,11 +56,11 @@ CGFloat const kButtonCornerRadius = 8.0;
     self.ingredients = [[NSMutableArray alloc]init];
     
    //  TEST FETCH RECIPE FROM API + SAVE TO CORE DATA
-//        [Recipe fetchRecipesWithSearchTerms:@"tofu,broccoli,carrots" completion:^(NSArray *result, NSError *error) {
+//        [Recipe fetchRecipesWithSearchTerms:@"avocado" completion:^(NSArray *result, NSError *error) {
 //            if (result) {
 //                for (Recipe *recipe in result) {
 //                    [User addSavedRecipesObject:recipe];
-////                    NSLog(@"%@", recipe.title);
+////                    NSLog(@"%@", recipe.idNumber);
 //                }
 //            }
 //            if (error) {
@@ -84,8 +84,8 @@ CGFloat const kButtonCornerRadius = 8.0;
 //            NSLog(@"Nada");
 //        } else {
 //            for (Recipe *recipe in fetchedObjects) {
-////                [User removeSavedRecipesObject:recipe];
-//                NSLog(@"%@", recipe.title);
+//                [User removeSavedRecipesObject:recipe];
+////                NSLog(@"%@", recipe.title);
 //            }
 //        }
     
