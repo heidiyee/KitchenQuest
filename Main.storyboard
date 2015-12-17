@@ -32,7 +32,7 @@
                                 <state key="normal" title="I'M HUNGRY"/>
                                 <connections>
                                     <action selector="hungryButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i6n-XP-mtt"/>
-                                    <segue destination="KD9-CC-gWa" kind="show" identifier="RecipeResultViewController" id="btu-Ab-OgS"/>
+                                    <segue destination="KD9-CC-gWa" kind="show" identifier="RecipeResults" id="btu-Ab-OgS"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="inD-vg-1VS">
@@ -173,7 +173,7 @@
         <!--Saved Recipes-->
         <scene sceneID="Lle-gt-r8P">
             <objects>
-                <viewController id="10l-ES-gut" customClass="SavedRecipesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SavedRecipes" useStoryboardIdentifierAsRestorationIdentifier="YES" id="10l-ES-gut" customClass="SavedRecipesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Iag-ab-KCr"/>
                         <viewControllerLayoutGuide type="bottom" id="Slw-nf-F5j"/>
@@ -212,10 +212,10 @@
             </objects>
             <point key="canvasLocation" x="1357" y="1122"/>
         </scene>
-        <!--Recipe Results View Controller-->
+        <!--Saved Recipes View Controller-->
         <scene sceneID="GzX-Q1-AxX">
             <objects>
-                <viewController id="KD9-CC-gWa" customClass="RecipeResultsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecipeResults" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KD9-CC-gWa" customClass="SavedRecipesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pn1-rf-zu2"/>
                         <viewControllerLayoutGuide type="bottom" id="lPa-5f-ebP"/>
@@ -225,7 +225,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8qE-a5-Tj2">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -234,11 +234,19 @@
                             <constraint firstItem="8qE-a5-Tj2" firstAttribute="top" secondItem="pn1-rf-zu2" secondAttribute="bottom" id="CDD-oJ-h4D"/>
                             <constraint firstItem="lPa-5f-ebP" firstAttribute="top" secondItem="8qE-a5-Tj2" secondAttribute="bottom" id="EMh-zI-wR0"/>
                             <constraint firstItem="8qE-a5-Tj2" firstAttribute="leading" secondItem="IeM-hM-9ju" secondAttribute="leading" id="RrR-3F-Wuq"/>
+                            <constraint firstItem="8qE-a5-Tj2" firstAttribute="top" secondItem="IeM-hM-9ju" secondAttribute="top" id="S92-Tp-0e0"/>
+                            <constraint firstAttribute="bottom" secondItem="8qE-a5-Tj2" secondAttribute="bottom" id="iIw-ts-Acn"/>
                             <constraint firstAttribute="trailing" secondItem="8qE-a5-Tj2" secondAttribute="trailing" id="yzE-x2-xzC"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="CDD-oJ-h4D"/>
+                                <exclude reference="EMh-zI-wR0"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="8qE-a5-Tj2" id="K8Y-D1-Cr8"/>
+                        <outlet property="savedRecipesTableView" destination="8qE-a5-Tj2" id="OZG-ox-Gfr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sM-LM-UWS" userLabel="First Responder" sceneMemberID="firstResponder"/>

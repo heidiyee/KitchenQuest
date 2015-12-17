@@ -45,7 +45,9 @@ NSString *recipeEndpointURL = @"https://spoonacular-recipe-food-nutrition-v1.p.m
             }
         }
         if (!error) {
+        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
             completion(recipeResults, nil);
+        }];
         } else {
             completion(nil, error);
         }

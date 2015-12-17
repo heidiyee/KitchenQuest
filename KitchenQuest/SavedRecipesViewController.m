@@ -16,7 +16,6 @@
 @interface SavedRecipesViewController () <UITableViewDataSource, UITableViewDelegate, RecipeCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *savedRecipesTableView;
-@property (strong, nonatomic) NSMutableArray *recipeDataSource;
 
 @end
 
@@ -33,9 +32,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSMutableSet *savedRecipes = [User fetchSavedRecipes];
-    NSMutableArray *mutableDataSource = [NSMutableArray arrayWithArray:[savedRecipes allObjects]];
-    [self setRecipeDataSource:mutableDataSource];
+    if ([self.restorationIdentifier isEqualToString:@"SavedRecipes"]) {
+        NSMutableSet *savedRecipes = [User fetchSavedRecipes];
+        NSMutableArray *mutableDataSource = [NSMutableArray arrayWithArray:[savedRecipes allObjects]];
+        [self setRecipeDataSource:mutableDataSource];
+    }
     [self setupTableView];
 }
 
