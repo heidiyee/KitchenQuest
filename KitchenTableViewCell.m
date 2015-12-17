@@ -32,17 +32,17 @@
     } else {
         [self.saveButton setImage:[UIImage imageNamed:@"heartNoFill.png"] forState:UIControlStateNormal];
     }
-//    NSURL *imageURL = [NSURL URLWithString:recipe.imageURL];
-//    [ImageFetcherService fetchImageInBackgroundFromUrl:imageURL completionHandler:^(UIImage * _Nullable data, NSError * _Nullable error) {
-//        if (data) {
-//            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-//                self.recipeImageView.image = data;
-//            }];
-//        }
-//        if (error) {
-//            NSLog(@"%@", error);
-//        }
-//    }];
+    NSURL *imageURL = [NSURL URLWithString:recipe.imageURL];
+    [ImageFetcherService fetchImageInBackgroundFromUrl:imageURL completionHandler:^(UIImage * _Nullable data, NSError * _Nullable error) {
+        if (data) {
+            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                self.recipeImageView.image = data;
+            }];
+        }
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
 }
 
 - (IBAction)saveButtonPressed:(UIButton *)sender {
