@@ -20,7 +20,7 @@
 
 @implementation RecipeResultsViewController
 
-- (void) setRecipe:(NSArray *)Recipes{
+- (void) setRecipes:(NSArray *)Recipes{
     _Recipes = Recipes;
     [self.tableView reloadData];
 }
@@ -39,26 +39,17 @@
     NSString *joinedComponents = [_recipeIngredients componentsJoinedByString:@","];
     if ( self.recipeIngredients.count > 0)
     {
-                NSString *ingredientFullList = @"";
-        for (NSString *ingredient in self.recipeIngredients) {
         
-        [ingredientFullList stringByAppendingString:[NSString stringWithFormat:@"%@,", ingredient]];
-        
-    }
-    [Recipe fetchRecipesWithSearchTerms:joinedComponents completion:^(NSArray *result, NSError *error) {
-        if (result) {
-            for (Recipe *recipe in result) {
-                [self setRecipe:result];
-                NSLog(@"%@", recipe.title);
-            }
-        }
-        if (error) {
-            NSLog(@"%@", error);
+ [Recipe fetchRecipesWithSearchTerms:joinedComponents completion:^(NSArray *result, NSError *error) {
+      if (result) {
+                [self setRecipes:result];
+//               NSLog(@"%@", result.title);
+      }
+       if (error) {
+           NSLog(@"%@", error);
         }
     }];
     }
-
-
     
 }
 
