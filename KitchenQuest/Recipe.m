@@ -25,7 +25,9 @@ NSString *recipeEndpointURL = @"https://spoonacular-recipe-food-nutrition-v1.p.m
             for (NSDictionary *recipe in recipes) {
                 Recipe *newRecipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:[[CoreDataStack sharedStack]managedObjectContext]];
                 newRecipe.title = recipe[@"title"];
-                newRecipe.idNumber = recipe[@"id"];
+                NSNumber *rawID = recipe[@"id"];
+                newRecipe.idNumber = [rawID stringValue];
+                
                 newRecipe.imageURL = recipe[@"image"];
                 newRecipe.usedIngredientCount = recipe[@"usedIngredientCount"];
                 newRecipe.missedIngredientCount = recipe[@"missedIngredientCount"];
@@ -34,7 +36,7 @@ NSString *recipeEndpointURL = @"https://spoonacular-recipe-food-nutrition-v1.p.m
                 
                 NSMutableSet *savedRecipes = [User fetchSavedRecipes];
                 for (Recipe *savedRecipe in savedRecipes) {
-                    if ([newRecipe.idNumber isEqualToNumber:savedRecipe.idNumber]) {
+                    if ([newRecipe.idNumber isEqualToString:savedRecipe.idNumber]) {
                         newRecipe.isSaved = YES;
                     }
                 }
