@@ -46,6 +46,7 @@
     [self.savedRecipesTableView registerNib:nib forCellReuseIdentifier:@"KitchenTableViewCell"];
     self.savedRecipesTableView.rowHeight = 208.0;
     self.savedRecipesTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.savedRecipesTableView.backgroundColor = [UIColor colorWithRed:0.59 green:0.59 blue:0.59 alpha:0.6];
 }
 
 #pragma mark - UITableViewDataSource

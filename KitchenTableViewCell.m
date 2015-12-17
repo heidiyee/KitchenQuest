@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *likesLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *recipeImageView;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
-@property (weak, nonatomic) IBOutlet UIView *backgroundCellView;
 
 @end
 
@@ -25,7 +24,6 @@
 
 - (void)setRecipe:(Recipe *)recipe {
     _recipe = recipe;
-    [self.backgroundCellView.layer setCornerRadius:20.0];
     self.recipeNameLabel.text = recipe.title;
     self.likesLabel.text = [NSString stringWithFormat:@"%@", recipe.likes];
     if (recipe.isSaved) {
