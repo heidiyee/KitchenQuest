@@ -54,20 +54,7 @@ CGFloat const kButtonCornerRadius = 8.0;
     self.ingredientsTextView.layer.borderColor = [[UIColor grayColor] CGColor];
     self.ingredientsTextView.layer.cornerRadius = kCornerRadius;
     self.ingredients = [[NSMutableArray alloc]init];
-    
-#warning come back and delete duncans crap
-    NSString * lulwat= @"-alksdflkdsjf-";
-    NSCharacterSet *myset = [[NSCharacterSet alloc] init];
-    
-    NSLog(@"%@", [NSCharacterSet whitespaceCharacterSet]);
-    
-    
-    
-//    [NSCharacterSet characterSetWithCharactersInString:@"-_"];
-//    NSCharacterSet
-    NSString * result = [lulwat stringByTrimmingCharactersInSet:myset];
-    NSLog(@"%@", result);
-    
+
    //  TEST FETCH RECIPE FROM API + SAVE TO CORE DATA
 //        [Recipe fetchRecipesWithSearchTerms:@"avocado" completion:^(NSArray *result, NSError *error) {
 //            if (result) {
