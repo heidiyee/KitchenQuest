@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
-        <!--Seach Ingredients Collection View Controller-->
+        <!--Ingredients-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="SeachIngredientsCollectionViewController" id="BYZ-38-t0r" customClass="SeachIngredientsCollectionViewController" sceneMemberID="viewController">
@@ -21,17 +21,14 @@
                                 <rect key="frame" x="0.0" y="72" width="600" height="33"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oh3-DJ-aNT">
                                 <rect key="frame" x="257" y="390" width="87" height="30"/>
                                 <animations/>
                                 <state key="normal" title="I'M HUNGRY"/>
                                 <connections>
                                     <action selector="hungryButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i6n-XP-mtt"/>
-                                    <segue destination="KD9-CC-gWa" kind="show" id="btu-Ab-OgS"/>
+                                    <segue destination="KD9-CC-gWa" kind="show" identifier="RecipeResultViewController" id="btu-Ab-OgS"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="inD-vg-1VS">
@@ -42,13 +39,24 @@
                                     <segment title="Second"/>
                                     <segment title="Third"/>
                                 </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="ingredientSegmentControlSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="twV-3M-qLx"/>
+                                </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Em-AH-DmH">
                                 <rect key="frame" x="0.0" y="145" width="600" height="200"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Em-AH-DmH">
+                                <rect key="frame" x="8" y="163" width="584" height="219"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="cg1-Yx-ReI"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="230" id="0PH-qm-s4l"/>
+                                    <constraint firstAttribute="width" secondItem="0Em-AH-DmH" secondAttribute="height" multiplier="292:115" id="Y0H-qh-CSe"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4he-Cj-WtN">
                                     <size key="itemSize" width="50" height="50"/>
@@ -107,11 +115,23 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0PH-qm-s4l"/>
+                                        <exclude reference="Y0H-qh-CSe"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="oPH-Qk-ANa"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="XGr-WI-zUK"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8x-dx-yIN">
+                                <rect key="frame" x="299" y="382" width="1" height="169"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="bUN-VG-iRV"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -119,29 +139,33 @@
                             <accessibilityTraits key="traits" button="YES" staticText="YES"/>
                         </accessibility>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="O8J-OU-eXP" secondAttribute="trailing" id="1TK-ul-Tyz"/>
-                            <constraint firstAttribute="trailing" secondItem="inD-vg-1VS" secondAttribute="trailing" id="2ow-i6-TQ3"/>
-                            <constraint firstItem="oh3-DJ-aNT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4b4-6v-HUy"/>
-                            <constraint firstItem="O8J-OU-eXP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="7QI-xa-jlS"/>
-                            <constraint firstItem="oh3-DJ-aNT" firstAttribute="top" secondItem="0Em-AH-DmH" secondAttribute="bottom" constant="45" id="F1Y-q2-Dhc"/>
-                            <constraint firstItem="0Em-AH-DmH" firstAttribute="top" secondItem="inD-vg-1VS" secondAttribute="bottom" constant="8" id="GF6-FA-iMi"/>
-                            <constraint firstItem="O8J-OU-eXP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LuY-09-skd"/>
-                            <constraint firstAttribute="trailing" secondItem="0Em-AH-DmH" secondAttribute="trailing" id="PQI-0g-Jk1"/>
-                            <constraint firstItem="inD-vg-1VS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ubw-V3-rXP"/>
-                            <constraint firstItem="inD-vg-1VS" firstAttribute="top" secondItem="O8J-OU-eXP" secondAttribute="bottom" constant="4" id="VTT-5k-swl"/>
-                            <constraint firstItem="0Em-AH-DmH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wrc-cX-FNh"/>
-                            <constraint firstItem="0Em-AH-DmH" firstAttribute="top" secondItem="O8J-OU-eXP" secondAttribute="bottom" constant="40" id="huq-14-UMS"/>
+                            <constraint firstAttribute="trailing" secondItem="inD-vg-1VS" secondAttribute="trailing" constant="8" id="2ow-i6-TQ3"/>
+                            <constraint firstItem="0Em-AH-DmH" firstAttribute="height" secondItem="Vbq-n7-UF6" secondAttribute="height" multiplier="0.45" id="6Dm-76-4P7"/>
+                            <constraint firstAttribute="trailing" secondItem="TdV-Vo-BcN" secondAttribute="trailing" constant="8" id="7iE-pW-WpS"/>
+                            <constraint firstItem="inD-vg-1VS" firstAttribute="top" secondItem="TdV-Vo-BcN" secondAttribute="bottom" id="9ZL-FE-8dt"/>
+                            <constraint firstItem="oh3-DJ-aNT" firstAttribute="centerY" secondItem="M8x-dx-yIN" secondAttribute="centerY" id="ApW-1L-vmW"/>
+                            <constraint firstAttribute="trailing" secondItem="Vbq-n7-UF6" secondAttribute="trailing" id="Crt-PS-xFZ"/>
+                            <constraint firstItem="TdV-Vo-BcN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="G6g-K4-9Nv"/>
+                            <constraint firstItem="0Em-AH-DmH" firstAttribute="top" secondItem="inD-vg-1VS" secondAttribute="bottom" constant="30" id="GF6-FA-iMi"/>
+                            <constraint firstItem="M8x-dx-yIN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HXc-yR-kCg"/>
+                            <constraint firstItem="Vbq-n7-UF6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="LmF-cj-eJe"/>
+                            <constraint firstAttribute="trailing" secondItem="0Em-AH-DmH" secondAttribute="trailing" constant="8" id="PQI-0g-Jk1"/>
+                            <constraint firstItem="inD-vg-1VS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="Ubw-V3-rXP"/>
+                            <constraint firstItem="0Em-AH-DmH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="Wrc-cX-FNh"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Vbq-n7-UF6" secondAttribute="bottom" id="dcd-ww-IR5"/>
+                            <constraint firstItem="M8x-dx-yIN" firstAttribute="top" secondItem="0Em-AH-DmH" secondAttribute="bottom" id="gFr-eK-zGu"/>
+                            <constraint firstItem="TdV-Vo-BcN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="hP4-xh-6MW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="M8x-dx-yIN" secondAttribute="bottom" id="m0J-dw-VJK"/>
+                            <constraint firstItem="Vbq-n7-UF6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nNb-6u-Iyp"/>
+                            <constraint firstItem="oh3-DJ-aNT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pyz-Hh-iFr"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="huq-14-UMS"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="hh9-pC-orV"/>
+                    <navigationItem key="navigationItem" title="Ingredients" id="hh9-pC-orV"/>
                     <connections>
+                        <outlet property="imHungryButton" destination="oh3-DJ-aNT" id="Oxv-OO-Qqm"/>
                         <outlet property="ingredientCollectionView" destination="0Em-AH-DmH" id="07F-0J-eXD"/>
-                        <outlet property="ingredientsTextView" destination="O8J-OU-eXP" id="HWH-g1-ojl"/>
+                        <outlet property="ingredientSegmentControl" destination="inD-vg-1VS" id="T2I-HH-by2"/>
+                        <outlet property="ingredientsTextView" destination="TdV-Vo-BcN" id="TH4-M6-G91"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -250,7 +274,7 @@
         <scene sceneID="d1B-wb-nvg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qnP-ao-dZl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Saved Recipes" id="F8v-XR-VJ8"/>
+                    <tabBarItem key="tabBarItem" title="Saved Recipes" selectedImage="0219-heart.png" id="F8v-XR-VJ8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OPm-CS-02m">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -272,6 +296,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3WQ-cH-4y9" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="7Cp-zh-HHj"/>
                     <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oeQ-hZ-c1X">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -287,4 +312,8 @@
             <point key="canvasLocation" x="-623" y="1122"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="0219-heart.png" width="64" height="64"/>
+        <image name="ingredients_cropped" width="513" height="600"/>
+    </resources>
 </document>
