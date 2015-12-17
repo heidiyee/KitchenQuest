@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self setupNavBar];
+    [self setupNavBar];
     [self setupWebView];
     [self fetchRecipeID];
 }
@@ -42,19 +42,29 @@
             NSLog(@"%@", error);
         }
     }];
-
 }
 
 - (void)setupNavBar {
-    self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveRecipe:)];
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc]init];
+    [saveButton setStyle:UIBarButtonItemStylePlain];
+    [saveButton setTarget:self];
+    [saveButton setAction:@selector(saveRecipe:)];
+    if (self.recipe.isSaved) {
+        [saveButton setImage:[UIImage imageNamed:@"barButtonHeartFill.png"]];
+    } else {
+        [saveButton setImage:[UIImage imageNamed:@"barButtonHeart.png"]];
+    }
+    self.navigationItem.rightBarButtonItem = saveButton;
 }
 
 - (void)saveRecipe:(UIBarButtonItem *)sender {
-//    if (self.recipe.saved) {
-//        [User removeSavedRecipesObject:self.recipe];
-//    } else {
-//        [User addSavedRecipesObject:self.recipe];
-//    }
+    if (self.recipe.isSaved) {
+        [User removeSavedRecipesObject:self.recipe];
+        [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"barButtonHeart.png"]];
+    } else {
+        [User addSavedRecipesObject:self.recipe];
+        [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"barButtonHeartFill.png"]];
+    }
 }
 
 @end
