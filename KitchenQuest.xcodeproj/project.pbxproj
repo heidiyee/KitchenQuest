@@ -19,6 +19,8 @@
 		1AD3C9D31C1FA93800B2390C /* ImageFetcherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD3C9D21C1FA93800B2390C /* ImageFetcherService.m */; };
 		581648C31C1F7A9F004231B5 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 581648C21C1F7A9F004231B5 /* Constants.m */; };
 		581648C61C1FE847004231B5 /* RecipeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 581648C51C1FE847004231B5 /* RecipeWebViewController.m */; };
+		582E462A1C225977006B7C8D /* barButtonHeart.png in Resources */ = {isa = PBXBuildFile; fileRef = 582E46281C225977006B7C8D /* barButtonHeart.png */; };
+		582E462B1C225977006B7C8D /* barButtonHeartFill.png in Resources */ = {isa = PBXBuildFile; fileRef = 582E46291C225977006B7C8D /* barButtonHeartFill.png */; };
 		584F88121C1F3E05007C30FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 584F88111C1F3E05007C30FA /* main.m */; };
 		584F88151C1F3E05007C30FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 584F88141C1F3E05007C30FA /* AppDelegate.m */; };
 		584F881E1C1F3E05007C30FA /* KitchenQuest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 584F881C1C1F3E05007C30FA /* KitchenQuest.xcdatamodeld */; };
@@ -55,11 +57,12 @@
 		1AD3C9CF1C1F98B900B2390C /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food.png; sourceTree = "<group>"; };
 		1AD3C9D11C1FA93800B2390C /* ImageFetcherService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFetcherService.h; sourceTree = "<group>"; };
 		1AD3C9D21C1FA93800B2390C /* ImageFetcherService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFetcherService.m; sourceTree = "<group>"; };
-		1AD3C9D41C1FA9F100B2390C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		581648C11C1F7A9F004231B5 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		581648C21C1F7A9F004231B5 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		581648C41C1FE847004231B5 /* RecipeWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeWebViewController.h; sourceTree = "<group>"; };
 		581648C51C1FE847004231B5 /* RecipeWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeWebViewController.m; sourceTree = "<group>"; };
+		582E46281C225977006B7C8D /* barButtonHeart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barButtonHeart.png; sourceTree = "<group>"; };
+		582E46291C225977006B7C8D /* barButtonHeartFill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barButtonHeartFill.png; sourceTree = "<group>"; };
 		584F880D1C1F3E05007C30FA /* KitchenQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitchenQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		584F88111C1F3E05007C30FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		584F88131C1F3E05007C30FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -178,6 +181,8 @@
 		584F88101C1F3E05007C30FA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				582E46281C225977006B7C8D /* barButtonHeart.png */,
+				582E46291C225977006B7C8D /* barButtonHeartFill.png */,
 				58E9B8371C21D33F00027602 /* heartFill.png */,
 				58E9B83B1C21D39F00027602 /* heartNoFill.png */,
 				1AD3C9CF1C1F98B900B2390C /* food.png */,
@@ -207,7 +212,6 @@
 				58B5BBFB1C1F730E00DF72F6 /* RecipeInformation.m */,
 				1AD3C9D11C1FA93800B2390C /* ImageFetcherService.h */,
 				1AD3C9D21C1FA93800B2390C /* ImageFetcherService.m */,
-				1AD3C9D41C1FA9F100B2390C /* Constants.h */,
 			);
 			name = Model;
 			path = ..;
@@ -281,6 +285,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582E462A1C225977006B7C8D /* barButtonHeart.png in Resources */,
+				582E462B1C225977006B7C8D /* barButtonHeartFill.png in Resources */,
 				584F88231C1F3E05007C30FA /* LaunchScreen.storyboard in Resources */,
 				584F88201C1F3E05007C30FA /* Assets.xcassets in Resources */,
 				1AD3C9D01C1F98B900B2390C /* food.png in Resources */,

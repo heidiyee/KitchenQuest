@@ -36,7 +36,7 @@
 //    [ImageFetcherService fetchImageInBackgroundFromUrl:imageURL completionHandler:^(UIImage * _Nullable data, NSError * _Nullable error) {
 //        if (data) {
 //            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-//                NSLog(@"%@", data);
+//                self.recipeImageView.image = data;
 //            }];
 //        }
 //        if (error) {

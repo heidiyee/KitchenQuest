@@ -56,7 +56,7 @@ CGFloat const kButtonCornerRadius = 8.0;
     self.ingredients = [[NSMutableArray alloc]init];
 
    //  TEST FETCH RECIPE FROM API + SAVE TO CORE DATA
-//        [Recipe fetchRecipesWithSearchTerms:@"avocado" completion:^(NSArray *result, NSError *error) {
+//        [Recipe fetchRecipesWithSearchTerms:@"gelato" completion:^(NSArray *result, NSError *error) {
 //            if (result) {
 //                for (Recipe *recipe in result) {
 //                    [User addSavedRecipesObject:recipe];

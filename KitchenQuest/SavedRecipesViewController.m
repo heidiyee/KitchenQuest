@@ -69,6 +69,7 @@
     NSString *selectedID = [NSString stringWithFormat:@"%@", selectedRecipe.idNumber];
     
     RecipeWebViewController *webViewController = [[RecipeWebViewController alloc]init];
+    webViewController.recipe = selectedRecipe;
     webViewController.recipeID = selectedID;
     
     [self.navigationController pushViewController:webViewController animated:YES];
