@@ -18,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *recipeImageView;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 
-
 @end
 
 @implementation KitchenTableViewCell
@@ -32,17 +31,18 @@
     } else {
         [self.saveButton setImage:[UIImage imageNamed:@"heartNoFill.png"] forState:UIControlStateNormal];
     }
-//    NSURL *imageURL = [NSURL URLWithString:recipe.imageURL];
-//    [ImageFetcherService fetchImageInBackgroundFromUrl:imageURL completionHandler:^(UIImage * _Nullable data, NSError * _Nullable error) {
-//        if (data) {
-//            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-//                NSLog(@"%@", data);
-//            }];
-//        }
-//        if (error) {
-//            NSLog(@"%@", error);
-//        }
-//    }];
+    NSURL *imageURL = [NSURL URLWithString:recipe.imageURL];
+    [ImageFetcherService fetchImageInBackgroundFromUrl:imageURL completionHandler:^(UIImage * _Nullable data, NSError * _Nullable error) {
+        if (data) {
+            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                self.recipeImageView.image = data;
+                [self.recipeImageView.layer setCornerRadius:20.0];
+            }];
+        }
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
 }
 
 - (IBAction)saveButtonPressed:(UIButton *)sender {

@@ -19,6 +19,11 @@
 		1AD3C9D31C1FA93800B2390C /* ImageFetcherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD3C9D21C1FA93800B2390C /* ImageFetcherService.m */; };
 		581648C31C1F7A9F004231B5 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 581648C21C1F7A9F004231B5 /* Constants.m */; };
 		581648C61C1FE847004231B5 /* RecipeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 581648C51C1FE847004231B5 /* RecipeWebViewController.m */; };
+		582E462A1C225977006B7C8D /* barButtonHeart.png in Resources */ = {isa = PBXBuildFile; fileRef = 582E46281C225977006B7C8D /* barButtonHeart.png */; };
+		582E462B1C225977006B7C8D /* barButtonHeartFill.png in Resources */ = {isa = PBXBuildFile; fileRef = 582E46291C225977006B7C8D /* barButtonHeartFill.png */; };
+		582E462E1C232297006B7C8D /* heartFill.png in Resources */ = {isa = PBXBuildFile; fileRef = 582E462C1C232297006B7C8D /* heartFill.png */; };
+		582E462F1C232297006B7C8D /* heartNoFill.png in Resources */ = {isa = PBXBuildFile; fileRef = 582E462D1C232297006B7C8D /* heartNoFill.png */; };
+		582E46431C232BE8006B7C8D /* shield.png in Resources */ = {isa = PBXBuildFile; fileRef = 582E46421C232BE8006B7C8D /* shield.png */; };
 		584F88121C1F3E05007C30FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 584F88111C1F3E05007C30FA /* main.m */; };
 		584F88151C1F3E05007C30FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 584F88141C1F3E05007C30FA /* AppDelegate.m */; };
 		584F881E1C1F3E05007C30FA /* KitchenQuest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 584F881C1C1F3E05007C30FA /* KitchenQuest.xcdatamodeld */; };
@@ -34,8 +39,6 @@
 		58B5BBFC1C1F730E00DF72F6 /* RecipeInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B5BBFB1C1F730E00DF72F6 /* RecipeInformation.m */; };
 		58E9B82E1C20EBEB00027602 /* RecipeResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E9B82D1C20EBEB00027602 /* RecipeResultsViewController.m */; };
 		58E9B8311C20F37D00027602 /* SavedRecipesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E9B8301C20F37D00027602 /* SavedRecipesViewController.m */; };
-		58E9B8391C21D33F00027602 /* heartFill.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E9B8371C21D33F00027602 /* heartFill.png */; };
-		58E9B83C1C21D39F00027602 /* heartNoFill.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E9B83B1C21D39F00027602 /* heartNoFill.png */; };
 		B7F0C84E1C1F88FF00259A6A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7F0C84D1C1F88FF00259A6A /* QuartzCore.framework */; };
 		B7F0C8511C1FB14800259A6A /* IngredientCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B7F0C8501C1FB14800259A6A /* IngredientCollectionViewCell.m */; };
 		B7F0C8571C20C5D100259A6A /* SeachIngredientsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7F0C8561C20C5D100259A6A /* SeachIngredientsCollectionViewController.m */; };
@@ -55,11 +58,15 @@
 		1AD3C9CF1C1F98B900B2390C /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food.png; sourceTree = "<group>"; };
 		1AD3C9D11C1FA93800B2390C /* ImageFetcherService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFetcherService.h; sourceTree = "<group>"; };
 		1AD3C9D21C1FA93800B2390C /* ImageFetcherService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFetcherService.m; sourceTree = "<group>"; };
-		1AD3C9D41C1FA9F100B2390C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		581648C11C1F7A9F004231B5 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		581648C21C1F7A9F004231B5 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		581648C41C1FE847004231B5 /* RecipeWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeWebViewController.h; sourceTree = "<group>"; };
 		581648C51C1FE847004231B5 /* RecipeWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeWebViewController.m; sourceTree = "<group>"; };
+		582E46281C225977006B7C8D /* barButtonHeart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barButtonHeart.png; sourceTree = "<group>"; };
+		582E46291C225977006B7C8D /* barButtonHeartFill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barButtonHeartFill.png; sourceTree = "<group>"; };
+		582E462C1C232297006B7C8D /* heartFill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heartFill.png; sourceTree = "<group>"; };
+		582E462D1C232297006B7C8D /* heartNoFill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heartNoFill.png; sourceTree = "<group>"; };
+		582E46421C232BE8006B7C8D /* shield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shield.png; sourceTree = "<group>"; };
 		584F880D1C1F3E05007C30FA /* KitchenQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitchenQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		584F88111C1F3E05007C30FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		584F88131C1F3E05007C30FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -88,8 +95,6 @@
 		58E9B82F1C20F37C00027602 /* SavedRecipesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedRecipesViewController.h; sourceTree = "<group>"; };
 		58E9B8301C20F37D00027602 /* SavedRecipesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedRecipesViewController.m; sourceTree = "<group>"; };
 		58E9B8321C21CB4F00027602 /* KitchenQuest 1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KitchenQuest 1.1.xcdatamodel"; sourceTree = "<group>"; };
-		58E9B8371C21D33F00027602 /* heartFill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heartFill.png; path = ../heartFill.png; sourceTree = "<group>"; };
-		58E9B83B1C21D39F00027602 /* heartNoFill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heartNoFill.png; path = ../heartNoFill.png; sourceTree = "<group>"; };
 		B7F0C84D1C1F88FF00259A6A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B7F0C84F1C1FB14800259A6A /* IngredientCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientCollectionViewCell.h; sourceTree = "<group>"; };
 		B7F0C8501C1FB14800259A6A /* IngredientCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientCollectionViewCell.m; sourceTree = "<group>"; };
@@ -178,8 +183,11 @@
 		584F88101C1F3E05007C30FA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				58E9B8371C21D33F00027602 /* heartFill.png */,
-				58E9B83B1C21D39F00027602 /* heartNoFill.png */,
+				582E46281C225977006B7C8D /* barButtonHeart.png */,
+				582E46291C225977006B7C8D /* barButtonHeartFill.png */,
+				582E462C1C232297006B7C8D /* heartFill.png */,
+				582E462D1C232297006B7C8D /* heartNoFill.png */,
+				582E46421C232BE8006B7C8D /* shield.png */,
 				1AD3C9CF1C1F98B900B2390C /* food.png */,
 				1AD3C9CD1C1F84FE00B2390C /* 120px-Simple_icon_time.svg.png */,
 				1AD3C9C71C1F6F7F00B2390C /* 0216-star-empty.png */,
@@ -207,7 +215,6 @@
 				58B5BBFB1C1F730E00DF72F6 /* RecipeInformation.m */,
 				1AD3C9D11C1FA93800B2390C /* ImageFetcherService.h */,
 				1AD3C9D21C1FA93800B2390C /* ImageFetcherService.m */,
-				1AD3C9D41C1FA9F100B2390C /* Constants.h */,
 			);
 			name = Model;
 			path = ..;
@@ -281,16 +288,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582E46431C232BE8006B7C8D /* shield.png in Resources */,
+				582E462F1C232297006B7C8D /* heartNoFill.png in Resources */,
+				582E462A1C225977006B7C8D /* barButtonHeart.png in Resources */,
+				582E462B1C225977006B7C8D /* barButtonHeartFill.png in Resources */,
 				584F88231C1F3E05007C30FA /* LaunchScreen.storyboard in Resources */,
 				584F88201C1F3E05007C30FA /* Assets.xcassets in Resources */,
 				1AD3C9D01C1F98B900B2390C /* food.png in Resources */,
 				1AD3C9CC1C1F6FA100B2390C /* 0219-heart.png in Resources */,
 				1ABD1F4B1C1F4F9E001D6918 /* KitchenTableViewCell.xib in Resources */,
 				1AD3C9CA1C1F6F8E00B2390C /* 0218-star-full (1).png in Resources */,
-				58E9B83C1C21D39F00027602 /* heartNoFill.png in Resources */,
+				582E462E1C232297006B7C8D /* heartFill.png in Resources */,
 				58B5BBF31C1F47EA00DF72F6 /* testData.json in Resources */,
 				1AD3C9C81C1F6F7F00B2390C /* 0216-star-empty.png in Resources */,
-				58E9B8391C21D33F00027602 /* heartFill.png in Resources */,
 				1A79885E1C20D85F002582F5 /* Main.storyboard in Resources */,
 				1AD3C9CE1C1F84FE00B2390C /* 120px-Simple_icon_time.svg.png in Resources */,
 			);

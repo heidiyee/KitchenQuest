@@ -22,7 +22,7 @@
     UINib *nib = [UINib nibWithNibName:@"KitchenTableViewCell" bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"KitchenTableViewCell"];
     
-    NSLog(@"%li", self.recipeIngredients.count);
+    NSLog(@"%i", self.recipeIngredients.count);
 
 
 }

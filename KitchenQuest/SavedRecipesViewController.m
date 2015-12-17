@@ -44,6 +44,9 @@
     self.savedRecipesTableView.dataSource = self;
     UINib *nib = [UINib nibWithNibName:@"KitchenTableViewCell" bundle:nil];
     [self.savedRecipesTableView registerNib:nib forCellReuseIdentifier:@"KitchenTableViewCell"];
+    self.savedRecipesTableView.rowHeight = 208.0;
+    self.savedRecipesTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.savedRecipesTableView.backgroundColor = [UIColor colorWithRed:0.59 green:0.59 blue:0.59 alpha:0.6];
 }
 
 #pragma mark - UITableViewDataSource
@@ -69,6 +72,7 @@
     NSString *selectedID = [NSString stringWithFormat:@"%@", selectedRecipe.idNumber];
     
     RecipeWebViewController *webViewController = [[RecipeWebViewController alloc]init];
+    webViewController.recipe = selectedRecipe;
     webViewController.recipeID = selectedID;
     
     [self.navigationController pushViewController:webViewController animated:YES];

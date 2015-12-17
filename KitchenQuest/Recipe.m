@@ -16,7 +16,7 @@ NSString *recipeEndpointURL = @"https://spoonacular-recipe-food-nutrition-v1.p.m
     NSString *urlString = [NSString stringWithFormat:@"%@?ingredients=%@&number=10", recipeEndpointURL, terms];
     NSURL *urlForRequest = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:urlForRequest];
-    [request addValue: [NSString stringWithFormat:@"%@", [Constants apiKey]] forHTTPHeaderField:@"X-Mashape-Key"];
+    [request addValue:[Constants apiKey] forHTTPHeaderField:@"X-Mashape-Key"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [[[NSURLSession sharedSession]dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSMutableArray *recipeResults = [[NSMutableArray alloc]init];
