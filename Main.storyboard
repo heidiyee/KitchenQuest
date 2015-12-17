@@ -16,28 +16,19 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ingredients_cropped" translatesAutoresizingMaskIntoConstraints="NO" id="Vbq-n7-UF6">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oh3-DJ-aNT">
-                                <rect key="frame" x="247" y="447.5" width="107" height="38"/>
-                                <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
-                                <state key="normal" title="I'M HUNGRY"/>
-                                <connections>
-                                    <action selector="hungryButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i6n-XP-mtt"/>
-                                    <segue destination="KD9-CC-gWa" kind="show" identifier="RecipeResultViewController" id="btu-Ab-OgS"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="inD-vg-1VS">
-                                <rect key="frame" x="8" y="105" width="584" height="29"/>
+                                <rect key="frame" x="8" y="41" width="584" height="31"/>
                                 <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="twT-bm-YaO"/>
+                                </constraints>
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
@@ -49,14 +40,14 @@
                                 </connections>
                             </segmentedControl>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="What ingredients do you have?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TdV-Vo-BcN">
-                                <rect key="frame" x="8" y="72" width="584" height="33"/>
+                                <rect key="frame" x="8" y="8" width="584" height="33"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Em-AH-DmH">
-                                <rect key="frame" x="8" y="163" width="584" height="219"/>
+                                <rect key="frame" x="8" y="101" width="584" height="219"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="230" id="0PH-qm-s4l"/>
                                     <constraint firstAttribute="width" secondItem="0Em-AH-DmH" secondAttribute="height" multiplier="292:115" id="Y0H-qh-CSe"/>
@@ -126,11 +117,23 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8x-dx-yIN">
-                                <rect key="frame" x="299" y="382" width="1" height="169"/>
+                                <rect key="frame" x="299" y="320" width="1" height="167"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="bUN-VG-iRV"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oh3-DJ-aNT">
+                                <rect key="frame" x="236.5" y="385" width="127" height="38"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
+                                <state key="normal" title="I'M HUNGRY"/>
+                                <connections>
+                                    <action selector="hungryButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i6n-XP-mtt"/>
+                                    <segue destination="KD9-CC-gWa" kind="show" identifier="RecipeResultViewController" id="btu-Ab-OgS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration">
@@ -164,6 +167,7 @@
                         <outlet property="ingredientCollectionView" destination="0Em-AH-DmH" id="07F-0J-eXD"/>
                         <outlet property="ingredientSegmentControl" destination="inD-vg-1VS" id="T2I-HH-by2"/>
                         <outlet property="ingredientsTextView" destination="TdV-Vo-BcN" id="TH4-M6-G91"/>
+                        <outlet property="segmentedControlHeightConstraint" destination="twT-bm-YaO" id="aPo-Sg-DFe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -221,11 +225,11 @@
                         <viewControllerLayoutGuide type="bottom" id="lPa-5f-ebP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IeM-hM-9ju">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8qE-a5-Tj2">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -288,8 +292,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3WQ-cH-4y9" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="7Cp-zh-HHj"/>
                     <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oeQ-hZ-c1X">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="oeQ-hZ-c1X">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

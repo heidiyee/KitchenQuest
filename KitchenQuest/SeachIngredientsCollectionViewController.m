@@ -29,6 +29,7 @@ CGFloat const kButtonCornerRadius = 8.0;
 @property (weak, nonatomic) IBOutlet UICollectionView *ingredientCollectionView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *ingredientSegmentControl;
 @property (weak, nonatomic) IBOutlet UIButton *imHungryButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *segmentedControlHeightConstraint;
 
 @end
 
@@ -54,7 +55,7 @@ CGFloat const kButtonCornerRadius = 8.0;
     self.ingredientsTextView.layer.borderColor = [[UIColor grayColor] CGColor];
     self.ingredientsTextView.layer.cornerRadius = kCornerRadius;
     self.ingredients = [[NSMutableArray alloc]init];
-    
+
    //  TEST FETCH RECIPE FROM API + SAVE TO CORE DATA
 //        [Recipe fetchRecipesWithSearchTerms:@"avocado" completion:^(NSArray *result, NSError *error) {
 //            if (result) {
@@ -70,6 +71,10 @@ CGFloat const kButtonCornerRadius = 8.0;
     self.searchIngredients = [[NSMutableArray alloc]init];
     
     [self setupSegmentControl];
+    //self.ingredientSegmentControl.alpha = 0;
+    self.segmentedControlHeightConstraint.constant = 0;
+    [self.ingredientSegmentControl updateConstraintsIfNeeded];
+    
     self.ingredientSegmentControl.layer.cornerRadius = kCornerRadius;
     
 //        [User fetchSavedRecipes];
@@ -111,6 +116,7 @@ CGFloat const kButtonCornerRadius = 8.0;
 
 - (void)textViewDidChange:(UITextView *)textView {
     
+    
     //TEST AUTOCOMPLETE FROM API FOR SEARCH
 //    [IngredientAutocomplete autocompleteWithSearchTerm:[NSString stringWithFormat:@"%@", textView.text] completion:^(NSArray *result, NSError *error) {
 //        if (result) {
@@ -146,6 +152,11 @@ CGFloat const kButtonCornerRadius = 8.0;
 -(void)textViewDidBeginEditing:(UITextView *)textView {
     textView.text = @"";
     textView.textColor = [UIColor blackColor];
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        self.segmentedControlHeightConstraint.constant = 30;
+        [self.view layoutIfNeeded];
+    }];
 }
 
 
@@ -160,6 +171,7 @@ CGFloat const kButtonCornerRadius = 8.0;
     cell.delegate = self;
     cell.ingredient = self.ingredients[indexPath.row];
     cell.contentView.backgroundColor = [UIColor colorWithRed:0.34 green:0.74 blue:0.94 alpha:1.0];
+    cell.contentView.alpha = 0.8;
     cell.contentView.layer.cornerRadius = kButtonCornerRadius;
     return cell;
 }
