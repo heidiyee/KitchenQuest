@@ -59,11 +59,11 @@
                     NSArray *newArray = [resultArray sortedArrayUsingDescriptors:@[
                         [NSSortDescriptor sortDescriptorWithKey:@"missedIngredientCount" ascending:YES],[NSSortDescriptor sortDescriptorWithKey:@"usedIngredientCount" ascending:NO]]];
                     
-                    for (Recipe *recipe in newArray) {
-                        NSLog(@"%@", recipe.title);
-                        NSLog(@"%@ used", recipe.usedIngredientCount);
-                        NSLog(@"%@ missed", recipe.missedIngredientCount);
-                    }
+//                    for (Recipe *recipe in newArray) {
+//                        NSLog(@"%@", recipe.title);
+//                        NSLog(@"%@ used", recipe.usedIngredientCount);
+//                        NSLog(@"%@ missed", recipe.missedIngredientCount);
+//                    }
                     
                     NSMutableArray *mutableNewArray = [NSMutableArray arrayWithArray:newArray];
                     if (mutableNewArray.count > 0) {
