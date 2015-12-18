@@ -114,9 +114,7 @@ CGFloat const kCellHeight = 40;
             }
         }];
     
-    
-    
-        if ([textView.text containsString:@"\n"]) {
+    if ([textView.text containsString:@"\n"]) {
         NSString *ingredientString = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         if (ingredientString.length > 1) {
             if (![self.ingredients containsObject:[NSString stringWithFormat:@"%@",ingredientString]]) {
