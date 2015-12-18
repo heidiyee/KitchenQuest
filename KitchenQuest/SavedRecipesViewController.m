@@ -34,16 +34,19 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.noFavoriteLabel.hidden = YES;
     self.noSearchRecipesFound.hidden = YES;
-    [super viewWillAppear:animated];
     [self setupTableView];
     if ([self.restorationIdentifier isEqualToString:@"SavedRecipes"]) {
+        
         NSArray *savedRecipes = [User fetchSavedRecipes];
         NSMutableArray *mutableDataSource = [NSMutableArray arrayWithArray:savedRecipes];
         if (mutableDataSource.count > 0) {
             [self setRecipeDataSource:mutableDataSource];
         } else {
+            [self.recipeDataSource removeAllObjects];
+            [self.savedRecipesTableView reloadData];
             self.noFavoriteLabel.hidden = NO;
         }
     }
@@ -83,6 +86,7 @@
             [self.savedRecipesTableView reloadData];
         }
     }
+
 }
 
 - (void)setupTableView {
