@@ -34,11 +34,12 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.noFavoriteLabel.hidden = YES;
     self.noSearchRecipesFound.hidden = YES;
-    [super viewWillAppear:animated];
     [self setupTableView];
     if ([self.restorationIdentifier isEqualToString:@"SavedRecipes"]) {
+        
         NSArray *savedRecipes = [User fetchSavedRecipes];
         NSMutableArray *mutableDataSource = [NSMutableArray arrayWithArray:savedRecipes];
         NSLog(@"%@", mutableDataSource);
@@ -86,6 +87,7 @@
             [self.savedRecipesTableView reloadData];
         }
     }
+
 }
 
 - (void)setupTableView {
@@ -141,6 +143,11 @@
             if ([self.restorationIdentifier isEqualToString:@"SavedRecipes"]) {
                 [self.recipeDataSource removeObject:recipe];
                 [self.savedRecipesTableView reloadData];
+                if (self.recipeDataSource.count == 0) {
+                    [UIView animateWithDuration:0.3 animations:^{
+                        self.noFavoriteLabel.hidden = NO;
+                    }];
+                }
             }
 
         }];
