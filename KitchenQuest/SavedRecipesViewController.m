@@ -142,6 +142,11 @@
             if ([self.restorationIdentifier isEqualToString:@"SavedRecipes"]) {
                 [self.recipeDataSource removeObject:recipe];
                 [self.savedRecipesTableView reloadData];
+                if (self.recipeDataSource.count == 0) {
+                    [UIView animateWithDuration:0.3 animations:^{
+                        self.noFavoriteLabel.hidden = NO;
+                    }];
+                }
             }
 
         }];
