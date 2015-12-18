@@ -102,17 +102,19 @@ CGFloat const kCellHeight = 40;
 
 
 - (void)textViewDidChange:(UITextView *)textView {
+    self.ingredientSegmentControl.selectedSegmentIndex = -1;
+
     //TEST AUTOCOMPLETE FROM API FOR SEARCH
-        [IngredientAutocomplete autocompleteWithSearchTerm:[NSString stringWithFormat:@"%@", textView.text] completion:^(NSArray *result, NSError *error) {
-            if (result) {
-                [self.searchIngredients removeAllObjects];
-                [self.searchIngredients addObjectsFromArray:result];
-                [self setupSegmentControl];
-            }
-            if (error) {
-                NSLog(@"%@", error);
-            }
-        }];
+    [IngredientAutocomplete autocompleteWithSearchTerm:[NSString stringWithFormat:@"%@", textView.text] completion:^(NSArray *result, NSError *error) {
+        if (result) {
+            [self.searchIngredients removeAllObjects];
+            [self.searchIngredients addObjectsFromArray:result];
+            [self setupSegmentControl];
+        }
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
     
     if ([textView.text containsString:@"\n"]) {
         NSString *ingredientString = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -224,7 +226,12 @@ CGFloat const kCellHeight = 40;
             [self.ingredients addObject:[NSString stringWithFormat:@"%@",name]];
             [self.ingredientCollectionView reloadData];
             self.ingredientsTextView.text = @"";
-
+            NSInteger section = [self.ingredientCollectionView numberOfSections] - 1 ;
+            NSInteger item = [self.ingredientCollectionView numberOfItemsInSection:section] - 1 ;
+            NSIndexPath *lastIndexPath = [NSIndexPath indexPathForItem:item inSection:section];
+            if (self.ingredients.count > 0) {
+                [self.ingredientCollectionView scrollToItemAtIndexPath:lastIndexPath atScrollPosition:(UICollectionViewScrollPositionBottom) animated:YES];
+            }
 
         } else {
             NSLog(@"already have that ingredient");

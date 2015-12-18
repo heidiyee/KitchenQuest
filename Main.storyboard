@@ -208,15 +208,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a78-We-4OA">
+                                <rect key="frame" x="217.5" y="265.5" width="166" height="20.5"/>
+                                <string key="text">No Recipes Found 😭
+LOUDLY CRYING FACE
+Unicode: U+1F62D (U+D83D U+DE2D), UTF-8: F0 9F 98 AD</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="0fq-Kd-9qF" secondAttribute="bottom" id="0ki-xM-rXa"/>
                             <constraint firstItem="Slw-nf-F5j" firstAttribute="top" secondItem="0fq-Kd-9qF" secondAttribute="bottom" id="57s-pd-m92"/>
                             <constraint firstItem="0fq-Kd-9qF" firstAttribute="leading" secondItem="p8m-wZ-6Sl" secondAttribute="leading" id="6u7-2F-FxW"/>
+                            <constraint firstItem="a78-We-4OA" firstAttribute="centerX" secondItem="p8m-wZ-6Sl" secondAttribute="centerX" id="RFL-MK-SKZ"/>
                             <constraint firstAttribute="trailing" secondItem="0fq-Kd-9qF" secondAttribute="trailing" id="csc-pF-zOK"/>
                             <constraint firstItem="0fq-Kd-9qF" firstAttribute="top" secondItem="p8m-wZ-6Sl" secondAttribute="top" id="fFq-2N-6Z3"/>
                             <constraint firstItem="0fq-Kd-9qF" firstAttribute="top" secondItem="Iag-ab-KCr" secondAttribute="bottom" id="zMU-0N-BOg"/>
+                            <constraint firstItem="a78-We-4OA" firstAttribute="centerY" secondItem="p8m-wZ-6Sl" secondAttribute="centerY" id="zfh-3C-iXw"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -227,6 +238,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Saved Recipes" id="ZEj-Wl-FBU"/>
                     <connections>
+                        <outlet property="noFavoriteLabel" destination="a78-We-4OA" id="c5m-5A-Hc1"/>
                         <outlet property="savedRecipesTableView" destination="0fq-Kd-9qF" id="iYd-uZ-W2Q"/>
                     </connections>
                 </viewController>
@@ -234,10 +246,10 @@
             </objects>
             <point key="canvasLocation" x="1357" y="1122"/>
         </scene>
-        <!--Saved Recipes View Controller-->
+        <!--Recipes-->
         <scene sceneID="GzX-Q1-AxX">
             <objects>
-                <viewController storyboardIdentifier="RecipeResults" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KD9-CC-gWa" customClass="SavedRecipesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecipeResults" title="Recipes" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KD9-CC-gWa" customClass="SavedRecipesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pn1-rf-zu2"/>
                         <viewControllerLayoutGuide type="bottom" id="lPa-5f-ebP"/>
@@ -250,13 +262,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9p-Br-W9U">
+                                <rect key="frame" x="217.5" y="233.5" width="166" height="20.5"/>
+                                <string key="text">No Recipes Found 😭
+LOUDLY CRYING FACE
+Unicode: U+1F62D (U+D83D U+DE2D), UTF-8: F0 9F 98 AD</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8qE-a5-Tj2" firstAttribute="top" secondItem="pn1-rf-zu2" secondAttribute="bottom" id="CDD-oJ-h4D"/>
                             <constraint firstItem="lPa-5f-ebP" firstAttribute="top" secondItem="8qE-a5-Tj2" secondAttribute="bottom" id="EMh-zI-wR0"/>
                             <constraint firstItem="8qE-a5-Tj2" firstAttribute="top" secondItem="IeM-hM-9ju" secondAttribute="top" id="F7C-u9-I0C"/>
+                            <constraint firstItem="x9p-Br-W9U" firstAttribute="centerX" secondItem="IeM-hM-9ju" secondAttribute="centerX" id="MT1-Ya-5XF"/>
                             <constraint firstItem="8qE-a5-Tj2" firstAttribute="leading" secondItem="IeM-hM-9ju" secondAttribute="leading" id="RrR-3F-Wuq"/>
+                            <constraint firstItem="x9p-Br-W9U" firstAttribute="centerY" secondItem="IeM-hM-9ju" secondAttribute="centerY" id="ltX-FZ-7eb"/>
                             <constraint firstAttribute="bottom" secondItem="8qE-a5-Tj2" secondAttribute="bottom" id="wgx-7P-zIE"/>
                             <constraint firstAttribute="trailing" secondItem="8qE-a5-Tj2" secondAttribute="trailing" id="yzE-x2-xzC"/>
                         </constraints>
@@ -268,6 +291,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="noSearchRecipesFound" destination="x9p-Br-W9U" id="dyU-Yz-WXV"/>
                         <outlet property="savedRecipesTableView" destination="8qE-a5-Tj2" id="vs2-Cc-HNj"/>
                     </connections>
                 </viewController>
@@ -314,11 +338,11 @@
             </objects>
             <point key="canvasLocation" x="671" y="1116"/>
         </scene>
-        <!--Item-->
+        <!--Search-->
         <scene sceneID="zZM-ra-VCH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3WQ-cH-4y9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="0135-search-1" id="7Cp-zh-HHj"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="0135-search-1" id="7Cp-zh-HHj"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="oeQ-hZ-c1X">
