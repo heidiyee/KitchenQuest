@@ -26,6 +26,18 @@
     [self fetchRecipeID];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSArray *savedRecipes = [User fetchSavedRecipes];
+    for (Recipe *savedRecipe in savedRecipes) {
+        if ([self.recipe.idNumber isEqualToString:savedRecipe.idNumber]) {
+            self.recipe.isSaved = YES;
+        } else {
+            self.recipe.isSaved = NO;
+        }
+    }
+}
+
 - (void)setupWebView {
     self.webView = [[WKWebView alloc]initWithFrame:self.view.frame];
     [self.view addSubview:self.webView];
@@ -55,14 +67,25 @@
         [saveButton setImage:[UIImage imageNamed:@"barButtonHeart.png"]];
     }
     self.navigationItem.rightBarButtonItem = saveButton;
+    
+    
 }
 
 - (void)saveRecipe:(UIBarButtonItem *)sender {
     if (self.recipe.isSaved) {
-        [User removeSavedRecipesObject:self.recipe];
-        [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"barButtonHeart.png"]];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Remove saved recipe" message:@"Are you sure?" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *yes = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            
+            [self.recipe setIsSaved:NO];
+            [[[CoreDataStack sharedStack]managedObjectContext]save:nil];
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        UIAlertAction *no = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:no];
+        [alert addAction:yes];
+        [self presentViewController:alert animated:YES completion:nil];
     } else {
-        [User addSavedRecipesObject:self.recipe];
+        [self.recipe setIsSaved:YES];
         [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"barButtonHeartFill.png"]];
     }
 }

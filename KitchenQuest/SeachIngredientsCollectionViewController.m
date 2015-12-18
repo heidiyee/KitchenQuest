@@ -12,7 +12,7 @@
 #import "RecipeInformation.h"
 #import "User.h"
 #import "IngredientCollectionViewCell.h"
-#import "RecipeResultsViewController.h"
+#import "SavedRecipesViewController.h"
 
 @import QuartzCore;
 
@@ -64,7 +64,6 @@ CGFloat const kCellHeight = 40;
     [self.view addGestureRecognizer:tapGesture];
     
     self.searchIngredients = [[NSMutableArray alloc]init];
-    
     [self setupSegmentControl];
     self.segmentedControlHeightConstraint.constant = 0;
     [self.ingredientSegmentControl updateConstraintsIfNeeded];
@@ -239,10 +238,12 @@ CGFloat const kCellHeight = 40;
 #pragma mark - segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"RecipeResultViewController"]) {
+    if ([segue.identifier isEqualToString:@"RecipeResults"]) {
         if ([sender isKindOfClass:[UIButton class]]) {
-            RecipeResultsViewController *recipeResultsVC = (RecipeResultsViewController *)segue.destinationViewController;
+            SavedRecipesViewController *recipeResultsVC = (SavedRecipesViewController *)segue.destinationViewController;
+
             recipeResultsVC.recipeIngredients = self.ingredients;
+
         }
     }
 }

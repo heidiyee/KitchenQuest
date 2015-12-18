@@ -10,4 +10,7 @@
 
 @interface SavedRecipesViewController : UIViewController
 
+@property (strong, nonatomic) NSMutableArray *recipeDataSource;
+@property (strong, nonatomic) NSArray *recipeIngredients;
+
 @end
