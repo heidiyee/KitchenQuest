@@ -78,7 +78,6 @@
             
             [self.recipe setIsSaved:NO];
             [[[CoreDataStack sharedStack]managedObjectContext]save:nil];
-//            [User removeSavedRecipesObject:self.recipe];
             [self.navigationController popViewControllerAnimated:YES];
         }];
         UIAlertAction *no = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:nil];
@@ -87,7 +86,6 @@
         [self presentViewController:alert animated:YES completion:nil];
     } else {
         [self.recipe setIsSaved:YES];
-//        [User addSavedRecipesObject:self.recipe];
         [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"barButtonHeartFill.png"]];
     }
 }

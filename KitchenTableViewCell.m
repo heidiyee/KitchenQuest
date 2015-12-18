@@ -64,7 +64,6 @@
         }
     } else {
         [self.saveButton setImage:[UIImage imageNamed:@"heartFill.png"] forState:UIControlStateNormal];
-//        [User addSavedRecipesObject:self.recipe];
         [self.recipe setIsSaved:YES];
         [[[CoreDataStack sharedStack]managedObjectContext]save:nil];
     }

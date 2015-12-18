@@ -25,7 +25,6 @@ CGFloat const kButtonCornerRadius = 8.0;
 
 @property (strong, nonatomic) NSMutableArray *ingredients;
 @property (strong, nonatomic) NSMutableArray *searchIngredients;
-//@property (strong, nonatomic) NSString *ingredientsForResults;
 @property (weak, nonatomic) IBOutlet UITextView *ingredientsTextView;
 @property (weak, nonatomic) IBOutlet UICollectionView *ingredientCollectionView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *ingredientSegmentControl;
@@ -58,24 +57,6 @@ CGFloat const kButtonCornerRadius = 8.0;
     self.searchIngredients = [[NSMutableArray alloc]init];
     [self setupSegmentControl];
     self.ingredientSegmentControl.layer.cornerRadius = kCornerRadius;
-    
-//        [User fetchSavedRecipes];
-    
-//        NSManagedObjectContext *context = [[CoreDataStack sharedStack]managedObjectContext];
-//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
-//        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recipe" inManagedObjectContext:context];
-//        [fetchRequest setEntity:entity];
-//        NSError *error;
-//        NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-//        if (fetchedObjects == nil) {
-//            NSLog(@"Nada");
-//        } else {
-//            for (Recipe *recipe in fetchedObjects) {
-//                [User removeSavedRecipesObject:recipe];
-////                NSLog(@"%@", recipe.title);
-//            }
-//        }
-    
     self.imHungryButton.layer.cornerRadius = kButtonCornerRadius;
     self.ingredientCollectionView.backgroundColor = [UIColor clearColor];
 
@@ -87,21 +68,16 @@ CGFloat const kButtonCornerRadius = 8.0;
 
 - (void)textViewDidChange:(UITextView *)textView {
     
-    //TEST AUTOCOMPLETE FROM API FOR SEARCH
-//    [IngredientAutocomplete autocompleteWithSearchTerm:[NSString stringWithFormat:@"%@", textView.text] completion:^(NSArray *result, NSError *error) {
-//        if (result) {
-//            [self.searchIngredients removeAllObjects];
-//            [self.searchIngredients addObjectsFromArray:result];
-//            [self setupSegmentControl];
-//        }
-//        if (error) {
-//            NSLog(@"%@", error);
-//        }
-//    }];
-    
-    
-    
-    
+    [IngredientAutocomplete autocompleteWithSearchTerm:[NSString stringWithFormat:@"%@", textView.text] completion:^(NSArray *result, NSError *error) {
+        if (result) {
+            [self.searchIngredients removeAllObjects];
+            [self.searchIngredients addObjectsFromArray:result];
+            [self setupSegmentControl];
+        }
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
     
     if ([textView.text containsString:@"\n"]) {
         NSString *ingredientString = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -172,12 +148,7 @@ CGFloat const kButtonCornerRadius = 8.0;
 - (IBAction)hungryButtonSelected:(UIButton *)sender {
     if (self.ingredients.count == 0) {
         NSLog(@"Add ingredients");
-    } else {
-//        NSString *joinedComponents = [self.ingredients componentsJoinedByString:@","];
-//        NSString *lowercaseJoined = [joinedComponents lowercaseString];
-//        self.ingredientsForResults = [lowercaseJoined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     }
-    
 }
 
 
@@ -217,8 +188,7 @@ CGFloat const kButtonCornerRadius = 8.0;
     if ([segue.identifier isEqualToString:@"RecipeResults"]) {
         if ([sender isKindOfClass:[UIButton class]]) {
             SavedRecipesViewController *recipeResultsVC = (SavedRecipesViewController *)segue.destinationViewController;
-            
-//            NSMutableArray *recipeResults = [[NSMutableArray alloc]init];
+
             recipeResultsVC.recipeIngredients = self.ingredients;
 
         }
