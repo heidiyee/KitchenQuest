@@ -16,10 +16,12 @@
 
 @import QuartzCore;
 
-NSInteger const kNumberOfColumns = 3;
-NSInteger const kNumberOfRows = 5;
+NSInteger const kNumberOfColumns = 1;
+NSInteger const kNumberOfRows = 8;
 CGFloat const kCornerRadius = 4;
 CGFloat const kButtonCornerRadius = 8.0;
+CGFloat const kSegmentedControlHeight = 30;
+CGFloat const kCellHeight = 40;
 
 @interface SeachIngredientsCollectionViewController () <UITextViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, IngredientCollectionViewCellDelegate>
 
@@ -47,7 +49,6 @@ CGFloat const kButtonCornerRadius = 8.0;
     [self.ingredientSegmentControl reloadInputViews];
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.ingredientsTextView.delegate = self;
@@ -55,97 +56,71 @@ CGFloat const kButtonCornerRadius = 8.0;
     self.ingredientsTextView.layer.borderColor = [[UIColor grayColor] CGColor];
     self.ingredientsTextView.layer.cornerRadius = kCornerRadius;
     self.ingredients = [[NSMutableArray alloc]init];
-
-   //  TEST FETCH RECIPE FROM API + SAVE TO CORE DATA
-//        [Recipe fetchRecipesWithSearchTerms:@"gelato" completion:^(NSArray *result, NSError *error) {
-//            if (result) {
-//                for (Recipe *recipe in result) {
-//                    [User addSavedRecipesObject:recipe];
-////                    NSLog(@"%@", recipe.idNumber);
-//                }
-//            }
-//            if (error) {
-//                NSLog(@"%@", error);
-//            }
-//        }];
+    
+    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]
+                                           initWithTarget:self
+                                           action:@selector(hideKeyBoard)];
+    [self.view addGestureRecognizer:tapGesture];
+    
     self.searchIngredients = [[NSMutableArray alloc]init];
     
     [self setupSegmentControl];
-    //self.ingredientSegmentControl.alpha = 0;
     self.segmentedControlHeightConstraint.constant = 0;
     [self.ingredientSegmentControl updateConstraintsIfNeeded];
-    
     self.ingredientSegmentControl.layer.cornerRadius = kCornerRadius;
     
-//        [User fetchSavedRecipes];
-    
-//        NSManagedObjectContext *context = [[CoreDataStack sharedStack]managedObjectContext];
-//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
-//        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recipe" inManagedObjectContext:context];
-//        [fetchRequest setEntity:entity];
-//        NSError *error;
-//        NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-//        if (fetchedObjects == nil) {
-//            NSLog(@"Nada");
-//        } else {
-//            for (Recipe *recipe in fetchedObjects) {
-//                [User removeSavedRecipesObject:recipe];
-////                NSLog(@"%@", recipe.title);
-//            }
-//        }
-    
-    
-    // TEST GET RECIPE INFO FROM API
-    //    [RecipeInformation getRecipeURLWithID:@"156991" completion:^(NSString *result, NSError *error) {
-    //        if (result) {
-    //            NSLog(@"%@", result);
-    //        }
-    //        if (error) {
-    //            NSLog(@"%@", error);
-    //        }
-    //    }];
-    
     self.imHungryButton.layer.cornerRadius = kButtonCornerRadius;
+    self.imHungryButton.alpha = 0.95;
+    
     self.ingredientCollectionView.backgroundColor = [UIColor clearColor];
-
+    
+    
 }
 
+-(void)hideKeyBoard {
+    [self.view endEditing:YES];
+//    [UIView animateWithDuration:0 animations:^{
+//        self.segmentedControlHeightConstraint.constant = 0;
+//        [self.view layoutIfNeeded];
+//    }];
+}
 
 #pragma mark - text view delegate
 
 
 - (void)textViewDidChange:(UITextView *)textView {
-    
-    
     //TEST AUTOCOMPLETE FROM API FOR SEARCH
-//    [IngredientAutocomplete autocompleteWithSearchTerm:[NSString stringWithFormat:@"%@", textView.text] completion:^(NSArray *result, NSError *error) {
-//        if (result) {
-//            [self.searchIngredients removeAllObjects];
-//            [self.searchIngredients addObjectsFromArray:result];
-//            [self setupSegmentControl];
-//        }
-//        if (error) {
-//            NSLog(@"%@", error);
-//        }
-//    }];
+        [IngredientAutocomplete autocompleteWithSearchTerm:[NSString stringWithFormat:@"%@", textView.text] completion:^(NSArray *result, NSError *error) {
+            if (result) {
+                [self.searchIngredients removeAllObjects];
+                [self.searchIngredients addObjectsFromArray:result];
+                [self setupSegmentControl];
+            }
+            if (error) {
+                NSLog(@"%@", error);
+            }
+        }];
     
     
     
-    
-    
-    if ([textView.text containsString:@"\n"]) {
+        if ([textView.text containsString:@"\n"]) {
         NSString *ingredientString = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         if (ingredientString.length > 1) {
             if (![self.ingredients containsObject:[NSString stringWithFormat:@"%@",ingredientString]]) {
                 [self.ingredients addObject:[NSString stringWithFormat:@"%@",ingredientString]];
                 [self.ingredientCollectionView reloadData];
+                NSInteger section = [self.ingredientCollectionView numberOfSections] - 1 ;
+                NSInteger item = [self.ingredientCollectionView numberOfItemsInSection:section] - 1 ;
+                NSIndexPath *lastIndexPath = [NSIndexPath indexPathForItem:item inSection:section];
+                if (self.ingredients.count > 0) {
+                    [self.ingredientCollectionView scrollToItemAtIndexPath:lastIndexPath atScrollPosition:(UICollectionViewScrollPositionBottom) animated:YES];
+                }
             } else {
                 NSLog(@"already have that ingredient");
             }
-
         }
         self.ingredientsTextView.text = @"";
-        [textView resignFirstResponder];
+        //[textView resignFirstResponder];
     }
 }
 
@@ -153,8 +128,8 @@ CGFloat const kButtonCornerRadius = 8.0;
     textView.text = @"";
     textView.textColor = [UIColor blackColor];
     
-    [UIView animateWithDuration:1.0 animations:^{
-        self.segmentedControlHeightConstraint.constant = 30;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.segmentedControlHeightConstraint.constant = kSegmentedControlHeight;
         [self.view layoutIfNeeded];
     }];
 }
@@ -171,7 +146,7 @@ CGFloat const kButtonCornerRadius = 8.0;
     cell.delegate = self;
     cell.ingredient = self.ingredients[indexPath.row];
     cell.contentView.backgroundColor = [UIColor colorWithRed:0.34 green:0.74 blue:0.94 alpha:1.0];
-    cell.contentView.alpha = 0.8;
+    cell.contentView.alpha = 0.95;
     cell.contentView.layer.cornerRadius = kButtonCornerRadius;
     return cell;
 }
@@ -181,18 +156,18 @@ CGFloat const kButtonCornerRadius = 8.0;
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 2.0;
+    return 4.0;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CGFloat boundsWidth = self.ingredientCollectionView.frame.size.width;
-    CGFloat boundsHeight = self.ingredientCollectionView.frame.size.height;
+    //CGFloat boundsHeight = self.ingredientCollectionView.frame.size.height;
     
-    CGFloat cellSizeHeight = (boundsHeight / kNumberOfRows);
-    CGFloat cellSizeWidth = ((boundsWidth / kNumberOfColumns) - 2);
+    //CGFloat cellSizeHeight = (boundsHeight / kNumberOfRows);
+    CGFloat cellSizeWidth = ((boundsWidth / kNumberOfColumns) - 4);
     
-    return CGSizeMake(cellSizeWidth, cellSizeHeight);
+    return CGSizeMake(cellSizeWidth, kCellHeight);
 }
 
 
@@ -207,11 +182,13 @@ CGFloat const kButtonCornerRadius = 8.0;
 
 - (IBAction)hungryButtonSelected:(UIButton *)sender {
     if (self.ingredients.count == 0) {
-        NSLog(@"Add ingredients");
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Add Ingredient" message:@"If you don't have any ingredients, you might starve..." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
     } else {
-        NSLog(@"send to tableview");
+      //
     }
-    
 }
 
 
@@ -237,10 +214,12 @@ CGFloat const kButtonCornerRadius = 8.0;
         if (![self.ingredients containsObject:[NSString stringWithFormat:@"%@",name]]) {
             [self.ingredients addObject:[NSString stringWithFormat:@"%@",name]];
             [self.ingredientCollectionView reloadData];
+            self.ingredientsTextView.text = @"";
+
+
         } else {
             NSLog(@"already have that ingredient");
         }
-
     }
 }
 

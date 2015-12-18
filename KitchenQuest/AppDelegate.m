@@ -26,6 +26,11 @@
 //    for (Recipe *recipe in fetchResults) {
 //        NSLog(@"%@", recipe.title);
 //    }
+    
+    //UIImage *whiteBackground = [UIImage imageNamed:@"bluebackground"];
+    //[[UITabBar appearance] setSelectionIndicatorImage:whiteBackground];
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.34 green:0.74 blue:0.94 alpha:1.0]];
+    
     return YES;
 }
 
