@@ -31,36 +31,42 @@
     } else {
         [self.saveButton setImage:[UIImage imageNamed:@"heartNoFill.png"] forState:UIControlStateNormal];
     }
-    NSURL *imageURL = [NSURL URLWithString:recipe.imageURL];
-    [ImageFetcherService fetchImageInBackgroundFromUrl:imageURL completionHandler:^(UIImage * _Nullable data, NSError * _Nullable error) {
-        if (data) {
-            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-                self.recipeImageView.image = data;
-                [self.recipeImageView.layer setCornerRadius:20.0];
-            }];
+
+    NSArray *savedRecipes = [User fetchSavedRecipes];
+    for (Recipe *savedRecipe in savedRecipes) {
+        if ([recipe.idNumber isEqualToString:savedRecipe.idNumber]) {
+            recipe.isSaved = YES;
         }
-        if (error) {
-            NSLog(@"%@", error);
-        }
-    }];
+    }
+    
+    if (recipe.imageURL != nil) {
+        NSURL *imageURL = [NSURL URLWithString:recipe.imageURL];
+        [ImageFetcherService fetchImageInBackgroundFromUrl:imageURL completionHandler:^(UIImage * _Nullable data, NSError * _Nullable error) {
+            if (data) {
+                [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                    self.recipeImageView.image = data;
+                    [self.recipeImageView.layer setCornerRadius:20.0];
+                }];
+            }
+            if (error) {
+                NSLog(@"%@", error);
+            }
+        }];
+    }
 }
 
 - (IBAction)saveButtonPressed:(UIButton *)sender {
     if (self.recipe.isSaved) {
+        [self.recipe setIsSaved:NO];
+        [[[CoreDataStack sharedStack]managedObjectContext]save:nil];
         if (self.delegate) {
             [self.delegate recipeCellDidRemove:self.recipe];
         }
     } else {
         [self.saveButton setImage:[UIImage imageNamed:@"heartFill.png"] forState:UIControlStateNormal];
-        [User addSavedRecipesObject:self.recipe];
+        [self.recipe setIsSaved:YES];
+        [[[CoreDataStack sharedStack]managedObjectContext]save:nil];
     }
-}
-
-- (void)awakeFromNib {
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 }
 
 @end

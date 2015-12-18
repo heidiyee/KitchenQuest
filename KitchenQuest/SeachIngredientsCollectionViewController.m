@@ -12,7 +12,7 @@
 #import "RecipeInformation.h"
 #import "User.h"
 #import "IngredientCollectionViewCell.h"
-#import "RecipeResultsViewController.h"
+#import "SavedRecipesViewController.h"
 
 @import QuartzCore;
 
@@ -54,52 +54,9 @@ CGFloat const kButtonCornerRadius = 8.0;
     self.ingredientsTextView.layer.borderColor = [[UIColor grayColor] CGColor];
     self.ingredientsTextView.layer.cornerRadius = kCornerRadius;
     self.ingredients = [[NSMutableArray alloc]init];
-
-   //  TEST FETCH RECIPE FROM API + SAVE TO CORE DATA
-//        [Recipe fetchRecipesWithSearchTerms:@"gelato" completion:^(NSArray *result, NSError *error) {
-//            if (result) {
-//                for (Recipe *recipe in result) {
-//                    [User addSavedRecipesObject:recipe];
-////                    NSLog(@"%@", recipe.idNumber);
-//                }
-//            }
-//            if (error) {
-//                NSLog(@"%@", error);
-//            }
-//        }];
     self.searchIngredients = [[NSMutableArray alloc]init];
-    
     [self setupSegmentControl];
     self.ingredientSegmentControl.layer.cornerRadius = kCornerRadius;
-    
-//        [User fetchSavedRecipes];
-    
-//        NSManagedObjectContext *context = [[CoreDataStack sharedStack]managedObjectContext];
-//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
-//        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recipe" inManagedObjectContext:context];
-//        [fetchRequest setEntity:entity];
-//        NSError *error;
-//        NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-//        if (fetchedObjects == nil) {
-//            NSLog(@"Nada");
-//        } else {
-//            for (Recipe *recipe in fetchedObjects) {
-//                [User removeSavedRecipesObject:recipe];
-////                NSLog(@"%@", recipe.title);
-//            }
-//        }
-    
-    
-    // TEST GET RECIPE INFO FROM API
-    //    [RecipeInformation getRecipeURLWithID:@"156991" completion:^(NSString *result, NSError *error) {
-    //        if (result) {
-    //            NSLog(@"%@", result);
-    //        }
-    //        if (error) {
-    //            NSLog(@"%@", error);
-    //        }
-    //    }];
-    
     self.imHungryButton.layer.cornerRadius = kButtonCornerRadius;
     self.ingredientCollectionView.backgroundColor = [UIColor clearColor];
 
@@ -111,21 +68,16 @@ CGFloat const kButtonCornerRadius = 8.0;
 
 - (void)textViewDidChange:(UITextView *)textView {
     
-    //TEST AUTOCOMPLETE FROM API FOR SEARCH
-//    [IngredientAutocomplete autocompleteWithSearchTerm:[NSString stringWithFormat:@"%@", textView.text] completion:^(NSArray *result, NSError *error) {
-//        if (result) {
-//            [self.searchIngredients removeAllObjects];
-//            [self.searchIngredients addObjectsFromArray:result];
-//            [self setupSegmentControl];
-//        }
-//        if (error) {
-//            NSLog(@"%@", error);
-//        }
-//    }];
-    
-    
-    
-    
+    [IngredientAutocomplete autocompleteWithSearchTerm:[NSString stringWithFormat:@"%@", textView.text] completion:^(NSArray *result, NSError *error) {
+        if (result) {
+            [self.searchIngredients removeAllObjects];
+            [self.searchIngredients addObjectsFromArray:result];
+            [self setupSegmentControl];
+        }
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
     
     if ([textView.text containsString:@"\n"]) {
         NSString *ingredientString = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -196,10 +148,7 @@ CGFloat const kButtonCornerRadius = 8.0;
 - (IBAction)hungryButtonSelected:(UIButton *)sender {
     if (self.ingredients.count == 0) {
         NSLog(@"Add ingredients");
-    } else {
-        NSLog(@"send to tableview");
     }
-    
 }
 
 
@@ -236,10 +185,12 @@ CGFloat const kButtonCornerRadius = 8.0;
 #pragma mark - segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"RecipeResultViewController"]) {
+    if ([segue.identifier isEqualToString:@"RecipeResults"]) {
         if ([sender isKindOfClass:[UIButton class]]) {
-            RecipeResultsViewController *recipeResultsVC = (RecipeResultsViewController *)segue.destinationViewController;
+            SavedRecipesViewController *recipeResultsVC = (SavedRecipesViewController *)segue.destinationViewController;
+
             recipeResultsVC.recipeIngredients = self.ingredients;
+
         }
     }
 }
