@@ -14,6 +14,7 @@
 @interface RecipeWebViewController () <WKNavigationDelegate>
 
 @property (strong, nonatomic) WKWebView *webView;
+@property (strong, nonatomic) UIActivityIndicatorView *spinner;
 
 @end
 
@@ -23,6 +24,7 @@
     [super viewDidLoad];
     [self setupNavBar];
     [self setupWebView];
+    [self setupSpinner];
     [self fetchRecipeID];
 }
 
@@ -42,6 +44,24 @@
     self.webView = [[WKWebView alloc]initWithFrame:self.view.frame];
     [self.view addSubview:self.webView];
     self.webView.navigationDelegate = self;
+}
+
+- (void)setupSpinner {
+    self.spinner = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.spinner setColor:[UIColor grayColor]];
+    [self.view addSubview:self.spinner];
+    NSLayoutConstraint *spinnerX = [NSLayoutConstraint constraintWithItem:self.spinner attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *spinnerY = [NSLayoutConstraint constraintWithItem:self.spinner attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0];
+    [self.view addConstraint:spinnerX];
+    [self.view addConstraint:spinnerY];
+    spinnerX.active = YES;
+    spinnerY.active = YES;
+    [self.spinner setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.spinner startAnimating];
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    [self.spinner stopAnimating];
 }
 
 - (void)fetchRecipeID {

@@ -42,6 +42,7 @@
         
         NSArray *savedRecipes = [User fetchSavedRecipes];
         NSMutableArray *mutableDataSource = [NSMutableArray arrayWithArray:savedRecipes];
+        NSLog(@"%@", mutableDataSource);
         if (mutableDataSource.count > 0) {
             [self setRecipeDataSource:mutableDataSource];
         } else {
