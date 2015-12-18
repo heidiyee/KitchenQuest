@@ -17,6 +17,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *savedRecipesTableView;
 @property (strong, nonatomic) NSString *ingredientsForResults;
+@property (weak, nonatomic) IBOutlet UILabel *noFavoriteLabel;
+@property (weak, nonatomic) IBOutlet UILabel *noSearchRecipesFound;
 
 @end
 
@@ -32,12 +34,18 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    self.noFavoriteLabel.hidden = YES;
+    self.noSearchRecipesFound.hidden = YES;
     [super viewWillAppear:animated];
     [self setupTableView];
     if ([self.restorationIdentifier isEqualToString:@"SavedRecipes"]) {
         NSArray *savedRecipes = [User fetchSavedRecipes];
         NSMutableArray *mutableDataSource = [NSMutableArray arrayWithArray:savedRecipes];
-        [self setRecipeDataSource:mutableDataSource];
+        if (mutableDataSource.count > 0) {
+            [self setRecipeDataSource:mutableDataSource];
+        } else {
+            self.noFavoriteLabel.hidden = NO;
+        }
     }
     if ([self.restorationIdentifier isEqualToString:@"RecipeResults"]) {
         if (self.recipeDataSource.count == 0) {
@@ -58,7 +66,12 @@
                     }
                     
                     NSMutableArray *mutableNewArray = [NSMutableArray arrayWithArray:newArray];
-                    [self setRecipeDataSource:mutableNewArray];
+                    if (mutableNewArray.count > 0) {
+                        [self setRecipeDataSource:mutableNewArray];
+                    } else {
+                        self.noSearchRecipesFound.hidden = NO;
+
+                    }
                     [self.savedRecipesTableView reloadData];
                 }
                 if (error) {
@@ -66,7 +79,7 @@
                 }
             }];
         } else {
-            NSLog(@"%@", self.recipeDataSource.description);
+//            NSLog(@"%@", self.recipeDataSource.description);
             [self.savedRecipesTableView reloadData];
         }
     }
