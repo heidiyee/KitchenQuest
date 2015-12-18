@@ -25,7 +25,7 @@ CGFloat const kButtonCornerRadius = 8.0;
 
 @property (strong, nonatomic) NSMutableArray *ingredients;
 @property (strong, nonatomic) NSMutableArray *searchIngredients;
-@property (strong, nonatomic) NSString *ingredientsForResults;
+//@property (strong, nonatomic) NSString *ingredientsForResults;
 @property (weak, nonatomic) IBOutlet UITextView *ingredientsTextView;
 @property (weak, nonatomic) IBOutlet UICollectionView *ingredientCollectionView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *ingredientSegmentControl;
@@ -173,10 +173,9 @@ CGFloat const kButtonCornerRadius = 8.0;
     if (self.ingredients.count == 0) {
         NSLog(@"Add ingredients");
     } else {
-        NSString *joinedComponents = [self.ingredients componentsJoinedByString:@","];
-        NSString *lowercaseJoined = [joinedComponents lowercaseString];
-        self.ingredientsForResults = [lowercaseJoined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-        NSLog(@"%@",self.ingredientsForResults);
+//        NSString *joinedComponents = [self.ingredients componentsJoinedByString:@","];
+//        NSString *lowercaseJoined = [joinedComponents lowercaseString];
+//        self.ingredientsForResults = [lowercaseJoined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     }
     
 }
@@ -219,19 +218,9 @@ CGFloat const kButtonCornerRadius = 8.0;
         if ([sender isKindOfClass:[UIButton class]]) {
             SavedRecipesViewController *recipeResultsVC = (SavedRecipesViewController *)segue.destinationViewController;
             
-            NSMutableArray *recipeResults = [[NSMutableArray alloc]init];
-            
-            [Recipe fetchRecipesWithSearchTerms:self.ingredientsForResults completion:^(NSArray *result, NSError *error) {
-                if (result) {
-                    for (Recipe *recipe in result) {
-                        [recipeResults addObject:recipe];
-                        recipeResultsVC.recipeDataSource = recipeResults;
-                    }
-                }
-                if (error) {
-                    NSLog(@"%@", error);
-                }
-            }];
+//            NSMutableArray *recipeResults = [[NSMutableArray alloc]init];
+            recipeResultsVC.recipeIngredients = self.ingredients;
+
         }
     }
 }

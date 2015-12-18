@@ -16,6 +16,7 @@
 @interface SavedRecipesViewController () <UITableViewDataSource, UITableViewDelegate, RecipeCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *savedRecipesTableView;
+@property (strong, nonatomic) NSString *ingredientsForResults;
 
 @end
 
@@ -39,16 +40,21 @@
         [self setRecipeDataSource:mutableDataSource];
     }
     if ([self.restorationIdentifier isEqualToString:@"RecipeResults"]) {
-//        NSMutableSet *savedRecipes = [User fetchSavedRecipes];
-//        for (Recipe *savedRecipe in savedRecipes) {
-//            for (Recipe *recipeResult in self.recipeDataSource) {
-//                if ([recipeResult.idNumber isEqualToString:savedRecipe.idNumber]) {
-//                    recipeResult.isSaved = YES;
-//                } else {
-//                    recipeResult.isSaved = NO;
-//                }
-//            }
-//        }
+        NSLog(@"%@",self.restorationIdentifier);
+        if (self.recipeDataSource.count == 0) {
+            NSString *joinedComponents = [self.recipeIngredients componentsJoinedByString:@","];
+            NSString *lowercaseJoined = [joinedComponents lowercaseString];
+            self.ingredientsForResults = [lowercaseJoined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            [Recipe fetchRecipesWithSearchTerms:self.ingredientsForResults completion:^(NSArray *result, NSError *error) {
+                if (result) {
+                    NSMutableArray *resultArray = [NSMutableArray arrayWithArray:result];
+                    [self setRecipeDataSource:resultArray];
+                }
+                if (error) {
+                    NSLog(@"%@", error);
+                }
+            }];
+        }
     }
     [self.savedRecipesTableView reloadData];
 }
@@ -96,13 +102,13 @@
 #pragma mark - Recipe Cell Delegate
 
 - (void)recipeCellDidRemove:(Recipe *)recipe {
-    if ([self.restorationIdentifier isEqualToString:@"SavedRecipes"]) {
+//    if ([self.restorationIdentifier isEqualToString:@"SavedRecipes"]) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Remove saved recipe" message:@"Are you sure?" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *yes = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
             
-//            if ([self.restorationIdentifier isEqualToString:@"SavedRecipes"]) {
+            if ([self.restorationIdentifier isEqualToString:@"SavedRecipes"]) {
                 [self.recipeDataSource removeObject:recipe];
-//            }
+            }
             [self.savedRecipesTableView reloadData];
             [User removeSavedRecipesObject:recipe];
         }];
@@ -110,7 +116,7 @@
         [alert addAction:no];
         [alert addAction:yes];
         [self presentViewController:alert animated:YES completion:nil];
-    }
+//    }
 }
 
 @end
