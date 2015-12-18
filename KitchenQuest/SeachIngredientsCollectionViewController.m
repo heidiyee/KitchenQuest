@@ -32,6 +32,7 @@ CGFloat const kCellHeight = 40;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *ingredientSegmentControl;
 @property (weak, nonatomic) IBOutlet UIButton *imHungryButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *segmentedControlHeightConstraint;
+//@property (nonatomic) UIInterfaceOrientation orientation;
 
 @end
 
@@ -77,12 +78,25 @@ CGFloat const kCellHeight = 40;
     
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    //self.orientation = [UIApplication sharedApplication].statusBarOrientation;
+    [[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(orientationChanged)  name:UIDeviceOrientationDidChangeNotification  object:nil];
+    
+    //NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationChanged:", name: UIDeviceOrientationDidChangeNotification, object: nil)
+
+}
+
 -(void)hideKeyBoard {
     [self.view endEditing:YES];
 //    [UIView animateWithDuration:0 animations:^{
 //        self.segmentedControlHeightConstraint.constant = 0;
 //        [self.view layoutIfNeeded];
 //    }];
+}
+
+-(void)orientationChanged {
+    [self.ingredientCollectionView reloadData];
 }
 
 #pragma mark - text view delegate
@@ -162,9 +176,7 @@ CGFloat const kCellHeight = 40;
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CGFloat boundsWidth = self.ingredientCollectionView.frame.size.width;
-    //CGFloat boundsHeight = self.ingredientCollectionView.frame.size.height;
-    
-    //CGFloat cellSizeHeight = (boundsHeight / kNumberOfRows);
+
     CGFloat cellSizeWidth = ((boundsWidth / kNumberOfColumns) - 4);
     
     return CGSizeMake(cellSizeWidth, kCellHeight);

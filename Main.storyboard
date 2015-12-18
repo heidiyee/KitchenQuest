@@ -47,13 +47,13 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8x-dx-yIN">
-                                <rect key="frame" x="299" y="442" width="1" height="45"/>
+                                <rect key="frame" x="299" y="344.5" width="1" height="142.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="bUN-VG-iRV"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oh3-DJ-aNT">
-                                <rect key="frame" x="236" y="446" width="127" height="38"/>
+                                <rect key="frame" x="236" y="397.5" width="127" height="38"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
@@ -65,7 +65,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Em-AH-DmH">
-                                <rect key="frame" x="90" y="101" width="420" height="341"/>
+                                <rect key="frame" x="90" y="101" width="420" height="243.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="230" id="0PH-qm-s4l"/>
                                     <constraint firstAttribute="width" secondItem="0Em-AH-DmH" secondAttribute="height" multiplier="292:115" id="Y0H-qh-CSe"/>
@@ -141,7 +141,7 @@
                         </accessibility>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="inD-vg-1VS" secondAttribute="trailing" constant="8" id="2ow-i6-TQ3"/>
-                            <constraint firstItem="0Em-AH-DmH" firstAttribute="height" secondItem="Vbq-n7-UF6" secondAttribute="height" multiplier="0.7" id="6Dm-76-4P7">
+                            <constraint firstItem="0Em-AH-DmH" firstAttribute="height" secondItem="Vbq-n7-UF6" secondAttribute="height" multiplier="0.5" id="6Dm-76-4P7">
                                 <variation key="heightClass=compact" constant="-65"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="TdV-Vo-BcN" secondAttribute="trailing" constant="8" id="7iE-pW-WpS"/>
