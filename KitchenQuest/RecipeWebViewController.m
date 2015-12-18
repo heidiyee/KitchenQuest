@@ -67,6 +67,7 @@
         [saveButton setImage:[UIImage imageNamed:@"barButtonHeart.png"]];
     }
     self.navigationItem.rightBarButtonItem = saveButton;
+    self.navigationItem.title = @"Instructions";
     
     
 }

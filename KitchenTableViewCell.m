@@ -31,7 +31,7 @@
     } else {
         [self.saveButton setImage:[UIImage imageNamed:@"heartNoFill.png"] forState:UIControlStateNormal];
     }
-
+    
     NSArray *savedRecipes = [User fetchSavedRecipes];
     for (Recipe *savedRecipe in savedRecipes) {
         if ([recipe.idNumber isEqualToString:savedRecipe.idNumber]) {
