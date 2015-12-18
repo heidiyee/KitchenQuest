@@ -22,6 +22,14 @@ NSString *recipeEndpointURL = @"https://spoonacular-recipe-food-nutrition-v1.p.m
         NSMutableArray *recipeResults = [[NSMutableArray alloc]init];
         if (data) {
             NSArray *recipes = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+            
+            NSArray *recipesToDelete = [User fetchSavedRecipes];
+            for (Recipe *recipe in recipesToDelete) {
+                if (!recipe.isSaved) {
+                    [User removeSavedRecipesObject:recipe];
+                }
+            }
+
             for (NSDictionary *recipe in recipes) {
                 Recipe *newRecipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:[[CoreDataStack sharedStack]managedObjectContext]];
                 newRecipe.title = recipe[@"title"];
@@ -34,7 +42,7 @@ NSString *recipeEndpointURL = @"https://spoonacular-recipe-food-nutrition-v1.p.m
                 newRecipe.likes = recipe[@"likes"];
                 newRecipe.isSaved = NO;
                 
-                NSMutableSet *savedRecipes = [User fetchSavedRecipes];
+                NSArray *savedRecipes = [User fetchSavedRecipes];
                 for (Recipe *savedRecipe in savedRecipes) {
                     if ([newRecipe.idNumber isEqualToString:savedRecipe.idNumber]) {
                         newRecipe.isSaved = YES;
@@ -43,6 +51,7 @@ NSString *recipeEndpointURL = @"https://spoonacular-recipe-food-nutrition-v1.p.m
                 
                 [recipeResults addObject:newRecipe];
             }
+            [[[CoreDataStack sharedStack]managedObjectContext]save:nil];
         }
         if (!error) {
             [[NSOperationQueue mainQueue]addOperationWithBlock:^{

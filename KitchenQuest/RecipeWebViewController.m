@@ -28,7 +28,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSMutableSet *savedRecipes = [User fetchSavedRecipes];
+    NSArray *savedRecipes = [User fetchSavedRecipes];
     for (Recipe *savedRecipe in savedRecipes) {
         if ([self.recipe.idNumber isEqualToString:savedRecipe.idNumber]) {
             self.recipe.isSaved = YES;
@@ -75,8 +75,10 @@
     if (self.recipe.isSaved) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Remove saved recipe" message:@"Are you sure?" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *yes = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            
             [self.recipe setIsSaved:NO];
-            [User removeSavedRecipesObject:self.recipe];
+            [[[CoreDataStack sharedStack]managedObjectContext]save:nil];
+//            [User removeSavedRecipesObject:self.recipe];
             [self.navigationController popViewControllerAnimated:YES];
         }];
         UIAlertAction *no = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:nil];
@@ -85,7 +87,7 @@
         [self presentViewController:alert animated:YES completion:nil];
     } else {
         [self.recipe setIsSaved:YES];
-        [User addSavedRecipesObject:self.recipe];
+//        [User addSavedRecipesObject:self.recipe];
         [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"barButtonHeartFill.png"]];
     }
 }
