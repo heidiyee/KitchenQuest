@@ -23,18 +23,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oh3-DJ-aNT">
-                                <rect key="frame" x="247" y="448" width="107" height="38"/>
-                                <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
-                                <state key="normal" title="I'M HUNGRY"/>
-                                <connections>
-                                    <action selector="hungryButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i6n-XP-mtt"/>
-                                    <segue destination="KD9-CC-gWa" kind="show" identifier="RecipeResults" id="btu-Ab-OgS"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="inD-vg-1VS">
                                 <rect key="frame" x="8" y="41" width="584" height="31"/>
                                 <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -73,7 +61,7 @@
                                 <state key="normal" title="I'M HUNGRY"/>
                                 <connections>
                                     <action selector="hungryButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i6n-XP-mtt"/>
-                                    <segue destination="KD9-CC-gWa" kind="show" identifier="RecipeResultViewController" id="btu-Ab-OgS"/>
+                                    <segue destination="KD9-CC-gWa" kind="show" identifier="RecipeResults" id="btu-Ab-OgS"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Em-AH-DmH">
@@ -259,7 +247,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8qE-a5-Tj2">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -267,9 +255,9 @@
                         <constraints>
                             <constraint firstItem="8qE-a5-Tj2" firstAttribute="top" secondItem="pn1-rf-zu2" secondAttribute="bottom" id="CDD-oJ-h4D"/>
                             <constraint firstItem="lPa-5f-ebP" firstAttribute="top" secondItem="8qE-a5-Tj2" secondAttribute="bottom" id="EMh-zI-wR0"/>
+                            <constraint firstItem="8qE-a5-Tj2" firstAttribute="top" secondItem="IeM-hM-9ju" secondAttribute="top" id="F7C-u9-I0C"/>
                             <constraint firstItem="8qE-a5-Tj2" firstAttribute="leading" secondItem="IeM-hM-9ju" secondAttribute="leading" id="RrR-3F-Wuq"/>
-                            <constraint firstItem="8qE-a5-Tj2" firstAttribute="top" secondItem="IeM-hM-9ju" secondAttribute="top" id="S92-Tp-0e0"/>
-                            <constraint firstAttribute="bottom" secondItem="8qE-a5-Tj2" secondAttribute="bottom" id="iIw-ts-Acn"/>
+                            <constraint firstAttribute="bottom" secondItem="8qE-a5-Tj2" secondAttribute="bottom" id="wgx-7P-zIE"/>
                             <constraint firstAttribute="trailing" secondItem="8qE-a5-Tj2" secondAttribute="trailing" id="yzE-x2-xzC"/>
                         </constraints>
                         <variation key="default">
@@ -280,7 +268,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="savedRecipesTableView" destination="8qE-a5-Tj2" id="OZG-ox-Gfr"/>
+                        <outlet property="savedRecipesTableView" destination="8qE-a5-Tj2" id="vs2-Cc-HNj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sM-LM-UWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
