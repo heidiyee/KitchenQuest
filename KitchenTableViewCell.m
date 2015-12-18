@@ -14,7 +14,6 @@
 @interface KitchenTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *recipeNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *likesLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *recipeImageView;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 
@@ -25,7 +24,6 @@
 - (void)setRecipe:(Recipe *)recipe {
     _recipe = recipe;
     self.recipeNameLabel.text = recipe.title;
-    self.likesLabel.text = [NSString stringWithFormat:@"%@", recipe.likes];
     if (recipe.isSaved) {
         [self.saveButton setImage:[UIImage imageNamed:@"heartFill.png"] forState:UIControlStateNormal];
     } else {
