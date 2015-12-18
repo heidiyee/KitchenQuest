@@ -31,6 +31,7 @@
 		582E465B1C23B209006B7C8D /* Icon40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 582E46551C23B209006B7C8D /* Icon40@3x.png */; };
 		582E465C1C23B209006B7C8D /* Icon60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 582E46561C23B209006B7C8D /* Icon60@2x.png */; };
 		582E465D1C23B209006B7C8D /* Icon60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 582E46571C23B209006B7C8D /* Icon60@3x.png */; };
+		582E465F1C23B5CD006B7C8D /* starYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 582E465E1C23B5CD006B7C8D /* starYellow.png */; };
 		584F88121C1F3E05007C30FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 584F88111C1F3E05007C30FA /* main.m */; };
 		584F88151C1F3E05007C30FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 584F88141C1F3E05007C30FA /* AppDelegate.m */; };
 		584F881E1C1F3E05007C30FA /* KitchenQuest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 584F881C1C1F3E05007C30FA /* KitchenQuest.xcdatamodeld */; };
@@ -81,6 +82,7 @@
 		582E46551C23B209006B7C8D /* Icon40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon40@3x.png"; sourceTree = "<group>"; };
 		582E46561C23B209006B7C8D /* Icon60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon60@2x.png"; sourceTree = "<group>"; };
 		582E46571C23B209006B7C8D /* Icon60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon60@3x.png"; sourceTree = "<group>"; };
+		582E465E1C23B5CD006B7C8D /* starYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starYellow.png; sourceTree = "<group>"; };
 		584F880D1C1F3E05007C30FA /* KitchenQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitchenQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		584F88111C1F3E05007C30FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		584F88131C1F3E05007C30FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		584F88101C1F3E05007C30FA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				582E465E1C23B5CD006B7C8D /* starYellow.png */,
 				582E46521C23B209006B7C8D /* Icon29@2x.png */,
 				582E46531C23B209006B7C8D /* Icon29@3x.png */,
 				582E46541C23B209006B7C8D /* Icon40@2x.png */,
@@ -317,6 +320,7 @@
 				582E462B1C225977006B7C8D /* barButtonHeartFill.png in Resources */,
 				584F88231C1F3E05007C30FA /* LaunchScreen.storyboard in Resources */,
 				582E465C1C23B209006B7C8D /* Icon60@2x.png in Resources */,
+				582E465F1C23B5CD006B7C8D /* starYellow.png in Resources */,
 				584F88201C1F3E05007C30FA /* Assets.xcassets in Resources */,
 				582E46591C23B209006B7C8D /* Icon29@3x.png in Resources */,
 				1AD3C9D01C1F98B900B2390C /* food.png in Resources */,
